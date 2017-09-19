@@ -1,3 +1,4 @@
+import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -10,5 +11,7 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
 
   }
-
+  gotologin(){
+    this.navCtrl.push(LoginPage);
+  }
 }

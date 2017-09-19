@@ -1,3 +1,16 @@
 page-forgetpass {
-
+    .content{
+        background-color: $color-background;
+        }
+    .forget{
+        color: $color-font2;
+        text-align: center;
+        background-color: #E7DBCB;
+        height: 50px;
+        border-radius: 30px;
+        margin-top: 30px;
+        padding-top: 15px;
+        }
+    .text-input::placeholder { text-align:center; font-size: 2rem; color:$color-font2;}    
+        
 }

@@ -1,3 +1,83 @@
 page-login {
+    .back-button.show-back-button{
+        color: $color-green;
+    }    
+.titlename{
+    margin-right: 32px;
+    text-transform: none;
+    color: $color-font;
+    text-align: center;
+    font-weight: 400;
+    }
+.header-md::after{
+      background-color: rgba(251, 211, 94, 0.56);
+    }   
+.content{
+    background-color: $color-background;
+    }
+.form{
+    width: 82%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 100px;
+}    
+.input{
+    box-shadow: 0.1px 0.1px 0.1px 0.2px grey;
+    background-color: white;
+    border: 1px solid #e6dacf;
+    border-radius: 60px;
+    height: 50px;
+    margin: auto;
+    display: block;
+    }
+.text-input {
+    margin: 13px 8px;
+    padding: 5px;
+    width: calc(100% - 8px - 8px);
+    text-align: center;
+    }
+    .text-input::placeholder { text-align:center; font-size: 1.8rem; color:$color-font2;}    
+.login{
+    background-color: $color-green;
+    height: 50px;
+    text-transform: none;
+    font-size: 1.8rem; 
+    }
+.forgetpass{
+    color: $color-font;
+    font-size: 1.8rem;
+    text-decoration: underline;
+    text-transform: none; 
+    margin: auto;
+    display: block;
+    height: 50px;
 
+    }
+.share{
+    height: 50px;
+    width: 50px;
+    }
+.img{
+    height: 51px;
+    width: 51px;
+    }
+.sharebuttons{
+    margin: auto;
+    height: 100px;
+    padding-top: 50px;
+    width: 37%;
+    }
+.donthave{
+    height: 0px;
+    margin-top: 50px;
+    text-align: center;
+    color: $color-font;
+    }
+.creat{
+    height: 0px;
+    text-align: center;
+    color: $color-font;
+    text-decoration: underline;
+    font-weight: 700;
+    }                         
 }

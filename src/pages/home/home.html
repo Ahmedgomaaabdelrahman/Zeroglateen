@@ -2,8 +2,8 @@
   <ion-navbar>
     <ion-title>
       <ion-row >
-        <ion-col col-1><ion-icon class="greenicon" name="menu"></ion-icon></ion-col>
-        <ion-col col-9 style="text-align: center;color:gray">All Products</ion-col>
+        <ion-col col-1><ion-icon class="greenicon" name="menu" (click)="openmenu()"></ion-icon></ion-col>
+        <ion-col col-9 style="text-align: center;color:gray" (click)="gosearch()">All Products</ion-col>
         <ion-col col-1 class="greenicon">5</ion-col>
         <ion-col col-1 class="greenicon"><ion-icon name="cart"></ion-icon></ion-col>
       </ion-row>
@@ -15,7 +15,7 @@
         <ion-icon name="search" class="searchicon"></ion-icon>
         <ion-input class="searchinput" type="text"placeholder="Search..."></ion-input>
       </ion-col>
-      <ion-col col-3 style="border-right:1px solid lightgray;border-left:1px solid lightgray;"><p class="filter">Filters</p></ion-col>
+      <ion-col col-3 style="border-right:1px solid lightgray;border-left:1px solid lightgray;"><p class="filter" (click)="gofilter()">Filters</p></ion-col>
     </ion-row>
 </ion-header>
 

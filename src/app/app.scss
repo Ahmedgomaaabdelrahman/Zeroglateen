@@ -30,6 +30,20 @@ page-forgetpass.ion-page.show-page{
     left: 15px;
     width: 92%;
 }
+page-filter.ion-page.show-page{
+    height: 50% !important; 
+    position: absolute;
+    top: 135px;
+    left: 15px;
+    width: 92%;
+}
+page-search.ion-page.show-page{
+    height: 50% !important; 
+    position: absolute;
+    top: 135px;
+    left: 15px;
+    width: 92%;
+}
 ion-modal {
     left: 0;
     top: 0;
@@ -64,3 +78,4 @@ color:$color-font2;
     margin-right: 10px;
     margin-left: 10px;
 }
+$radio-ios-color-on:gray

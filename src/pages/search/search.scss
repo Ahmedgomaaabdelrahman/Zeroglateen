@@ -1,3 +1,24 @@
 page-search {
-
+    .content{
+        background-color: $color-background;
+    }
+    .searchheader{
+        color: rgba(78, 78, 78, 0.61);;
+        text-align: center;
+        background-color: #E7DBCB;
+        height: 50px;
+        border-radius: 30px;
+        padding-top: 11px;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    
+    .item{
+        background-color: $color-background;
+        font-size: 2rem;
+        color: $color-font2;
+    }
+    .list-md .item-block .item-inner {
+        border-bottom: 1px solid #887c76;
+    }
 }

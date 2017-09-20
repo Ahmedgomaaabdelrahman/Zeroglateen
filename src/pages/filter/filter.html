@@ -1,18 +1,36 @@
-<!--
-  Generated template for the FilterPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>filter</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
+<ion-content padding style="border-radius: 20px;">
+<ion-list radio-group [(ngModel)]="filter">
+    
+      <div  class="filterheader">
+          Filter
+      </div>
+    
+      <ion-item>
+        <ion-label>New - Old</ion-label>
+        <ion-radio (click)="dismiss()"></ion-radio>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Old - New</ion-label>
+        <ion-radio (click)="dismiss()"></ion-radio>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Low - High Price</ion-label>
+        <ion-radio (click)="dismiss()"></ion-radio>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>High - Low Price</ion-label>
+        <ion-radio (click)="dismiss()"></ion-radio>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>On Sale</ion-label>
+        <ion-radio (click)="dismiss()"></ion-radio>
+      </ion-item>
+    
+    </ion-list>
+    
 </ion-content>

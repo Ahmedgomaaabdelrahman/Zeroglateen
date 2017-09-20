@@ -1,7 +1,9 @@
+import { SearchPage } from './../search/search';
+import { FilterPage } from './../filter/filter';
 import { SignupPage } from './../signup/signup';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController,ModalController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -9,7 +11,7 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,private menuCtrl:MenuController,public modalCtrl :ModalController) {
 
   }
   ss(){
@@ -17,5 +19,17 @@ export class HomePage {
   }
   gotologin(){
     this.navCtrl.push(LoginPage);
+  }
+  openmenu(){
+    this.menuCtrl.toggle();
+  }
+  gosearch(){
+    let modal = this.modalCtrl.create(SearchPage);
+      modal.present();
+  }
+
+  gofilter(){
+      let modal = this.modalCtrl.create(FilterPage);
+      modal.present();
   }
 }

@@ -2,7 +2,12 @@
 .back-button-text-ios {
     display: none;
 }
-
+.back-button.show-back-button{
+    color:#02b854 
+}
+.toolbar-ios ion-title{
+    padding: 0 10px;
+}
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These

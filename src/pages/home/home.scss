@@ -8,13 +8,20 @@ page-home {
     border-top: 1px solid lightgray;
     border-bottom: 1px solid orange;
 }
-.greenicon{
+.topicon{
+    padding: 0 10px;
+}
+.topicon ,.greenicon{
     color:$color-green;
 }
 .filter{
     font-size: 20px;
-    margin: 10px;
+    margin: 10px 0;
     color: gray;
+    display: inline-flex;
+    ion-icon{
+    padding: 0 10px;
+ }
 }
 .toolbar-ios ion-title{
     padding: 0 5px;
@@ -39,13 +46,13 @@ input::placeholder{
     padding: 5px 15px 0;
     color: #CECECE;
 }
-.card-md{
+.card{
     margin: 10px auto 0;
     width: 95%;
     border-radius: 15px;
     padding: 0;
 }
-.card-header-md{
+.card-header{
     text-align:center;
     padding:10px 0;
     color:gray

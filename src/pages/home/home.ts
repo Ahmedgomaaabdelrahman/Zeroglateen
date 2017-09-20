@@ -1,3 +1,4 @@
+import { OrderdetailsPage } from './../orderdetails/orderdetails';
 import { SignupPage } from './../signup/signup';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
@@ -17,5 +18,8 @@ export class HomePage {
   }
   gotologin(){
     this.navCtrl.push(LoginPage);
+  }
+  godetails(){
+    this.navCtrl.push(OrderdetailsPage);
   }
 }

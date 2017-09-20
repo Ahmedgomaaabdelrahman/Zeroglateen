@@ -1,3 +1,29 @@
 page-settings {
-
+    .content{
+        background-color: $color-background;
+    }
+    .header-md::after{
+        background-color: rgba(251, 211, 94, 0.56);
+      }
+    .toolbar-title{
+    color: #92786a;
+    text-align: center;
+    margin-right: 56px;
+    }   
+    .list-md .item-block .item-inner {
+        border-bottom: 1px solid #887c76;
+    }
+    .item{
+        background-color: $color-background;
+        font-size: 1.8rem;
+        color: #755f4e;;
+        height: 55px;
+        padding: 4px;
+    }
+    .toggle-md.toggle-checked .toggle-icon {
+        background-color:rgba(50, 219, 100, 0.7);
+    }
+    .toggle-md.toggle-checked .toggle-inner{
+        background-color: $color-green;
+    }
 }

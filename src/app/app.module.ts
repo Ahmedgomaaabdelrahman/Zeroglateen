@@ -1,3 +1,5 @@
+import { MyaccountPage } from './../pages/myaccount/myaccount';
+import { FavoritesPage } from './../pages/favorites/favorites';
 import { TermsPage } from './../pages/terms/terms';
 import { SignupPage } from './../pages/signup/signup';
 import { SettingsPage } from './../pages/settings/settings';
@@ -40,7 +42,9 @@ import { HomePage } from '../pages/home/home';
     SearchPage,
     SettingsPage,
     SignupPage,
-    TermsPage
+    TermsPage,
+    FavoritesPage,
+    MyaccountPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,9 @@ import { HomePage } from '../pages/home/home';
     SearchPage,
     SettingsPage,
     SignupPage,
-    TermsPage
+    TermsPage,
+    FavoritesPage,
+    MyaccountPage
   ],
   providers: [
     StatusBar,

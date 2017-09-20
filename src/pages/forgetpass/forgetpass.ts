@@ -22,6 +22,6 @@ export class ForgetpassPage {
     console.log('ionViewDidLoad ForgetpassPage');
   }
 sendemail(){
-  this.viewCtrl.dismiss(location);
+  this.viewCtrl.dismiss();
 }
 }

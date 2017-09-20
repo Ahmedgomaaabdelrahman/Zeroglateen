@@ -1,5 +1,23 @@
 page-orderdetails {
+
+    .content{
+        background-color: $color-background;
+    }
     .greenicon{
         color:$color-green;
+    }
+    .imgdiv{
+        height: 210px;
+        width: 285px;
+        border-radius: 20px;
+        margin: auto;
+        text-align: center;
+        background: white;
+        box-shadow: 4px 4px 8px 0 rgba(228, 66, 0, 0.20), 4px 6px 20px 0 rgba(228, 66, 0, 0.20);
+        img{
+            height: 160px;
+            margin: 25px;
+            width: 160px;
+        }
     }
 }

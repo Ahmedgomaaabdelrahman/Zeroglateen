@@ -1,3 +1,86 @@
 page-home {
-
+.content{
+    background-color: $color-background;
+}
+.headerrow{
+    height: 50px;
+    background-color: white;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid orange;
+}
+.greenicon{
+    color:$color-green;
+}
+.filter{
+    font-size: 20px;
+    margin: 10px;
+    color: gray;
+}
+.toolbar-ios ion-title{
+    padding: 0 5px;
+}
+.toolbar-background{
+background-color: white;
+}
+.searchinput{
+    display: inline-flex;
+    width: 70%;
+}
+.text-input-md{
+    margin: 0;
+    font-size: 20px;
+}
+input::placeholder{
+    font-size: 20px;
+    color:lightgray;
+  }
+.searchicon{
+    font-size: 22px;
+    padding: 5px 15px 0;
+    color: #CECECE;
+}
+.card-md{
+    margin: 10px auto 0;
+    width: 95%;
+    border-radius: 15px;
+    padding: 0;
+}
+.card-header-md{
+    text-align:center;
+    padding:10px 0;
+    color:gray
+}
+.card-content{
+    padding: 0 5px;
+    img{
+        width: 100px;
+        max-width: 100px;
+        margin: auto;
+    }
+}
+.qaundiv{
+    border-radius: 30px;
+    background-color: $color-background2;
+    border: 1px solid lightgray;
+    height: 28px;
+    padding-top: 5px;
+    color: #b6b6b6;
+    text-align: center;
+    p{  
+        display: inline-flex;
+        color: #b6b6b6;
+    }
+    ion-icon{
+        padding: 2px 8px;
+        font-size: 14px;
+    }
+}
+.heartdiv{
+    border-radius: 30px;
+    background-color: $color-itemRed;
+    height: 28px;
+    padding-top: 6px;
+    color:white;
+    text-align: center;
+}
 }

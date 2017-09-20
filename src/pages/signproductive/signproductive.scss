@@ -1,0 +1,62 @@
+page-signproductive {
+    .content{
+        background-color: $color-background;
+    }
+    .back-button.show-back-button{
+        color: $color-green;
+    }
+    .toolbar-title{
+        text-align: center;
+        color: gray;
+        margin-right: 17%;
+        font-weight: bold;
+    }
+    .toolbar-title-ios{
+        margin: 0;
+    }
+    .ion-navbar.toolbar{
+        border-bottom: 1px solid orange;
+    }
+    .forma{
+        margin: 8%;
+        width: 85%;
+        height: 63%;
+        border: 1px solid wheat;
+        border-radius: 30px;
+        background-color: white;
+        padding: 10px;
+        position: fixed;
+        top: 85px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .formfield{
+        border-bottom: 1px solid lightgray;
+        height: 55px;
+    }
+    .input-cover{
+        position: static
+    }
+    .confirm{
+        background-color: #32BA17;
+        color: white;
+        position: fixed;
+        width: 87%;
+        height: 55px;
+        border-radius: 30px;
+        bottom: 10px;
+        margin: 7%;
+        text-transform: none;
+        letter-spacing: 2px;
+        font-weight: normal;
+    }
+    
+    input::placeholder{
+      font-size: 18px;
+    }
+    .toppara{
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+        color: gray;
+    }
+}

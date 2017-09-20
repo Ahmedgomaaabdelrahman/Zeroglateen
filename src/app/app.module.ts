@@ -1,6 +1,8 @@
 import { SignsupplierPage } from './../pages/signsupplier/signsupplier';
 import { SignproductivePage } from './../pages/signproductive/signproductive';
 import { SigntypesPage } from './../pages/signtypes/signtypes';
+import { MyaccountPage } from './../pages/myaccount/myaccount';
+import { FavoritesPage } from './../pages/favorites/favorites';
 import { TermsPage } from './../pages/terms/terms';
 import { SignupPage } from './../pages/signup/signup';
 import { SettingsPage } from './../pages/settings/settings';
@@ -46,7 +48,9 @@ import { HomePage } from '../pages/home/home';
     TermsPage,
     SigntypesPage,
     SignproductivePage,
-    SignsupplierPage
+    SignsupplierPage,
+    FavoritesPage,
+    MyaccountPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +77,9 @@ import { HomePage } from '../pages/home/home';
     TermsPage,
     SigntypesPage,
     SignproductivePage,
-    SignsupplierPage
+    SignsupplierPage,
+    FavoritesPage,
+    MyaccountPage
   ],
   providers: [
     StatusBar,

@@ -26,9 +26,6 @@ export class HomePage {
   godetails(){
     this.navCtrl.push(OrderdetailsPage);
   }
-  openmenu(){
-    this.menuCtrl.toggle();
-  }
   gosearch(){
     let modal = this.modalCtrl.create(SearchPage);
       modal.present();
@@ -42,6 +39,10 @@ export class HomePage {
   myCart(){
     this.navCtrl.push(CartPage);
   }
+  openmenu(){
+    this.menuCtrl.toggle();
+  }
+ 
   gomap(){
     this.navCtrl.push(OrdermapPage);
   }

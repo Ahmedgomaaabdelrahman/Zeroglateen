@@ -14,10 +14,24 @@
 
 <ion-content >
   <div class="map">
-      <img src="assets/imgs/map.png">
+    <img src="assets/imgs/map.png" width="100%">
   </div>
-  <div>
-
+  <div class="info">
+    <ion-row style="padding:10px;">
+      <ion-col col-4>
+        <h6>14</h6>
+        <p>Km</p>
+      </ion-col>
+      <ion-col col-4 style="border-left:1px solid lightgray;border-right:1px solid lightgray">
+        <h6>564</h6>
+        <p>SAR</p>
+      </ion-col>
+      <ion-col col-4>
+        <h6>5</h6>
+        <p>Items</p>
+      </ion-col>
+    </ion-row>
+    <button ion-button block class="accept" (click)="finish()">Accept</button>
   </div>
   
 </ion-content>

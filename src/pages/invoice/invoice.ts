@@ -1,5 +1,6 @@
+import { RatingPage } from './../rating/rating';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ViewController,ModalController } from 'ionic-angular';
 
 
 @IonicPage()
@@ -9,7 +10,7 @@ import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angula
 })
 export class InvoicePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl : ViewController) {
+  constructor(public navCtrl: NavController,public modalCtrl :ModalController,public navParams: NavParams,public viewCtrl : ViewController) {
   }
 
   ionViewDidLoad() {
@@ -18,4 +19,9 @@ export class InvoicePage {
   dismiss(){
     this.viewCtrl.dismiss();
   }
+
+  goRate(){
+    let modal = this.modalCtrl.create(RatingPage);
+    modal.present();
+}
 }

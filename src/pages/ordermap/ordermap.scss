@@ -13,9 +13,43 @@ page-ordermap {
         z-index: 0;
     }
     .info{
-        background-color:#8A1D1D;
-        height: 200px;
-        width: 200px;
+        background-color: white;
+        height: 185px;
+        width: 96%;
+        border: 1px solid gray;
+        position: fixed;
+        bottom: 10px;
+        border-radius: 20px;
         z-index: 1;
+        margin: 0 2%;
+        box-shadow: 0 3px 15px #787878;
+    }
+    .accept{
+        margin-top: 10px;
+        background-color:$color-green;
+        color: white;
+        border-radius: 25px;
+        font-size: 2rem;
+        height: 53px;
+        width: 50%;
+        font-weight: normal;
+        letter-spacing: 2px;
+        margin: 5px auto;
+        text-transform: none;
+        
+    }
+    h6{
+        color:$color-green;
+        text-align: center;
+        margin: 0;
+        font-size: 25px;
+        font-weight: normal;
+        
+    }
+    p{
+        color: $color-font;
+        text-align: center;
+        margin: 10px 0 0;
+        font-size: 20px;
     } 
 }

@@ -1,18 +1,146 @@
-<!--
-  Generated template for the FavoritesPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>favorites</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+    <ion-navbar>
+      <ion-title>
+        <ion-row >
+          <ion-col col-1></ion-col>
+          <ion-col col-9 style="text-align: center;color:gray" (click)="gosearch()">All Products<ion-icon class="topicon" name="arrow-down"></ion-icon></ion-col>
+          <ion-col col-1 class="greenicon">5</ion-col>
+          <ion-col col-1 class="greenicon" (click)="myCart()"><ion-icon name="cart"></ion-icon></ion-col>
+        </ion-row>
+      </ion-title>
+    </ion-navbar>
+     
+    <ion-row class="headerrow">
+        <ion-col col-9 > 
+          <ion-icon name="search" class="searchicon"></ion-icon>
+          <ion-input class="searchinput" type="text"placeholder="Search..."></ion-input>
+        </ion-col>
+        <ion-col col-3 style="border-right:1px solid lightgray;border-left:1px solid lightgray;">
+          <p class="filter" (click)="gofilter()">Filters<ion-icon name="arrow-down"></ion-icon></p></ion-col>
+      </ion-row>
+  </ion-header>
+  
+  <ion-content >
+   
+    <ion-row>
+      <ion-col col-6>
+        <ion-card>
+          <ion-card-header>
+            ALL-Purpose Flour
+          </ion-card-header>
+          <ion-card-content>
+            <img src="../assets/imgs/flour.png" (click)="godetails()">
+            <ion-row style="border-bottom:1px solid lightgray">
+              <ion-col col-6 style="text-align:start;color:gray">250 gm</ion-col>
+              <ion-col col-6 style="text-align:end;color:green">25 SAR</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-8>
+                <div class="qaundiv">
+                  <ion-icon name="remove" style="float:left"></ion-icon>
+                     <p>5</p>
+                  <ion-icon name="add" style="float:right"></ion-icon>
+                </div>
+              </ion-col>
+              <ion-col col-4 style="padding:5px 0">
+                <div class="heartdiv"> 
+                    <ion-icon name="heart-outline"></ion-icon>                  
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card>
+          <ion-card-header>
+              Browine Mix
+          </ion-card-header>
+          <ion-card-content>
+            <img src="../assets/imgs/sss.png" (click)="godetails()">
+              <ion-row style="border-bottom:1px solid lightgray">
+                <ion-col col-6 style="text-align:start;color:gray">250 gm</ion-col>
+                <ion-col col-6 style="text-align:end;color:green">25 SAR</ion-col>
+              </ion-row>
+             <ion-row>
+               <ion-col col-8>
+               <div class="qaundiv">
+                  <ion-icon name="remove" style="float:left"></ion-icon>
+                     <p>5</p>
+                  <ion-icon name="add" style="float:right"></ion-icon>
+               </div>
+               </ion-col>
+               <ion-col col-4 style="padding:5px 0">
+                <div class="heartdiv"> 
+                    <ion-icon name="heart-outline"></ion-icon>                  
+                </div>
+               </ion-col>
+             </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
+  
+  
+  
+    <ion-row>
+        <ion-col col-6>
+          <ion-card>
+            <ion-card-header>
+              ALL-Purpose Flour
+            </ion-card-header>
+            <ion-card-content>
+              <img src="../assets/imgs/flour.png" (click)="godetails()">
+              <ion-row style="border-bottom:1px solid lightgray">
+                <ion-col col-6 style="text-align:start;color:gray">250 gm</ion-col>
+                <ion-col col-6 style="text-align:end;color:green">25 SAR</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-8>
+                  <div class="qaundiv">
+                    <ion-icon name="remove" style="float:left"></ion-icon>
+                       <p>5</p>
+                    <ion-icon name="add" style="float:right"></ion-icon>
+                  </div>
+                </ion-col>
+                <ion-col col-4 style="padding:5px 0">
+                  <div class="heartdiv"> 
+                      <ion-icon name="heart-outline"></ion-icon>                  
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col col-6>
+          <ion-card>
+            <ion-card-header>
+                Browine Mix
+            </ion-card-header>
+            <ion-card-content>
+              <img src="../assets/imgs/sss.png" (click)="godetails()">
+                <ion-row style="border-bottom:1px solid lightgray">
+                  <ion-col col-6 style="text-align:start;color:gray">250 gm</ion-col>
+                  <ion-col col-6 style="text-align:end;color:green">25 SAR</ion-col>
+                </ion-row>
+               <ion-row>
+                 <ion-col col-8>
+                 <div class="qaundiv">
+                    <ion-icon name="remove" style="float:left"></ion-icon>
+                       <p>5</p>
+                    <ion-icon name="add" style="float:right"></ion-icon>
+                 </div>
+                 </ion-col>
+                 <ion-col col-4 style="padding:5px 0">
+                  <div class="heartdiv"> 
+                      <ion-icon name="heart-outline"></ion-icon>                  
+                  </div>
+                 </ion-col>
+               </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+  </ion-content>
+  

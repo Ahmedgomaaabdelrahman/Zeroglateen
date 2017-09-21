@@ -1,3 +1,62 @@
 page-rating {
-
+    .content{
+        background-color: $color-background;
+        border-radius: 20px;
+        }
+    .ratingheader{
+        color: rgba(78, 78, 78, 0.61);;
+        text-align: center;
+        background-color: #E7DBCB;
+        height: 50px;
+        border-radius: 30px;
+        padding-top: 11px;
+        font-size: 2rem;
+        font-weight: 600;
+        } 
+    .starrat{
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 55px;
+        font-size: 3rem;
+        }
+    .selectedstars{
+        color: #f3b112;
+    }
+    .notselected{
+        color: #d4be9d;
+    }
+    textarea{
+        margin: auto;
+        display: block;
+        margin-top: 30px;
+        width: 100%;
+        padding: 20px;
+        height: 150px;
+        border-radius: 20px;
+        border-style: unset;
+        box-shadow: 0.3px 0.3px 0.3px grey;
+    
+    }
+    p{
+        text-align: center;
+        font-size: 1.6rem;
+        color:$color-font2;
+        font-weight: 500;
+    }
+    ::-webkit-input-placeholder{
+        color:$color-font;
+        font-weight: 600;
+        font-size: 1.6rem;
+    }
+    .submit{
+        width: 175px;
+        height: 45px;
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-transform: unset;
+        background-color: $color-green;
+        font-size: 2rem;
+    }           
 }

@@ -1,3 +1,21 @@
 page-ordermap {
-
+    .header-md::after{
+        background-color: rgba(251, 211, 94, 0.56);
+    }
+    .greenicon{
+        color: $color-green;
+    }
+    .titlename{
+        text-align: center;
+        color: $color-font;
+    }
+    .map{
+        z-index: 0;
+    }
+    .info{
+        background-color:#8A1D1D;
+        height: 200px;
+        width: 200px;
+        z-index: 1;
+    } 
 }

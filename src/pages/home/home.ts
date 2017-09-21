@@ -1,3 +1,4 @@
+import { OrdermapPage } from './../ordermap/ordermap';
 import { OrderdetailsPage } from './../orderdetails/orderdetails';
 import { SearchPage } from './../search/search';
 import { FilterPage } from './../filter/filter';
@@ -35,5 +36,8 @@ export class HomePage {
   gofilter(){
       let modal = this.modalCtrl.create(FilterPage);
       modal.present();
+  }
+  gomap(){
+    this.navCtrl.push(OrdermapPage);
   }
 }

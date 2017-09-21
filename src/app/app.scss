@@ -50,6 +50,22 @@ page-search.ion-page.show-page{
     left: 15px;
     width: 92%;
 }
+page-rating.ion-page.show-page{
+    height: 75% !important;
+    position: absolute;
+    top: 91px;
+    left: 15px;
+    width: 92%;
+    right: 15px;
+}
+page-invoice.ion-page.show-page{
+    height: 65% !important;
+    position: absolute;
+    top: 91px;
+    left: 15px;
+    width: 92%;
+    right: 15px;
+}
 ion-modal {
     left: 0;
     top: 0;
@@ -84,4 +100,4 @@ color:$color-font2;
     margin-right: 10px;
     margin-left: 10px;
 }
-$radio-ios-color-on:gray
+

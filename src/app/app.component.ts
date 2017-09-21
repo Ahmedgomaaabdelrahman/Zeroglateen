@@ -18,7 +18,7 @@ import { HomePage } from '../pages/home/home';
 })
 export class MyApp {
   @ViewChild('nav') nav:NavController;
-  // rootPage:any = HomePage;
+  rootPage:any = HomePage;
   homePage=HomePage;
   myaccountPage=MyaccountPage;
   cartPage=CartPage;
@@ -28,6 +28,7 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl:MenuController) {
     platform.ready().then(() => {
+   
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();

@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -21,5 +22,7 @@ export class OrdermapPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrdermapPage');
   }
-
+ finish(){
+   this.navCtrl.push(HomePage);
+ }
 }

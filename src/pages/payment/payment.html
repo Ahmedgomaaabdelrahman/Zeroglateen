@@ -5,14 +5,74 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>payment</ion-title>
+  <ion-navbar style="border-bottom: 1px solid orange;">
+    <ion-title>
+      <ion-row >
+        <ion-col col-10 style="text-align: center;color:gray">Your Cart</ion-col>
+        <ion-col col-1 class="greenicon">5</ion-col>
+        <ion-col col-1 class="greenicon"><ion-icon name="cart"></ion-icon></ion-col>
+      </ion-row>
+    </ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-row class="toprow">
+      <ion-col col-4>
+        <div class="cartstep" id="laststep"><div><ion-icon name="checkmark"></ion-icon></div>Add Items</div>
+      </ion-col>
+      <ion-col col-4>
+        <div class="cartstep" id="laststep"><div><ion-icon name="checkmark"></ion-icon></div>Location</div>
+      </ion-col>
+      <ion-col col-4>
+        <div class="cartstep"><div>3</div>Payment</div>
+      </ion-col>
+  </ion-row>
 
+  <ion-list radio-group>
+      <ion-item class="paytype">
+        <ion-label>
+          <img src="assets/imgs/cash.png"> <p>Cash on delivery</p>
+        </ion-label>
+          <ion-radio checked="true" value="cash"></ion-radio>
+      </ion-item>
+    
+      <ion-item class="paytype">
+        <ion-label>
+          <img src="assets/imgs/mastercard.png"><p>By Mastercard</p>
+        </ion-label>
+        <ion-radio value="mastercardgo"></ion-radio>
+      </ion-item>
+      
+      <ion-item class="paytype">
+        <ion-label>
+          <img src="assets/imgs/paypal.png"><p>Paypal</p>
+        </ion-label>
+        <ion-radio  value="paypal"></ion-radio>
+      </ion-item>
+
+      <ion-item class="paytype">
+        <ion-label>
+          <img src="assets/imgs/visa.png"><p>By Visa</p>
+        </ion-label>
+        <ion-radio  value="visa"></ion-radio>
+      </ion-item>
+
+      <ion-item class="paytype">
+        <ion-label>
+          <img style="background-color:white"><p>Sadad</p>
+        </ion-label>
+        <ion-radio value="Sadad"></ion-radio>
+      </ion-item>
+
+      <ion-item class="paytype">
+          <ion-label>
+            <img src="assets/imgs/point.png"><p>By Points</p>
+          </ion-label>
+          <ion-radio  value="point"></ion-radio>
+        </ion-item>
+    </ion-list>
+    <button ion-button block class="next" (click)="goinvoice()">Confirm Order</button>
 </ion-content>

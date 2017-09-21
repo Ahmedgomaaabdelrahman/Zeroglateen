@@ -1,3 +1,5 @@
+import { OrdermapPage } from './../ordermap/ordermap';
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,ViewController} from 'ionic-angular';
 
@@ -17,5 +19,7 @@ export class RatingPage {
   }
   dismiss(){
     this.viewCtrl.dismiss();
+    this.navCtrl.push(OrdermapPage);
+    // this.navCtrl.setRoot(HomePage);
   }
 }

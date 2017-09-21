@@ -1,3 +1,4 @@
+import { CartPage } from './../cart/cart';
 import { OrdermapPage } from './../ordermap/ordermap';
 import { OrderdetailsPage } from './../orderdetails/orderdetails';
 import { SearchPage } from './../search/search';
@@ -25,9 +26,6 @@ export class HomePage {
   godetails(){
     this.navCtrl.push(OrderdetailsPage);
   }
-  openmenu(){
-    this.menuCtrl.toggle();
-  }
   gosearch(){
     let modal = this.modalCtrl.create(SearchPage);
       modal.present();
@@ -37,6 +35,14 @@ export class HomePage {
       let modal = this.modalCtrl.create(FilterPage);
       modal.present();
   }
+
+  myCart(){
+    this.navCtrl.push(CartPage);
+  }
+  openmenu(){
+    this.menuCtrl.toggle();
+  }
+ 
   gomap(){
     this.navCtrl.push(OrdermapPage);
   }

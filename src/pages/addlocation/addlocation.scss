@@ -1,3 +1,142 @@
 page-addlocation {
+.content{
+    background-color: $color-background;
+}
+.topicon{
+    padding: 0 10px;
+}
+.topicon ,.greenicon{
+    color:$color-green;
+}
+.toolbar-ios ion-title{
+    padding: 0 5px;
+}
+.toolbar-background{
+background-color: white;
+}
 
+.toprow{
+    background-color: $color-background2;
+    padding: 5px 0;
+    border-bottom: 2px solid white;
+}
+.cartstep{
+    border-radius: 40px;
+    background-color:#dbcebe ;
+    color:$color-font;
+    height: 35px;
+    div{
+      padding: 5px 10px;
+      margin: 4px;
+      background-color: #c6b7a1;
+      border-radius: 50%;
+      color: #4E4E4E;
+      text-align: center;
+      display: inline-flex;
+    }
+}
+
+#laststep{
+    background-color: #2dc92d;
+    color: yellow;
+    div{
+        background: white;
+        color: black;
+    }
+}
+
+.location{
+    font-size: large;
+    color: #454501;
+    font-weight: 500;
+    margin: 0 15px 10px;;
+}
+
+.mapinput{
+    background-color: white;
+    border-radius: 30px;
+    height: 60px;
+    box-shadow: 0 3px 3px #787878;
+}
+.text-input{
+    margin: 23px 10px;
+}
+.text-input::placeholder {  
+    font-size: 1.8rem;
+    padding: 10px;
+    font-weight: 500;
+    color:#454501;
+}
+.mapselect{
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 1px solid $color-font;
+    padding-bottom: 1px;
+    width: 50%;
+    margin: 20px auto;
+    color: $color-font;
+}
+hr{
+    width: 90%;
+}
+.item-radio-checked.item-md ion-label{
+    color: $color-font;
+}
+.item-radio.item-md ion-label{
+    color: $color-font;
+}
+.item{
+    width: 55%;
+    height: 50px;
+    background: transparent;
+    margin: 5px 30px;
+}
+.radio-md .radio-checked .radio-inner{
+    background-color: #FF7E00;
+    width: 13px;
+    height: 12px;
+    margin: 0;
+    left: 1px;
+    top: 2px;
+    position: absolute;
+}
+
+.radio-md .radio-icon{
+    background-color: white;
+    border-width: 1px;
+    width: 18px;
+    height: 18px;
+}
+
+.timedate{
+    width: 40%;
+    display: inline-flex;
+    background-color: #dbcebe;
+    margin: 0 5px;
+    border-radius: 20px;
+    height: 65px;
+    border:1px solid $color-font;
+}
+.next{
+    width: 50%;
+    background: #f9b906;
+    margin: 10px auto;
+    border-radius: 30px;
+    height: 55px;
+    color:white;
+    font-size: 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 25%;
+}
+.datetime{
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    font-size:20px;
+   
+}
+.datetime-text{
+    color: $color-font;
+}
 }

@@ -5,14 +5,102 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>cart</ion-title>
+  <ion-navbar style="border-bottom: 1px solid orange;">
+    <ion-title>
+      <ion-row >
+        <ion-col col-10 style="text-align: center;color:gray">Your Cart</ion-col>
+        <ion-col col-1 class="greenicon">5</ion-col>
+        <ion-col col-1 class="greenicon"><ion-icon name="cart"></ion-icon></ion-col>
+      </ion-row>
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-row class="toprow">
+    <ion-col col-4>
+      <div class="cartstep"><div>1</div>Add Item</div>
+    </ion-col>
+    <ion-col col-4>
+      <div class="cartstep"><div>2</div>Location</div>
+    </ion-col>
+    <ion-col col-4>
+      <div class="cartstep"><div>3</div>Payment</div>
+    </ion-col>
+  </ion-row>
 
+  <ion-row class="itemrow">
+    <ion-col col-4>
+      <div class="imgdiv">
+        <!-- <img src="" alt=""> -->
+      </div>
+    </ion-col>
+    <ion-col col-8>
+      <p  style="font-size:18px">Fresh Onion</p>
+      <p  style="color:gray">1 Kg</p>
+      <ion-row>
+        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">12 SAR</p></ion-col>
+        <ion-col col-5>
+          <div class="qaundiv">
+            <ion-icon name="remove" style="float:left"></ion-icon>
+              <p>5</p>
+            <ion-icon name="add" style="float:right"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row class="itemrow">
+    <ion-col col-4>
+      <div class="imgdiv">
+        <!-- <img src="" alt=""> -->
+      </div>
+    </ion-col>
+    <ion-col col-8>
+      <p  style="font-size:18px">Fresh Onion</p>
+      <p  style="color:gray">1 Kg</p>
+      <ion-row>
+        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">12 SAR</p></ion-col>
+        <ion-col col-5>
+          <div class="qaundiv">
+            <ion-icon name="remove" style="float:left"></ion-icon>
+            <p>5</p>
+            <ion-icon name="add" style="float:right"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="itemrow">
+    <ion-col col-4>
+      <div class="imgdiv">
+        <!-- <img src="" alt=""> -->
+      </div>
+    </ion-col>
+    <ion-col col-8>
+      <p  style="font-size:18px">Fresh Onion</p>
+      <p  style="color:gray">1 Kg</p>
+      <ion-row>
+        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">12 SAR</p></ion-col>
+        <ion-col col-5>
+          <div class="qaundiv">
+            <ion-icon name="remove" style="float:left"></ion-icon>
+            <p>5</p>
+            <ion-icon name="add" style="float:right"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  
+  
+  
 </ion-content>
+
+<ion-footer>
+  <button ion-button block class="next" (click)="golocation()"><ion-icon name="arrow-forward"></ion-icon></button>
+</ion-footer>

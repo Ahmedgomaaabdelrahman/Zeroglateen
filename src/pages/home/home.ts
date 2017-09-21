@@ -1,3 +1,4 @@
+import { CartPage } from './../cart/cart';
 import { OrderdetailsPage } from './../orderdetails/orderdetails';
 import { SearchPage } from './../search/search';
 import { FilterPage } from './../filter/filter';
@@ -35,5 +36,9 @@ export class HomePage {
   gofilter(){
       let modal = this.modalCtrl.create(FilterPage);
       modal.present();
+  }
+
+  myCart(){
+    this.navCtrl.push(CartPage);
   }
 }

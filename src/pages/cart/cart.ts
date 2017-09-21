@@ -1,3 +1,4 @@
+import { AddlocationPage } from './../addlocation/addlocation';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -21,5 +22,7 @@ export class CartPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CartPage');
   }
-
+ golocation(){
+   this.navCtrl.push(AddlocationPage);
+ }
 }

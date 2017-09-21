@@ -1,3 +1,100 @@
 page-payment {
+.content{
+    background-color: $color-background2;
+}
+.topicon{
+    padding: 0 10px;
+}
+.topicon ,.greenicon{
+    color:$color-green;
+}
+.toolbar-ios ion-title{
+    padding: 0 5px;
+}
+.toolbar-background{
+background-color: white;
+}
 
+.toprow{
+    background-color: $color-background2;
+    padding: 5px 0;
+    border-bottom: 2px solid white;
+}
+.cartstep{
+    border-radius: 40px;
+    background-color:#dbcebe ;
+    color:$color-font;
+    height: 35px;
+    div{
+        padding: 5px 10px;
+        margin: 4px;
+        background-color: #c6b7a1;
+        border-radius: 50%;
+        color: #4E4E4E;
+        text-align: center;
+        display: inline-flex;
+    }
+}
+
+#laststep{
+    background-color: #2dc92d;
+    color: yellow;
+    div{
+        background: white;
+        color: black;
+    }
+}
+.paytype{
+    background-color: transparent;
+    padding: 0 10px;
+    height: 70px;
+    img{
+        border-radius: 10px;
+        width: 75px;
+        margin: 2px 15px;
+        height: 55px;
+    
+    }
+
+}
+.list{
+    margin:10px 0 16px;
+}
+.item-radio.item-md ion-label {
+    color: gray;
+    height: 60px;
+    margin: 0;
+
+    p{
+        display: inline-flex;
+        position: absolute;
+        top: 25px;
+        font-weight: 500;
+        font-size: 17px;
+        color:#4E4E4E;
+    }
+    
+}
+.next{
+    width: 50%;
+    background: #2dc92d;
+    margin: 10px auto;
+    border-radius: 30px;
+    height: 55px;
+    color:white;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: none;
+    position: absolute;
+    bottom: 10px;
+    left: 25%;
+}
+.item-ios p{
+    display: inline-flex;
+    position: absolute;
+    top: 25px;
+    font-weight: 500;
+    font-size: 17px;
+    color:#4E4E4E;
+}
 }

@@ -1,3 +1,49 @@
 page-myaccount {
-
+.item-md.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 0 !important;
+}
+.label-md[stacked]{
+    color: gray;
+    font-size: 1.4em;
+}
+.header-md::after{
+    background-color: rgba(251, 211, 94, 0.56);
+}   
+.content{
+  background-color: $color-background;
+}
+.titlename{
+    padding-right: 60px;
+    text-transform: none;
+    text-align: center;
+    font-weight: 400;
+}
+.toolbar-title{
+        color: $color-font;
+}
+.greenicon{
+    color:$color-green;
+}
+.item{
+    height: 75px;
+    width: 80%;
+    margin: auto;
+}
+.list{
+    background-color: white;
+    border-radius: 30px;
+    height: 393px;
+    box-shadow: 0 0 0 1px lightgrey;
+}
+.confirm{
+    background-color: $color-green;
+    height: 55px;
+    font-size: 2rem;
+    margin-top: 25px;
+    text-transform: none;
+}    
+::-webkit-input-placeholder{
+    
+}
 }

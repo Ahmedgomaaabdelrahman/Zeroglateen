@@ -1,18 +1,32 @@
-<!--
-  Generated template for the InvoicePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>invoice</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
+<ion-content padding (click)="dismiss()">
+<div class="invoiceheader">
+  Invoice
+</div>
+<ion-list class="list">
+    <ion-row>
+      <ion-col class="rightside" col-5>15/7/2017</ion-col><ion-col col-3></ion-col>
+      <ion-col class="leftside" col-4>#577898</ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+    <ion-col class="rightside" col-5>Expected delivery</ion-col><ion-col col-3></ion-col>
+    <ion-col class="leftside" col-4>20/07/2017</ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+      <ion-col class="rightside" col-5>Shipping</ion-col><ion-col col-3></ion-col>
+      <ion-col class="leftside" col-4>34SAR</ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+      <ion-col class="rightside" col-5>Items</ion-col><ion-col col-3></ion-col>
+    <ion-col   class="leftside" col-4>5</ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+      <ion-col col-5></ion-col>
+      <ion-col col-7 class="total">Total<p class="sar">34SAR</p></ion-col>    
+    </ion-row>
+</ion-list>
 </ion-content>

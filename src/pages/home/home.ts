@@ -1,4 +1,5 @@
 import { CartPage } from './../cart/cart';
+import { OrdermapPage } from './../ordermap/ordermap';
 import { OrderdetailsPage } from './../orderdetails/orderdetails';
 import { SearchPage } from './../search/search';
 import { FilterPage } from './../filter/filter';
@@ -40,5 +41,8 @@ export class HomePage {
 
   myCart(){
     this.navCtrl.push(CartPage);
+  }
+  gomap(){
+    this.navCtrl.push(OrdermapPage);
   }
 }

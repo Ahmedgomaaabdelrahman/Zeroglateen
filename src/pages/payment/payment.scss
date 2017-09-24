@@ -88,7 +88,73 @@ background-color: white;
     position: absolute;
     bottom: 10px;
     left: 25%;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: shaker;
 }
+@keyframes shaker {
+    0% {
+      transform:rotate(0deg);
+    }
+    29% {
+      transform:rotate(0deg);
+    }
+    30% {
+      transform:rotate(1deg);
+    }
+    31% {
+      transform:rotate(2deg);
+    }
+    33% {
+      transform:rotate(1deg);
+    }
+    35% {
+      transform:rotate(0deg);
+    }
+    37% {
+      transform:rotate(-1deg);
+    }
+    39% {
+      transform:rotate(-2deg);
+    }
+  
+    41% {
+      transform:rotate(-1deg);
+    }
+  
+    43% {
+      transform:rotate(0deg);
+    }
+    45% {
+      transform:rotate(1deg);
+    }
+    47% {
+      transform:rotate(2deg);
+    }
+    49% {
+      transform:rotate(1deg);
+    }
+    51% {
+      transform:rotate(0deg);
+    }
+    53% {
+      transform:rotate(-1deg);
+    }
+    55% {
+      transform:rotate(-2deg);
+    }
+  
+    57% {
+      transform:rotate(-1deg);
+    }
+  
+    59% {
+      transform:rotate(0deg);
+    }
+    100%{
+      transform:rotate(0deg);
+    }
+  }
 .item-ios p{
     display: inline-flex;
     position: absolute;

@@ -1,6 +1,6 @@
 
 <ion-content padding>
-<div class="ratingheader">Rate your Order</div>
+<div class="ratingheader">{{'Rate your Order'|translate}}</div>
 <p>#577898</p>
 <div class="starrat">
     <ion-icon class="selectedstars" ios="ios-star" md="md-star"></ion-icon>
@@ -9,6 +9,6 @@
     <ion-icon class="notselected" ios="ios-star" md="ios-star"></ion-icon>
     <ion-icon class="notselected" ios="ios-star" md="ios-star"></ion-icon>
 </div>
-<textarea name="rating"  cols="5" rows="5" placeholder="Type feedback"></textarea>
-<button ion-button round class="submit" (click)="dismiss()">Submit</button>
+<textarea name="rating"  cols="5" rows="5" placeholder="{{'Type feedback'|translate}}"></textarea>
+<button ion-button round class="submit" (click)="dismiss()">{{'Submit'|translate}}</button>
 </ion-content>

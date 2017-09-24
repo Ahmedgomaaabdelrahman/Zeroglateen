@@ -3,7 +3,7 @@
     <ion-title>
       <ion-row >
         <ion-col col-1><ion-icon class="greenicon" name="menu" (click)="openmenu()"></ion-icon></ion-col>
-        <ion-col col-9 style="text-align: center;color:gray" (click)="gosearch()">All Products<ion-icon class="topicon" name="arrow-down"></ion-icon></ion-col>
+        <ion-col col-9 style="text-align: center;color:gray" (click)="gosearch()">{{'All Products'|translate}}<ion-icon class="topicon" name="arrow-down"></ion-icon></ion-col>
         <ion-col col-1 class="greenicon">5</ion-col>
         <ion-col col-1 class="greenicon" (click)="myCart()"><ion-icon name="cart"></ion-icon></ion-col>
       </ion-row>
@@ -13,10 +13,10 @@
   <ion-row class="headerrow">
       <ion-col col-9 > 
         <ion-icon name="search" class="searchicon"></ion-icon>
-        <ion-input class="searchinput" type="text"placeholder="Search..."></ion-input>
+        <ion-input class="searchinput" type="text"placeholder="{{'Search...'|translate}}"></ion-input>
       </ion-col>
       <ion-col col-3 style="border-right:1px solid lightgray;border-left:1px solid lightgray;">
-        <p class="filter" (click)="gofilter()">Filters<ion-icon name="arrow-down"></ion-icon></p></ion-col>
+        <p class="filter" (click)="gofilter()">{{'Filter'|translate}}<ion-icon name="arrow-down"></ion-icon></p></ion-col>
     </ion-row>
 </ion-header>
 
@@ -31,8 +31,8 @@
         <ion-card-content>
           <img src="../assets/imgs/flour.png" (click)="godetails()">
           <ion-row style="border-bottom:1px solid lightgray">
-            <ion-col col-6 style="text-align:start;color:gray">250 gm</ion-col>
-            <ion-col col-6 style="text-align:end;color:green">25 SAR</ion-col>
+            <ion-col col-6 style="text-align:start;color:gray">250 {{'gm'|translate}}</ion-col>
+            <ion-col col-6 style="text-align:end;color:green">25 {{'SAR'|translate}}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-8>
@@ -59,8 +59,8 @@
         <ion-card-content>
           <img src="../assets/imgs/sss.png" (click)="godetails()">
             <ion-row style="border-bottom:1px solid lightgray">
-              <ion-col col-6 style="text-align:start;color:gray">250 gm</ion-col>
-              <ion-col col-6 style="text-align:end;color:green">25 SAR</ion-col>
+              <ion-col col-6 style="text-align:start;color:gray">250 {{'gm'|translate}}</ion-col>
+              <ion-col col-6 style="text-align:end;color:green">25 {{'SAR'|translate}}</ion-col>
             </ion-row>
            <ion-row>
              <ion-col col-8>
@@ -80,10 +80,6 @@
       </ion-card>
     </ion-col>
   </ion-row>
-
-
-
-
   <ion-row>
       <ion-col col-6>
         <ion-card>
@@ -93,8 +89,8 @@
           <ion-card-content>
             <img src="../assets/imgs/flour.png" (click)="godetails()">
             <ion-row style="border-bottom:1px solid lightgray">
-              <ion-col col-6 style="text-align:start;color:gray">250 gm</ion-col>
-              <ion-col col-6 style="text-align:end;color:green">25 SAR</ion-col>
+              <ion-col col-6 style="text-align:start;color:gray">250 {{'gm'|translate}}</ion-col>
+              <ion-col col-6 style="text-align:end;color:green">25 {{'SAR'|translate}}</ion-col>
             </ion-row>
             <ion-row>
               <ion-col col-8>
@@ -121,8 +117,8 @@
           <ion-card-content>
             <img src="../assets/imgs/sss.png" (click)="godetails()">
               <ion-row style="border-bottom:1px solid lightgray">
-                <ion-col col-6 style="text-align:start;color:gray">250 gm</ion-col>
-                <ion-col col-6 style="text-align:end;color:green">25 SAR</ion-col>
+                <ion-col col-6 style="text-align:start;color:gray">250 {{'gm'|translate}}</ion-col>
+                <ion-col col-6 style="text-align:end;color:green">25 {{'SAR'|translate}}</ion-col>
               </ion-row>
              <ion-row>
                <ion-col col-8>

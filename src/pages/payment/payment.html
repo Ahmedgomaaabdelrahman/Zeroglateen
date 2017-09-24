@@ -8,7 +8,7 @@
   <ion-navbar style="border-bottom: 1px solid orange;">
     <ion-title>
       <ion-row >
-        <ion-col col-10 style="text-align: center;color:gray">Your Cart</ion-col>
+        <ion-col col-10 style="text-align: center;color:gray">{{'Your Cart'|translate}}</ion-col>
         <ion-col col-1 class="greenicon">5</ion-col>
         <ion-col col-1 class="greenicon"><ion-icon name="cart"></ion-icon></ion-col>
       </ion-row>
@@ -21,13 +21,13 @@
 <ion-content>
   <ion-row class="toprow">
       <ion-col col-4>
-        <div class="cartstep" id="laststep"><div><ion-icon name="checkmark"></ion-icon></div>Add Items</div>
+        <div class="cartstep" id="laststep"><div><ion-icon name="checkmark"></ion-icon></div>{{'Add Item'|translate}}</div>
       </ion-col>
       <ion-col col-4>
-        <div class="cartstep" id="laststep"><div><ion-icon name="checkmark"></ion-icon></div>Location</div>
+        <div class="cartstep" id="laststep"><div><ion-icon name="checkmark"></ion-icon></div>{{'Location'|translate}}</div>
       </ion-col>
       <ion-col col-4>
-        <div class="cartstep"><div>3</div>Payment</div>
+        <div class="cartstep"><div>3</div>{{'Payment'|translate}}</div>
       </ion-col>
   </ion-row>
 
@@ -74,5 +74,5 @@
           <ion-radio  value="point"></ion-radio>
         </ion-item>
     </ion-list>
-    <button ion-button block class="next" (click)="goinvoice()">Confirm Order</button>
+    <button ion-button block class="next" (click)="goinvoice()">{{'Confirm Order'|translate}}</button>
 </ion-content>

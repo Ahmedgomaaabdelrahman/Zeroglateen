@@ -8,7 +8,7 @@ page-settings {
     .toolbar-title{
     color: #92786a;
     text-align: center;
-    margin-right: 56px;
+    
     }   
     .list-md .item-block .item-inner {
         border-bottom: 1px solid #887c76;
@@ -26,4 +26,5 @@ page-settings {
     .toggle-md.toggle-checked .toggle-inner{
         background-color: $color-green;
     }
+    
 }

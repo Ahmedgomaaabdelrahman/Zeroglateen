@@ -3,7 +3,7 @@ import { FilterPage } from './../filter/filter';
 import { SearchPage } from './../search/search';
 import { OrderdetailsPage } from './../orderdetails/orderdetails';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController} from 'ionic-angular';
+import {  NavController, NavParams,ModalController} from 'ionic-angular';
 
 /**
  * Generated class for the FavoritesPage page.
@@ -12,7 +12,7 @@ import { IonicPage, NavController, NavParams,ModalController} from 'ionic-angula
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-favorites',
   templateUrl: 'favorites.html',

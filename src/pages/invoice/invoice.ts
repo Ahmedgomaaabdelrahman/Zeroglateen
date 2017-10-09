@@ -1,9 +1,9 @@
 import { RatingPage } from './../rating/rating';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController,ModalController } from 'ionic-angular';
+import {  NavController, NavParams,ViewController,ModalController } from 'ionic-angular';
 
 
-@IonicPage()
+
 @Component({
   selector: 'page-invoice',
   templateUrl: 'invoice.html',

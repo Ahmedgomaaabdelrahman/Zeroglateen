@@ -1,4 +1,4 @@
-<ion-menu [content]="nav" >
+<ion-menu [content]="nav" *ngIf="MainService.lang == 'ar'" side="right">
    
     <ion-content class="menu">
         <ion-list no-lines class="menu2">
@@ -10,9 +10,23 @@
           <button ion-item class="menu2" (click)="logout()"> <img class="menuimg" src="assets/imgs/web-page-home-06.png">{{'Logout'|translate}}</button>            
         </ion-list>
     </ion-content>
+    
 </ion-menu>
 
 
-
+<ion-menu [content]="nav" *ngIf="MainService.lang == 'en'" side="left">
+    
+     <ion-content class="menu">
+         <ion-list no-lines class="menu2">
+           <button ion-item class="menu" (click)="onLoad(homePage)" ><ion-icon class="menuicon" ios="ios-home" md="ios-home-outline"></ion-icon>{{'Main'|translate}}</button>
+           <button ion-item class="menu" (click)="onLoad(myaccountPage)"><ion-icon class="menuicon" ios="ios-person" md="ios-person-outline"></ion-icon>{{'My Account'|translate}}</button>
+           <button ion-item class="menu" (click)="onLoad(cartPage)"> <ion-icon class="menuicon" ios="ios-cart" md="ios-cart-outline"></ion-icon>{{'Shopping Cart'|translate}}</button>
+           <button ion-item class="menu" (click)="onLoad(favoritesPage)"><ion-icon class="menuicon" name="heart-outline"></ion-icon>{{'Favorites'|translate}}</button>
+           <button ion-item class="menu" (click)="onLoad(settingsPage)"><ion-icon class="menuicon" ios="ios-settings" md="ios-settings-outline"></ion-icon>{{'Settings'|translate}}</button>
+           <button ion-item class="menu2" (click)="logout()"> <img class="menuimg" src="assets/imgs/web-page-home-06.png">{{'Logout'|translate}}</button>            
+         </ion-list>
+     </ion-content>
+     
+ </ion-menu>
 
 <ion-nav [root]="rootPage"#nav></ion-nav>

@@ -13,6 +13,7 @@ page-home {
 }
 .topicon{
     padding: 0 10px;
+    font-size: 1.5rem;
 }
 .topicon ,.greenicon{
     color:$color-green;
@@ -23,11 +24,12 @@ page-home {
     color: gray;
     display: inline-flex;
     ion-icon{
-    padding: 0 10px;
+    padding: 0 5px;
  }
 }
 .toolbar-ios ion-title{
     padding: 0 5px;
+    
 }
 .toolbar-background{
 background-color: white;
@@ -58,7 +60,8 @@ input::placeholder{
 .card-header{
     text-align:center;
     padding:10px 0;
-    color:gray
+    color:gray;
+    font-size: 1.3rem;
 }
 .card-content{
     padding: 0 5px;

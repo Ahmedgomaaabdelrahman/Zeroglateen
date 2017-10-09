@@ -1,6 +1,6 @@
 import { InvoicePage } from './../invoice/invoice';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import {  NavController, NavParams,ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the PaymentPage page.
@@ -9,7 +9,6 @@ import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angul
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-payment',
   templateUrl: 'payment.html',

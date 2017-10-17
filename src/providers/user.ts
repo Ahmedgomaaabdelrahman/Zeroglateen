@@ -24,7 +24,7 @@ export class UserProvider {
    
   registerUesr(Name:string,Email:any,PhoneNo:any,Password:any,Confirm:any,lang ?: any,lat ?:any,commerical ?:string){
    let user = {
-    name:name,
+    name:Name,
     email:Email,
     phone:PhoneNo,
     password:Password,

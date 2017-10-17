@@ -34,6 +34,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { MainProvider } from '../providers/main';
 import { UserProvider } from '../providers/user';
+import { CommonProvider } from '../providers/common';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -106,7 +107,8 @@ export function createTranslateLoader(http: Http) {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MainProvider,
-    UserProvider
+    UserProvider,
+    CommonProvider
   ]
 })
 export class AppModule {}

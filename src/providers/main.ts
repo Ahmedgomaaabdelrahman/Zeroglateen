@@ -10,8 +10,8 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class MainProvider {
-  public static baseUrl : string = "192.168.0.103/ZeroGeloten/public/api/";
-  public static  lang : string = 'en';
+  public static baseUrl : string = "http://104.236.243.55/api/";
+  public static  lang : string = 'ar';
   
   constructor(public http: Http) {
     console.log('Hello MainProvider Provider');

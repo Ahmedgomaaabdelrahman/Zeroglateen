@@ -1,8 +1,9 @@
+import { CommonProvider } from './../../providers/common';
 import { UserProvider } from './../../providers/user';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
-
+import {TranslateService} from "@ngx-translate/core";
 /**
  * Generated class for the SignupPage page.
  *
@@ -22,7 +23,7 @@ export class SignupPage {
   public phone : any;
   public password : any;
   public confirm_pass : any;
-  constructor(public userService :UserProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public translate:TranslateService,public common:CommonProvider,public userService :UserProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -31,8 +32,17 @@ export class SignupPage {
 
   register(){
       this.userService.registerUesr(this.name,this.email,this.phone,this.password,this.confirm_pass).subscribe((res)=>{
-        console.log(res);
-        this.navCtrl.push(HomePage);
+        if(res.error){
+         this.common.presentToast(res.error);
+        }
+        else{
+          this.translate.get('Registered Sucessfully').subscribe(
+            value => {
+              this.common.presentToast(value);
+            });
+          this.navCtrl.push(HomePage);
+        }
+       
       });
 
    

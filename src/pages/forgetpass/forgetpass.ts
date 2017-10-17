@@ -1,7 +1,7 @@
 import { UserProvider } from './../../providers/user';
 import { Component } from '@angular/core';
 import {  NavController, NavParams,ViewController } from 'ionic-angular';
-
+import { CommonProvider } from './../../providers/common';
 
 @Component({
   selector: 'page-forgetpass',
@@ -9,7 +9,7 @@ import {  NavController, NavParams,ViewController } from 'ionic-angular';
 })
 export class ForgetpassPage {
 public email:any;
-  constructor(public viewCtrl : ViewController ,public navCtrl: NavController, public navParams: NavParams,public userProvider:UserProvider) {
+  constructor(public viewCtrl : ViewController ,public common : CommonProvider,public navCtrl: NavController, public navParams: NavParams,public userProvider:UserProvider) {
   }
 
   ionViewDidLoad() {
@@ -17,8 +17,14 @@ public email:any;
   }
 sendemail(){
   this.userProvider.forgetPassword(this.email).subscribe((res)=>{
-console.log(res);
-this.viewCtrl.dismiss();
+    if(res.error){
+      this.common.presentToast(res.error);
+      console.log(res.error);
+    }else{
+      this.common.presentToast(res.Message);
+      console.log(res.Message);
+      this.viewCtrl.dismiss();
+    }
   });
  
 }

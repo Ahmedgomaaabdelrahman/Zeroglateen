@@ -1,20 +1,20 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-title class="titlename">Login</ion-title>
+    <ion-title class="titlename">{{'Login'|translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-<form class="form">
-    <ion-input [(ngModel)]="email" name="email" class="input" type="email" placeholder="Email"></ion-input><br>
-    <ion-input [(ngModel)]="password" name="password" class="input" type="password" placeholder="Password"></ion-input><br>
-    <button ion-button round block class="login"(click)="login()">Login</button>
-    <button ion-button clear class="forgetpass" (click)="forgetpass()">Forget your password</button>
+<form class="form" #f="ngForm">
+    <ion-input [(ngModel)]="email" name="email" class="input" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Email" required></ion-input><br>
+    <ion-input [(ngModel)]="password" name="password" class="input" type="password" pattern=".{6,}" placeholder="Password"  required></ion-input><br>
+    <button ion-button round block class="login" [disabled]="!f.valid" (click)="login()">{{'Login'|translate}}</button>
+    <button ion-button clear class="forgetpass" (click)="forgetpass()">{{'Forget your password'|translate}}</button>
 </form>
   <div class="sharebuttons">
   <button ion-button round icon-only class="share"> <img src="assets/imgs/facebook.png"></button>
   <button ion-button round icon-only class="share"><img src="assets/imgs/google-plus.png"></button>
   </div>
-  <p class="donthave">Don't have account</p>
-  <p class="creat" (click)="signType()">Creat a new Account now</p>
+  <p class="donthave">{{"Don't have account"|translate}}</p>
+  <p class="creat" (click)="signType()">{{'Creat a new Account now'|translate}}</p>
 </ion-content>

@@ -59,7 +59,17 @@
   "Km":"كيلو متر",
   "Please Enter Password and Its Confirm are Identical":"برجاء ادخال كلمه المرور وتاكيدها متطابقين",
   "Enter Your Email Address":"ادخل البريد الالكترونى",
-  "Cancel":"الغاء"
+  "Cancel":"الغاء",
+  "Login":" تسجيل الدخول",
+  "Forget your password":"نسيت كلمة المرور",
+  "Don't have account":"ليس لديك حساب",
+  "Creat a new Account now":"أنشاء حساب جديد",
+  "Sign Up":"تسجيل عضوية",
+  "Personal User":"المستخدم الشخصي",
+  "Supplier":"  المورد",
+  "Productive Families":"الأسر المنتجة"
+
+
 
 
 }

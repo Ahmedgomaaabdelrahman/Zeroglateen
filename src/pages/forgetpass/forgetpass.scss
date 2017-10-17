@@ -32,5 +32,11 @@ page-forgetpass {
         padding: 1px;
         width: calc(100% - 8px - 8px);
         text-align: center;
-    }       
+    } 
+    
+    .input-cover{
+        position: static !important;
+    }
+
+    
 }

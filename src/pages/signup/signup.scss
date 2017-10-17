@@ -20,7 +20,7 @@ page-signup {
 .forma{
     margin: 8%;
     width: 85%;
-    height: 62%;
+    height: 66%;
     border: 1px solid wheat;
     border-radius: 20px;
     background-color: white;
@@ -44,12 +44,17 @@ page-signup {
     height: 55px;
     border-radius: 20px;
     bottom: 50px;
-    margin: 7%;
+    margin: 0px 8%;
     text-transform: none;
     letter-spacing: 2px;
     font-weight: normal;
 }
-
+.conP{
+    color: #197d05;
+    margin: 5px 0;
+    font-size: 15px;
+    line-height: 20px;
+}
 input::placeholder{
   font-size: 18px;
 }

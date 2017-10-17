@@ -56,9 +56,10 @@
   "Type feedback":"تعليقك",
   "Orders":"الطلبات",
   "Accept":"موافق",
-  "Km":"كيلو متر"
-
-
+  "Km":"كيلو متر",
+  "Please Enter Password and Its Confirm are Identical":"برجاء ادخال كلمه المرور وتاكيدها متطابقين",
+  "Enter Your Email Address":"ادخل البريد الالكترونى",
+  "Cancel":"الغاء"
 
 
 }

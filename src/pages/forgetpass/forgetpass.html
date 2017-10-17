@@ -3,8 +3,12 @@
 <div class="forget">
   Forget Your Password
 </div>
-<div>
-    <ion-input [(ngModel)]="email" name="email" type="email" placeholder="Enter Your Email Address"></ion-input><br>
-</div>
-<button ion-button round class="confirm" (click)="sendemail()">Confirm</button>
+<form #f="ngForm">
+    <ion-input [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" type="email" placeholder="{{'Enter Your Email Address'|translate}}" required></ion-input><br>
+</form>
+<ion-row>
+  <ion-col col-6><button ion-button round class="confirm" [disabled]="!f.valid" (click)="sendemail()">{{'Confirm'|translate}}</button></ion-col>
+  <ion-col col-6><button ion-button round class="confirm" (click)="diss()">{{'Cancel'|translate}}</button></ion-col>
+</ion-row>
+
 </ion-content>

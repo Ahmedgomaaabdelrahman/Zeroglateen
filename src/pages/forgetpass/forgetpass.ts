@@ -22,4 +22,8 @@ this.viewCtrl.dismiss();
   });
  
 }
+
+diss(){
+  this.viewCtrl.dismiss();
+}
 }

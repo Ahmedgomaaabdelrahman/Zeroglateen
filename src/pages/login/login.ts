@@ -1,10 +1,9 @@
 import { ForgetpassPage } from './../forgetpass/forgetpass';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import {  NavController, NavParams,ModalController } from 'ionic-angular';
 
 
 
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',

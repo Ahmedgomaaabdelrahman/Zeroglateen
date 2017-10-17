@@ -8,7 +8,7 @@
   <ion-navbar style="border-bottom: 1px solid orange;">
     <ion-title>
       <ion-row >
-        <ion-col col-10 style="text-align: center;color:gray">Your Cart</ion-col>
+        <ion-col col-10 style="text-align: center;color:gray">{{'Your Cart'|translate}}</ion-col>
         <ion-col col-1 class="greenicon">5</ion-col>
         <ion-col col-1 class="greenicon"><ion-icon name="cart"></ion-icon></ion-col>
       </ion-row>
@@ -20,45 +20,45 @@
 <ion-content>
   <ion-row class="toprow">
       <ion-col col-4>
-        <div class="cartstep" id="laststep"><div><ion-icon name="checkmark"></ion-icon></div>Add Items</div>
+        <div class="cartstep" id="laststep"><div><ion-icon name="checkmark"></ion-icon></div>{{'Add Item'|translate}}</div>
       </ion-col>
       <ion-col col-4>
-        <div class="cartstep"><div>2</div>Location</div>
+        <div class="cartstep"><div>2</div>{{'Location'|translate}}</div>
       </ion-col>
       <ion-col col-4>
-        <div class="cartstep"><div>3</div>Payment</div>
+        <div class="cartstep"><div>3</div>{{'Payment'|translate}}</div>
       </ion-col>
   </ion-row>
 
   <div style="margin:30px">
-    <p class="location">Location</p>
-    <ion-input type="text" class="mapinput" placeholder="Address"></ion-input>
-    <p class="mapselect">Select From Map</p>
+    <p class="location">{{'Location'|translate}}</p>
+    <ion-input type="text" class="mapinput" placeholder="{{'Address'|translate}}"></ion-input>
+    <p class="mapselect">{{'Select From Map'|translate}}</p>
   </div>
 <hr>
   <div style="margin: 15px 30px 0;">
-    <p class="location">Pick date and time</p>
+    <p class="location">{{'Pick date and time'|translate}}</p>
     <ion-list radio-group>
       <ion-item>
         <ion-radio checked="true" value="now"></ion-radio>
-        <ion-label>Order Now</ion-label>
+        <ion-label>{{'Order Now'|translate}}</ion-label>
       
       </ion-item>  
       <ion-item>
         <ion-radio value="later"></ion-radio>
-        <ion-label>Order Later</ion-label>
+        <ion-label>{{'Order Later'|translate}}</ion-label>
       </ion-item>
     </ion-list>
   </div>
   <div style="margin: 0 10x 15px;text-align: center;">
       <ion-item class="timedate">
-          <ion-datetime displayFormat="DD MMM YYYY" placeholder="Date"></ion-datetime>
+          <ion-datetime displayFormat="DD MMM YYYY" placeholder="{{'Date'|translate}}"></ion-datetime>
       </ion-item>
     <ion-item class="timedate">
-          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" placeholder="Time" ></ion-datetime>
+          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" placeholder="{{'Time'|translate}}" ></ion-datetime>
     </ion-item>
    
 </div>
-<button ion-button block class="next" (click)="gopay()"><ion-icon name="arrow-forward"></ion-icon></button>
+<button ion-button block class="next" (click)="gopay()"><ion-icon class="arrow" name="arrow-forward"></ion-icon></button>
 </ion-content>
   

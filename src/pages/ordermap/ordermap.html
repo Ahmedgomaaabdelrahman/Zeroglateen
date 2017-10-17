@@ -3,7 +3,7 @@
   <ion-navbar>
     <ion-title>
       <ion-row>
-        <ion-col col-11 class="titlename" >Orders</ion-col>
+        <ion-col col-11 class="titlename" >{{'Orders'|translate}}</ion-col>
         <ion-col col-1> <ion-icon class="greenicon"  name="search"></ion-icon></ion-col>
       </ion-row>
     </ion-title>
@@ -20,18 +20,18 @@
     <ion-row style="padding:10px;">
       <ion-col col-4>
         <h6>14</h6>
-        <p>Km</p>
+        <p>{{'Km'|translate}}</p>
       </ion-col>
       <ion-col col-4 style="border-left:1px solid lightgray;border-right:1px solid lightgray">
         <h6>564</h6>
-        <p>SAR</p>
+        <p>{{'SAR'|translate}}</p>
       </ion-col>
       <ion-col col-4>
         <h6>5</h6>
-        <p>Items</p>
+        <p>{{'Items'|translate}}</p>
       </ion-col>
     </ion-row>
-    <button ion-button block class="accept" (click)="finish()">Accept</button>
+    <button ion-button block class="accept" (click)="finish()">{{'Accept'|translate}}</button>
   </div>
   
 </ion-content>

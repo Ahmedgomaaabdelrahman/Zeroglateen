@@ -8,7 +8,7 @@
   <ion-navbar style="border-bottom: 1px solid orange;">
     <ion-title>
       <ion-row >
-        <ion-col col-10 style="text-align: center;color:gray">Your Cart</ion-col>
+        <ion-col col-10 style="text-align: center;color:gray">{{'Your Cart'|translate}}</ion-col>
         <ion-col col-1 class="greenicon">5</ion-col>
         <ion-col col-1 class="greenicon"><ion-icon name="cart"></ion-icon></ion-col>
       </ion-row>
@@ -20,13 +20,13 @@
 <ion-content>
   <ion-row class="toprow">
     <ion-col col-4>
-      <div class="cartstep"><div>1</div>Add Item</div>
+      <div class="cartstep"><div>1</div>{{'Add Item'|translate}}</div>
     </ion-col>
     <ion-col col-4>
-      <div class="cartstep"><div>2</div>Location</div>
+      <div class="cartstep"><div>2</div>{{'Location'|translate}}</div>
     </ion-col>
     <ion-col col-4>
-      <div class="cartstep"><div>3</div>Payment</div>
+      <div class="cartstep"><div>3</div>{{'Payment'|translate}}</div>
     </ion-col>
   </ion-row>
 
@@ -38,9 +38,9 @@
     </ion-col>
     <ion-col col-8>
       <p  style="font-size:18px">Fresh Onion</p>
-      <p  style="color:gray">1 Kg</p>
+      <p  style="color:gray">1 {{'Kg'|translate}}</p>
       <ion-row>
-        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">12 SAR</p></ion-col>
+        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">12 {{'SAR'|translate}}</p></ion-col>
         <ion-col col-5>
           <div class="qaundiv">
             <ion-icon name="remove" style="float:left"></ion-icon>
@@ -61,9 +61,9 @@
     </ion-col>
     <ion-col col-8>
       <p  style="font-size:18px">Fresh Onion</p>
-      <p  style="color:gray">1 Kg</p>
+      <p  style="color:gray">1 {{'Kg'|translate}}</p>
       <ion-row>
-        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">12 SAR</p></ion-col>
+        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">12 {{'SAR'|translate}}</p></ion-col>
         <ion-col col-5>
           <div class="qaundiv">
             <ion-icon name="remove" style="float:left"></ion-icon>
@@ -83,9 +83,9 @@
     </ion-col>
     <ion-col col-8>
       <p  style="font-size:18px">Fresh Onion</p>
-      <p  style="color:gray">1 Kg</p>
+      <p  style="color:gray">1 {{'Kg'|translate}}</p>
       <ion-row>
-        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">12 SAR</p></ion-col>
+        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">12 {{'SAR'|translate}}</p></ion-col>
         <ion-col col-5>
           <div class="qaundiv">
             <ion-icon name="remove" style="float:left"></ion-icon>
@@ -102,5 +102,5 @@
 </ion-content>
 
 <ion-footer>
-  <button ion-button block class="next" (click)="golocation()"><ion-icon name="arrow-forward"></ion-icon></button>
+  <button ion-button block class="next" (click)="golocation()"><ion-icon class="arrow" name="arrow-forward"></ion-icon></button>
 </ion-footer>

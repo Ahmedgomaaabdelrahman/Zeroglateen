@@ -13,12 +13,7 @@ page-myaccount {
 .content{
   background-color: $color-background;
 }
-.titlename{
-    padding-right: 60px;
-    text-transform: none;
-    text-align: center;
-    font-weight: 400;
-}
+
 .toolbar-title{
         color: $color-font;
 }
@@ -46,4 +41,5 @@ page-myaccount {
 ::-webkit-input-placeholder{
     
 }
+
 }

@@ -5,12 +5,15 @@ import { FavoritesPage } from './../pages/favorites/favorites';
 import { CartPage } from './../pages/cart/cart';
 import { MyaccountPage } from './../pages/myaccount/myaccount';
 
+import {MainService} from "../providers/main-service";
+
 import { Component,ViewChild } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {NavController} from 'ionic-angular';
 import {MenuController} from 'ionic-angular';
+import {TranslateService} from "@ngx-translate/core";
 
 import { HomePage } from '../pages/home/home';
 @Component({
@@ -18,7 +21,8 @@ import { HomePage } from '../pages/home/home';
 })
 export class MyApp {
   @ViewChild('nav') nav:NavController;
-  // rootPage:any = HomePage;
+  public  MainService = MainService;
+  rootPage:any = HomePage;
   homePage=HomePage;
   myaccountPage=MyaccountPage;
   cartPage=CartPage;
@@ -26,13 +30,16 @@ export class MyApp {
   settingsPage=SettingsPage;
 
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private menuCtrl:MenuController) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController,public translate : TranslateService) {
     platform.ready().then(() => {
+   
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
+    platform.setDir('ltr',true);
+    this.translate.setDefaultLang('en');
   }
   onLoad(page:any){
     this.nav.push(page);

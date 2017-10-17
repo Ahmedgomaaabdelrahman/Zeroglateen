@@ -2,9 +2,8 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>
-    Settings
-        
+    <ion-title class="settingtitle">
+    {{'Settings'|translate}}     
       <!-- <ion-row>
         <ion-col col-1>
           <ion-icon class="greenicon" name="menu" (click)="openmenu()">
@@ -20,16 +19,16 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-    Payment methods
+    {{'Payment methods'|translate}}
     </ion-item>
     <ion-item>
-      <ion-label>Notifications</ion-label>
+      <ion-label>{{'Notifications'|translate}}</ion-label>
       <ion-toggle checked="true"></ion-toggle>
     </ion-item>
     <ion-item>
      <ion-row>
       <ion-col col-11>
-          Recommend to a friend
+         {{'Recommend to a friend'|translate}}
       </ion-col>
       <ion-col col-1>
         <ion-icon name="arrow-dropdown"></ion-icon>
@@ -37,22 +36,27 @@
       </ion-row>
     </ion-item>
   <ion-item>
-    <ion-row>
+    <ion-row (click)="goterms()">
       <ion-col col-11>
-         Terms & Condtions
+         {{'Terms & Condtions'|translate}}
       </ion-col>
       <ion-col col-1>
         <ion-icon name="arrow-dropdown"></ion-icon>
       </ion-col>
     </ion-row>
   </ion-item>
-  <ion-item>
-    Language
-  </ion-item>
-  <ion-item>
+  <ion-item *ngIf="MainService.lang == 'ar'">
+      <ion-label>{{'Language'|translate}}</ion-label>
+      <ion-toggle [(ngModel)]="toggleStatus"  checked="false" (ionChange)="Change_Toggle('en')"></ion-toggle>
+    </ion-item>
+    <ion-item *ngIf="MainService.lang == 'en'">
+        <ion-label>{{'Language'|translate}}</ion-label>
+        <ion-toggle [(ngModel)]="toggleStatus"  checked="true" (ionChange)="Change_Toggle('ar')"></ion-toggle>
+      </ion-item>
+  <ion-item (click)="goabout()">
     <ion-row>
       <ion-col col-11>
-         About zero Gluten
+        {{'About zero Gluten'|translate}}
       </ion-col>
       <ion-col col-1>
        <ion-icon name="arrow-dropdown"></ion-icon>

@@ -14,8 +14,10 @@ import { NavController, MenuController,ModalController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController,private menuCtrl:MenuController,public modalCtrl :ModalController) {
-
+  constructor(public navCtrl: NavController,
+    private menuCtrl:MenuController,public modalCtrl :ModalController) {
+    this.menuCtrl.swipeEnable(true);
+  
   }
   ss(){
     this.navCtrl.push(SignupPage);

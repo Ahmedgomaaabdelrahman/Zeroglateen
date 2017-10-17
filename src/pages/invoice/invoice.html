@@ -1,7 +1,7 @@
 
 <ion-content padding (click)="dismiss()">
 <div class="invoiceheader">
-  Invoice
+  {{'Invoice'|translate}}
 </div>
 <ion-list class="list">
     <ion-row>
@@ -10,23 +10,23 @@
     </ion-row>
     <hr>
     <ion-row>
-    <ion-col class="rightside" col-6>Expected delivery</ion-col>
+    <ion-col class="rightside" col-6>{{'Expected delivery'|translate}}</ion-col>
     <ion-col class="leftside" col-6>20/07/2017</ion-col>
     </ion-row>
     <hr>
     <ion-row>
-      <ion-col class="rightside" col-6>Shipping</ion-col>
-      <ion-col class="leftside" col-6>34SAR</ion-col>
+      <ion-col class="rightside" col-6>{{'Shipping'|translate}}</ion-col>
+      <ion-col class="leftside" col-6>34{{'SAR'|translate}}</ion-col>
     </ion-row>
     <hr>
     <ion-row>
-      <ion-col class="rightside" col-6>Items</ion-col>
+      <ion-col class="rightside" col-6>{{'Items'|translate}}</ion-col>
     <ion-col   class="leftside" col-6>5</ion-col>
     </ion-row>
     <hr>
     <ion-row>
       <ion-col col-5></ion-col>
-      <ion-col col-7 class="total" (click)="goRate()">Total<p class="sar">34SAR</p></ion-col>    
+      <ion-col col-7 class="total" (click)="goRate()">{{'Total'|translate}}<p class="sar">34{{'SAR'|translate}}</p></ion-col>    
     </ion-row>
 </ion-list>
    

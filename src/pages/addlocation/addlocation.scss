@@ -25,6 +25,7 @@ background-color: white;
     background-color:#dbcebe ;
     color:$color-font;
     height: 35px;
+    font-size: 1.3rem;
     div{
       padding: 5px 10px;
       margin: 4px;
@@ -69,7 +70,7 @@ background-color: white;
 }
 .mapselect{
     text-align: center;
-    font-size: 20px;
+    font-size: 15px;
     border-bottom: 1px solid $color-font;
     padding-bottom: 1px;
     width: 50%;
@@ -86,7 +87,7 @@ hr{
     color: $color-font;
 }
 .item{
-    width: 55%;
+    width: 75%;
     height: 50px;
     background: transparent;
     margin: 5px 30px;
@@ -120,14 +121,12 @@ hr{
 .next{
     width: 50%;
     background: #f9b906;
-    margin: 10px auto;
     border-radius: 30px;
     height: 55px;
-    color:white;
+    color: white;
     font-size: 20px;
-    position: absolute;
-    bottom: 10px;
-    left: 25%;
+    margin: auto;
+    margin-top: 20px
 }
 .datetime{
     width: 100%;

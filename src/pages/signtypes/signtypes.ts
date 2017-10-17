@@ -2,7 +2,7 @@ import { SignsupplierPage } from './../signsupplier/signsupplier';
 import { SignproductivePage } from './../signproductive/signproductive';
 import { SignupPage } from './../signup/signup';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {  NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the SigntypesPage page.
@@ -11,7 +11,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-signtypes',
   templateUrl: 'signtypes.html',

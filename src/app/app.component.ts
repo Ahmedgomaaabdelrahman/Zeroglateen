@@ -1,3 +1,4 @@
+import { MainProvider } from './../providers/main';
 import { LoginPage } from './../pages/login/login';
 import { SigntypesPage } from './../pages/signtypes/signtypes';
 import { SignupPage } from './../pages/signup/signup';
@@ -5,8 +6,6 @@ import { SettingsPage } from './../pages/settings/settings';
 import { FavoritesPage } from './../pages/favorites/favorites';
 import { CartPage } from './../pages/cart/cart';
 import { MyaccountPage } from './../pages/myaccount/myaccount';
-
-import {MainService} from "../providers/main-service";
 
 import { Component,ViewChild } from '@angular/core';
 import { Platform } from 'ionic-angular';
@@ -22,7 +21,7 @@ import { HomePage } from '../pages/home/home';
 })
 export class MyApp {
   @ViewChild('nav') nav:NavController;
-  public  MainService = MainService;
+  public  MainService = MainProvider;
   rootPage:any = LoginPage;
   homePage=HomePage;
   myaccountPage=MyaccountPage;

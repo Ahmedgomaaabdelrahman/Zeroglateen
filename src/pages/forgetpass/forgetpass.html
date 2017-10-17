@@ -4,7 +4,7 @@
   Forget Your Password
 </div>
 <div>
-    <ion-input  type="email" placeholder="Enter Your Email Address"></ion-input><br>
+    <ion-input [(ngModel)]="email" name="email" type="email" placeholder="Enter Your Email Address"></ion-input><br>
 </div>
 <button ion-button round class="confirm" (click)="sendemail()">Confirm</button>
 </ion-content>

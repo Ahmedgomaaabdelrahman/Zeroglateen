@@ -1,3 +1,4 @@
+import { UserProvider } from './../../providers/user';
 import { SigntypesPage } from './../signtypes/signtypes';
 import { ForgetpassPage } from './../forgetpass/forgetpass';
 import { Component } from '@angular/core';
@@ -10,8 +11,9 @@ import {  NavController, NavParams,ModalController } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl :ModalController) {
+  public email:any;
+  public password:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl :ModalController,public userProvider:UserProvider) {
   }
 
   ionViewDidLoad() {
@@ -23,5 +25,10 @@ export class LoginPage {
   }
   signType(){
     this.navCtrl.push(SigntypesPage);
+  }
+  login(){
+    this.userProvider.loginUser(this.email,this.password).subscribe((res)=>{
+console.log(res);
+    });
   }
 }

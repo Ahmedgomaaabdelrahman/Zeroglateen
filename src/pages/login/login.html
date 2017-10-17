@@ -6,9 +6,9 @@
 </ion-header>
 <ion-content padding>
 <form class="form">
-    <ion-input class="input" type="email" placeholder="Email"></ion-input><br>
-    <ion-input class="input" type="password" placeholder="Password"></ion-input><br>
-    <button ion-button round block class="login">Login</button>
+    <ion-input [(ngModel)]="email" name="email" class="input" type="email" placeholder="Email"></ion-input><br>
+    <ion-input [(ngModel)]="password" name="password" class="input" type="password" placeholder="Password"></ion-input><br>
+    <button ion-button round block class="login"(click)="login()">Login</button>
     <button ion-button clear class="forgetpass" (click)="forgetpass()">Forget your password</button>
 </form>
   <div class="sharebuttons">

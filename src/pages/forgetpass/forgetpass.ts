@@ -1,12 +1,6 @@
+import { UserProvider } from './../../providers/user';
 import { Component } from '@angular/core';
 import {  NavController, NavParams,ViewController } from 'ionic-angular';
-
-/**
- * Generated class for the ForgetpassPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 
 @Component({
@@ -14,14 +8,18 @@ import {  NavController, NavParams,ViewController } from 'ionic-angular';
   templateUrl: 'forgetpass.html',
 })
 export class ForgetpassPage {
-
-  constructor(public viewCtrl : ViewController ,public navCtrl: NavController, public navParams: NavParams) {
+public email:any;
+  constructor(public viewCtrl : ViewController ,public navCtrl: NavController, public navParams: NavParams,public userProvider:UserProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ForgetpassPage');
   }
 sendemail(){
-  this.viewCtrl.dismiss();
+  this.userProvider.forgetPassword(this.email).subscribe((res)=>{
+console.log(res);
+this.viewCtrl.dismiss();
+  });
+ 
 }
 }

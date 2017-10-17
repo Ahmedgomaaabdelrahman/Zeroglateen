@@ -3,7 +3,7 @@ import { TermsPage } from './../terms/terms';
 import { Component } from '@angular/core';
 import { NavController, NavParams,Platform } from 'ionic-angular';
 import {TranslateService} from "@ngx-translate/core";
-import {MainService} from "../../providers/main-service";
+import {MainProvider} from "../../providers/main";
 
 
 @Component({
@@ -12,7 +12,7 @@ import {MainService} from "../../providers/main-service";
 })
 export class SettingsPage {
   public toggleStatus:any;
-  public MainService : MainService = MainService ;
+  public MainProvider : MainProvider;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private translate: TranslateService,
@@ -30,7 +30,7 @@ export class SettingsPage {
   }
   Change_Toggle(type) {
     this.translate.setDefaultLang(type);
-    MainService.lang = type;
+    MainProvider.lang = type;
     if(type == 'ar'){
       this.platform.setDir('rtl', true);
     console.log(type);

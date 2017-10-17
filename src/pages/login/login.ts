@@ -1,3 +1,4 @@
+import { SigntypesPage } from './../signtypes/signtypes';
 import { ForgetpassPage } from './../forgetpass/forgetpass';
 import { Component } from '@angular/core';
 import {  NavController, NavParams,ModalController } from 'ionic-angular';
@@ -19,5 +20,8 @@ export class LoginPage {
   forgetpass(){
     let modal = this.modalCtrl.create(ForgetpassPage);
     modal.present();
+  }
+  signType(){
+    this.navCtrl.push(SigntypesPage);
   }
 }

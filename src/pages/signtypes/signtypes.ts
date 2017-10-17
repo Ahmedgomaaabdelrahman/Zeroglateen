@@ -27,10 +27,10 @@ export class SigntypesPage {
   signup(){
     this.navCtrl.push(SignupPage);
   }
-  productive(){
-    this.navCtrl.push(SignproductivePage);
-  }
-  supplier(){
-    this.navCtrl.push(SignsupplierPage);
-  }
+  // productive(){
+  //   this.navCtrl.push(SignproductivePage);
+  // }
+  // supplier(){
+  //   this.navCtrl.push(SignsupplierPage);
+  // }
 }

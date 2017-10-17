@@ -22,7 +22,7 @@ export class UserProvider {
     console.log('Hello UserProvider Provider');
   }
    
-  registerUesr(Name:string,Email:any,PhoneNo:number,Password:any,Confirm:any,lang ?: any,lat ?:any,commerical ?:string){
+  registerUesr(Name:string,Email:any,PhoneNo:any,Password:any,Confirm:any,lang ?: any,lat ?:any,commerical ?:string){
    let user = {
     name:name,
     email:Email,
@@ -32,9 +32,27 @@ export class UserProvider {
     lang:lang,
     lat:lat,
     comercial_record:commerical,
-    user_type:this.userType,
-    token:this.deviceToken,
-    device_type:''
+    user_type:1,
+    token:1,
+    device_type:1
    }
+   return this.http.post(this.registerUrl+MainProvider.lang,user).map((res) => res.json());
   }
+
+  loginUser(Email:any , Password:any){
+    let user = {
+       email : Email,
+       password : Password
+    }
+    return this.http.post(this.loginUrl+MainProvider.lang,user).map((res) => res.json());
+  }
+  forgetPassword(Email :any)
+  { 
+    let user = {
+      email : Email
+    }
+    return this.http.post(this.forgetPassUrl+MainProvider.lang,user).map((res) => res.json());
+  }  
+   
+    
 }

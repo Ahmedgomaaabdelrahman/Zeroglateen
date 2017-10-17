@@ -1,3 +1,4 @@
+import { LoginPage } from './../pages/login/login';
 import { SigntypesPage } from './../pages/signtypes/signtypes';
 import { SignupPage } from './../pages/signup/signup';
 import { SettingsPage } from './../pages/settings/settings';
@@ -22,7 +23,7 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   @ViewChild('nav') nav:NavController;
   public  MainService = MainService;
-  rootPage:any = HomePage;
+  rootPage:any = LoginPage;
   homePage=HomePage;
   myaccountPage=MyaccountPage;
   cartPage=CartPage;

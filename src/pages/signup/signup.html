@@ -15,14 +15,14 @@
 
 <ion-content>
   <form #f="ngForm" class="forma">
-    <ion-input [(ngModel)]="name" name="name" class="formfield" type="text" placeholder="Name" autofocus required></ion-input>
-    <ion-input [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" class="formfield" type="email" placeholder="Email" required></ion-input>
-    <ion-input [(ngModel)]="phone" name="phone" class="formfield" type="tel" placeholder="Phone Number" required></ion-input>
-    <ion-input [(ngModel)]="password" name="password" maxlength="6" class="formfield" type="password" placeholder="Password" required></ion-input>
-    <ion-input [(ngModel)]="confirm_pass" name="confirm_pass" maxlength="6" class="formfield" type="password" placeholder="Confirm Password" required></ion-input>
+    <ion-input [(ngModel)]="name" name="name" class="formfield" type="text" placeholder="{{'Name'|translate}}" autofocus required></ion-input>
+    <ion-input [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" class="formfield" type="email" placeholder="{{'Email'|translate}}" required></ion-input>
+    <ion-input [(ngModel)]="phone" name="phone" class="formfield" type="tel" placeholder="{{'Phone Number'|translate}}" required></ion-input>
+    <ion-input [(ngModel)]="password" name="password" maxlength="6" class="formfield" type="password" placeholder="{{'Password'|translate}}" required></ion-input>
+    <ion-input [(ngModel)]="confirm_pass" name="confirm_pass" maxlength="6" class="formfield" type="password" placeholder="{{'Confirm Password'|translate}}" required></ion-input>
     <p class="conP" *ngIf="password != confirm_pass">{{'Please Enter Password and Its Confirm are Identical'|translate}}</p>
   </form>
  
-  <button class="confirm" [disabled]="!f.valid" ion-button block (click)="register()">Confirm</button>
+  <button class="confirm" [disabled]="!f.valid" ion-button block (click)="register()">{{'Confirm'|translate}}</button>
  
 </ion-content>

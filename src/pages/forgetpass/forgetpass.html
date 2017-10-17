@@ -1,7 +1,7 @@
 
 <ion-content padding style="border-radius: 30px;">
 <div class="forget">
-  Forget Your Password
+  {{'Forget Your Password'|translate}}
 </div>
 <form #f="ngForm">
     <ion-input [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" type="email" placeholder="{{'Enter Your Email Address'|translate}}" required></ion-input><br>

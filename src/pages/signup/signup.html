@@ -22,11 +22,7 @@
     <ion-input [(ngModel)]="confirm_pass" name="confirm_pass" maxlength="6" class="formfield" type="password" placeholder="Confirm Password" required></ion-input>
     <p class="conP" *ngIf="password != confirm_pass">{{'Please Enter Password and Its Confirm are Identical'|translate}}</p>
   </form>
-<<<<<<< HEAD
  
   <button class="confirm" [disabled]="!f.valid" ion-button block (click)="register()">Confirm</button>
-=======
-  <button class="confirm" ion-button block (click)="register()">{{'Confirm'|translate}}</button>
->>>>>>> aa7aeebb827b48fef6b5c32a79aeb8a20c03cac6
  
 </ion-content>

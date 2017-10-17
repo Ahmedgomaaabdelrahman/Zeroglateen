@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar style="border-bottom: 1px solid orange">
-    <ion-title>Sign Up</ion-title>
+    <ion-title>{{'Sign Up'|translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -21,6 +21,6 @@
     <ion-input [(ngModel)]="password" name="password" class="formfield" type="password" placeholder="Password"></ion-input>
     <ion-input [(ngModel)]="confirm_pass" name="confirm_pass" class="formfield" type="password" placeholder="Confirm Password"></ion-input>
   </form>
-  <button class="confirm" ion-button block (click)="register()">Confirm</button>
+  <button class="confirm" ion-button block (click)="register()">{{'Confirm'|translate}}</button>
  
 </ion-content>

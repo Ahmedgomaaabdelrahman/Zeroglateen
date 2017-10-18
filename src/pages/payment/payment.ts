@@ -1,3 +1,4 @@
+import { OrdermapPage } from './../ordermap/ordermap';
 import { InvoicePage } from './../invoice/invoice';
 import { Component } from '@angular/core';
 import {  NavController, NavParams,ModalController } from 'ionic-angular';
@@ -14,7 +15,7 @@ import {  NavController, NavParams,ModalController } from 'ionic-angular';
   templateUrl: 'payment.html',
 })
 export class PaymentPage {
-
+public flag:boolean =false;
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl :ModalController) {
   }
 
@@ -22,7 +23,17 @@ export class PaymentPage {
     console.log('ionViewDidLoad PaymentPage');
   }
   goinvoice(){
-    let modal = this.modalCtrl.create(InvoicePage);
-    modal.present();
+    if(this.flag === false){
+      let modal = this.modalCtrl.create(InvoicePage);
+      modal.present();
+      this.flag = true;
+     
+      document.getElementById('btn').textContent = "Track Order";
+    }
+    else if(this.flag == true){
+      
+      this.navCtrl.push(OrdermapPage);
+      this.flag = false;
+    }
 }
 }

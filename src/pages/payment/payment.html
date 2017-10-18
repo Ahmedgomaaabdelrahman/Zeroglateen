@@ -31,48 +31,48 @@
       </ion-col>
   </ion-row>
 
-  <ion-list radio-group>
+  <ion-list radio-group >
       <ion-item class="paytype">
         <ion-label>
           <img src="assets/imgs/cash.png"> <p>Cash on delivery</p>
         </ion-label>
-          <ion-radio checked="true" value="cash"></ion-radio>
+          <ion-radio [disabled]="flag" checked="true" value="cash"></ion-radio>
       </ion-item>
     
       <ion-item class="paytype">
         <ion-label>
           <img src="assets/imgs/mastercard.png"><p>By Mastercard</p>
         </ion-label>
-        <ion-radio value="mastercardgo"></ion-radio>
+        <ion-radio [disabled]="flag" value="mastercardgo"></ion-radio>
       </ion-item>
       
       <ion-item class="paytype">
         <ion-label>
           <img src="assets/imgs/paypal.png"><p>Paypal</p>
         </ion-label>
-        <ion-radio  value="paypal"></ion-radio>
+        <ion-radio [disabled]="flag" value="paypal"></ion-radio>
       </ion-item>
 
       <ion-item class="paytype">
         <ion-label>
           <img src="assets/imgs/visa.png"><p>By Visa</p>
         </ion-label>
-        <ion-radio  value="visa"></ion-radio>
+        <ion-radio [disabled]="flag" value="visa"></ion-radio>
       </ion-item>
 
       <ion-item class="paytype">
         <ion-label>
           <img style="background-color:white"><p>Sadad</p>
         </ion-label>
-        <ion-radio value="Sadad"></ion-radio>
+        <ion-radio [disabled]="flag" value="Sadad"></ion-radio>
       </ion-item>
 
       <ion-item class="paytype">
           <ion-label>
             <img src="assets/imgs/point.png"><p>By Points</p>
           </ion-label>
-          <ion-radio  value="point"></ion-radio>
+          <ion-radio [disabled]="flag"  value="point"></ion-radio>
         </ion-item>
     </ion-list>
-    <button ion-button block class="next" (click)="goinvoice()">{{'Confirm Order'|translate}}</button>
+    <button ion-button block class="next" id="btn" (click)="goinvoice()">{{'Confirm Order'|translate}}</button>
 </ion-content>

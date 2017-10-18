@@ -19,7 +19,7 @@ export class RatingPage {
   }
   dismiss(){
     this.viewCtrl.dismiss();
-    this.navCtrl.push(OrdermapPage);
+   //this.navCtrl.push(OrdermapPage); 
     // this.navCtrl.setRoot(HomePage);
   }
 }

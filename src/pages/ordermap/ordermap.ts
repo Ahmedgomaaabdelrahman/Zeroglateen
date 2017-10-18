@@ -1,6 +1,6 @@
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import {  NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, MenuController } from 'ionic-angular';
 
 /**
  * Generated class for the OrdermapPage page.
@@ -16,7 +16,8 @@ import {  NavController, NavParams } from 'ionic-angular';
 })
 export class OrdermapPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl:MenuController) {
+    this.menuCtrl.swipeEnable(true);
   }
 
   ionViewDidLoad() {
@@ -24,5 +25,6 @@ export class OrdermapPage {
   }
  finish(){
    this.navCtrl.push(HomePage);
+ 
  }
 }

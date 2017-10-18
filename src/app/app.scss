@@ -149,3 +149,6 @@ color:$color-font2;
   ion-menu[type=overlay] .scroll-content{
     border-radius: 50px;
   }
+  [dir = 'rtl'] .back-button.show-back-button{
+transform: rotate(180deg);
+  }

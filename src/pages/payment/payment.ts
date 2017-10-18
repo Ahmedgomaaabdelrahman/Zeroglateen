@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { OrdermapPage } from './../ordermap/ordermap';
 import { InvoicePage } from './../invoice/invoice';
 import { Component } from '@angular/core';
@@ -16,7 +17,7 @@ import {  NavController, NavParams,ModalController } from 'ionic-angular';
 })
 export class PaymentPage {
 public flag:boolean =false;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl :ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl :ModalController,public translate:TranslateService ) {
   }
 
   ionViewDidLoad() {
@@ -27,8 +28,12 @@ public flag:boolean =false;
       let modal = this.modalCtrl.create(InvoicePage);
       modal.present();
       this.flag = true;
+      this.translate.get('Track Order').subscribe(
+        value => {
+          document.getElementById('btn').textContent =value;
      
-      document.getElementById('btn').textContent = "Track Order";
+        });
+      
     }
     else if(this.flag == true){
       

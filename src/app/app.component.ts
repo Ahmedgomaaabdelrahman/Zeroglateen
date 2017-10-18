@@ -49,7 +49,7 @@ export class MyApp {
       
     });
     platform.setDir('ltr',true);
-    this.translate.setDefaultLang('en');
+    this.translate.setDefaultLang('ar');
   }
   onLoad(page:any){
     this.nav.push(page);

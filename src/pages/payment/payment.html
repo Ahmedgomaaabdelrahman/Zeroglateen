@@ -27,7 +27,8 @@
         <div class="cartstep" id="laststep"><div><ion-icon name="checkmark"></ion-icon></div>{{'Location'|translate}}</div>
       </ion-col>
       <ion-col col-4>
-        <div class="cartstep"><div>3</div>{{'Payment'|translate}}</div>
+        <div class="cartstep" *ngIf="flag" id="laststep"><div><ion-icon name="checkmark"></ion-icon></div>{{'Payment'|translate}}</div>
+        <div class="cartstep" *ngIf="!flag"><div>3</div>{{'Payment'|translate}}</div>
       </ion-col>
   </ion-row>
 

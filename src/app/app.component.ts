@@ -23,7 +23,7 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   @ViewChild('nav') nav:NavController;
   public  MainService = MainProvider;
-  rootPage:any = LoginPage;
+  rootPage:any;
   homePage=HomePage;
   myaccountPage=MyaccountPage;
   cartPage=CartPage;
@@ -38,10 +38,18 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      this.user.userStorageGet();
+      this.user.userStorageGet().then(()=>{
+        if(this.user.user != null )
+        {
+          this.rootPage = HomePage;
+        }else{
+            this.rootPage = LoginPage;
+          }
+      }).catch((err)=>console.log(err));
+      
     });
     platform.setDir('ltr',true);
-    this.translate.setDefaultLang('ar');
+    this.translate.setDefaultLang('en');
   }
   onLoad(page:any){
     this.nav.push(page);

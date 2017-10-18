@@ -45,11 +45,11 @@
       </ion-col>
     </ion-row>
   </ion-item>
-  <ion-item *ngIf="MainService.lang == 'ar'">
+  <ion-item *ngIf="MainProvider.lang == 'ar'">
       <ion-label>{{'Language'|translate}}</ion-label>
       <ion-toggle [(ngModel)]="toggleStatus"  checked="false" (ionChange)="Change_Toggle('en')"></ion-toggle>
     </ion-item>
-    <ion-item *ngIf="MainService.lang == 'en'">
+    <ion-item *ngIf="MainProvider.lang == 'en'">
         <ion-label>{{'Language'|translate}}</ion-label>
         <ion-toggle [(ngModel)]="toggleStatus"  checked="true" (ionChange)="Change_Toggle('ar')"></ion-toggle>
       </ion-item>

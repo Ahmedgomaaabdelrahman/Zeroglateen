@@ -1,3 +1,4 @@
+import { NativeStorage } from '@ionic-native/native-storage';
 import { SignsupplierPage } from './../pages/signsupplier/signsupplier';
 import { SignproductivePage } from './../pages/signproductive/signproductive';
 import { SigntypesPage } from './../pages/signtypes/signtypes';
@@ -105,6 +106,7 @@ export function createTranslateLoader(http: Http) {
   providers: [
     StatusBar,
     SplashScreen,
+    NativeStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MainProvider,
     UserProvider,

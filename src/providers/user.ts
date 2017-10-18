@@ -1,3 +1,5 @@
+import { HomePage } from './../pages/home/home';
+import { NavController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -35,7 +37,7 @@ export class UserProvider {
     user_type:1,
     token:1,
     device_type:1
-   }
+   };
    return this.http.post(this.registerUrl+MainProvider.lang,user).map((res) => res.json());
   }
 
@@ -43,14 +45,14 @@ export class UserProvider {
     let user = {
        email : Email,
        password : Password
-    }
+    };
     return this.http.post(this.loginUrl+MainProvider.lang,user).map((res) => res.json());
   }
   forgetPassword(Email :any)
   { 
     let user = {
       email : Email
-    }
+    };
     return this.http.post(this.forgetPassUrl+MainProvider.lang,user).map((res) => res.json());
   }  
    
@@ -66,12 +68,13 @@ export class UserProvider {
   }
   
   userStorageGet(){
-    this.nativeStorage.getItem('user')
+    return this.nativeStorage.getItem('user')
       .then(
         (user) => {
           this.user = user;
           console.log('user Is Geted!');
-          //return customer
+          // this.navCtrl.push(HomePage);
+          //return user
         },
         error => console.error(error)
       );

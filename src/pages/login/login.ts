@@ -39,7 +39,7 @@ export class LoginPage {
             this.common.presentToast(value);
             this.userProvider.userStorageSave(res);
           });
-        this.navCtrl.push(HomePage);
+        this.navCtrl.setRoot(HomePage);
       }
      
     });

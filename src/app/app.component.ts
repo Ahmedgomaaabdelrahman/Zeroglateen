@@ -57,7 +57,7 @@ export class MyApp {
 }
 logout(){
   this.user.userStorageErase();
-  this.rootPage = LoginPage;
+    this.rootPage = LoginPage;
 }
 }
 

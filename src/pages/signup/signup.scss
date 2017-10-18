@@ -20,13 +20,12 @@ page-signup {
 .forma{
     margin: 8%;
     width: 85%;
-    height: 66%;
+    height: auto;
     border: 1px solid wheat;
     border-radius: 20px;
     background-color: white;
     padding: 26px;
-    position: fixed;
-    top: 50px;
+    
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .formfield{
@@ -39,7 +38,6 @@ page-signup {
 .confirm{
     background-color: #32BA17;
     color: white;
-    position: fixed;
     width: 85%;
     height: 55px;
     border-radius: 20px;

@@ -48,8 +48,8 @@ export class MyApp {
       }).catch((err)=>console.log(err));
       
     });
-    platform.setDir('ltr',true);
-    this.translate.setDefaultLang('ar');
+    platform.setDir('rtl',true);
+    this.translate.setDefaultLang('en');
   }
   onLoad(page:any){
     this.nav.push(page);

@@ -79,4 +79,15 @@ export class UserProvider {
         error => console.error(error)
       );
   }
+
+  userStorageErase(){
+    this.nativeStorage.remove('user')
+      .then(
+        () => {
+          this.user = null;
+          console.log('user Is Erased!');
+        },
+        error => console.error(error)
+      );
+  }
 }

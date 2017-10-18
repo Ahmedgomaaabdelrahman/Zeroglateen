@@ -55,5 +55,9 @@ export class MyApp {
     this.nav.push(page);
     this.menuCtrl.close();
 }
+logout(){
+  this.user.userStorageErase();
+  this.nav.setRoot(LoginPage);
+}
 }
 

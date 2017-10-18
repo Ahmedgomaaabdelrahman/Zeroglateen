@@ -12,7 +12,7 @@ import {MainProvider} from "../../providers/main";
 })
 export class SettingsPage {
   public toggleStatus:any;
-  public MainProvider : MainProvider;
+  public MainProvider = MainProvider;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private translate: TranslateService,

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {MainProvider} from './main';
-
+import { NativeStorage } from '@ionic-native/native-storage';
 /*
   Generated class for the UserProvider provider.
 
@@ -18,7 +18,7 @@ export class UserProvider {
   public loginUrl : string = MainProvider.baseUrl+"login/";
   public forgetPassUrl : string = MainProvider.baseUrl+"forgetpassword/";
 
-  constructor(public http: Http,public main:MainProvider) {
+  constructor(private nativeStorage: NativeStorage,public http: Http,public main:MainProvider) {
     console.log('Hello UserProvider Provider');
   }
    
@@ -54,5 +54,14 @@ export class UserProvider {
     return this.http.post(this.forgetPassUrl+MainProvider.lang,user).map((res) => res.json());
   }  
    
-    
+  userStorageSave(user:any){
+    this.nativeStorage.setItem('user', user)
+      .then(
+        () => {
+          this.user = user;
+          console.log('user Is Stored!');
+        },
+        error => console.error('Error storing item', error)
+      );
+  }  
 }

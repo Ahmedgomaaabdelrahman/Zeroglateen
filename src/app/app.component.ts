@@ -1,3 +1,4 @@
+import { UserProvider } from './../providers/user';
 import { MainProvider } from './../providers/main';
 import { LoginPage } from './../pages/login/login';
 import { SigntypesPage } from './../pages/signtypes/signtypes';
@@ -30,16 +31,17 @@ export class MyApp {
   settingsPage=SettingsPage;
 
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController,public translate : TranslateService) {
+  constructor(public user:UserProvider,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController,public translate : TranslateService) {
     platform.ready().then(() => {
    
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      this.user.userStorageGet();
     });
     platform.setDir('ltr',true);
-    this.translate.setDefaultLang('en');
+    this.translate.setDefaultLang('ar');
   }
   onLoad(page:any){
     this.nav.push(page);

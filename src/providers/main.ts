@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class MainProvider {
   public static baseUrl : string = "http://104.236.243.55/api/";
-  public static  lang : string = 'ar';
+  public static  lang : string = 'en';
   
   constructor(public http: Http) {
     console.log('Hello MainProvider Provider');

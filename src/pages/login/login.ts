@@ -37,6 +37,7 @@ export class LoginPage {
         this.translate.get('Login Sucessfully').subscribe(
           value => {
             this.common.presentToast(value);
+            this.userProvider.userStorageSave(res);
           });
         this.navCtrl.push(HomePage);
       }

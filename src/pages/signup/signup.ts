@@ -39,6 +39,7 @@ export class SignupPage {
           this.translate.get('Registered Sucessfully').subscribe(
             value => {
               this.common.presentToast(value);
+              this.userService.userStorageSave(res);
             });
           this.navCtrl.push(HomePage);
         }

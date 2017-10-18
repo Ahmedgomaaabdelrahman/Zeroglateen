@@ -22,7 +22,7 @@ import { HomePage } from '../pages/home/home';
 })
 export class MyApp {
   @ViewChild('nav') nav:NavController;
-  public  MainService = MainProvider;
+  public  MainService =  MainProvider;
   rootPage:any;
   homePage=HomePage;
   myaccountPage=MyaccountPage;

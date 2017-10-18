@@ -63,5 +63,17 @@ export class UserProvider {
         },
         error => console.error('Error storing item', error)
       );
-  }  
+  }
+  
+  userStorageGet(){
+    this.nativeStorage.getItem('user')
+      .then(
+        (user) => {
+          this.user = user;
+          console.log('user Is Geted!');
+          //return customer
+        },
+        error => console.error(error)
+      );
+  }
 }

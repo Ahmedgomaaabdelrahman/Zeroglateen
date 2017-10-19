@@ -15,30 +15,30 @@
 </ion-header>
 <ion-content padding>
   
-<form>
+<form  #f="ngForm" (ngSubmit)="updateUser(f.value)">
     <ion-list>
   <ion-item>
     <ion-label stacked>{{'Name'|translate}}</ion-label>
-    <ion-input type="text" placeholder="Mohamed"></ion-input>
+    <ion-input type="text" [ngModel]="userProvider.user.name" name="name" placeholder="" required></ion-input>
   </ion-item>
   <ion-item>
     <ion-label stacked>{{'Email'|translate}}</ion-label>
-    <ion-input type="email" placeholder="Mohamed@Gmail.com"></ion-input>
+    <ion-input type="email" [ngModel]="userProvider.user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" placeholder="" required></ion-input>
   </ion-item>
   <ion-item>
     <ion-label stacked>{{'Phone Number'|translate}}</ion-label>
-    <ion-input type="tel" placeholder="123456789"></ion-input>
+    <ion-input type="tel"  [ngModel]="userProvider.user.phone" name="phone" placeholder="" required></ion-input>
   </ion-item>
     <ion-item>
     <ion-label stacked>{{'Password'|translate}}</ion-label>
-    <ion-input type="password" placeholder="***************"></ion-input>
+    <ion-input type="password" ngModel name="password" maxlength="6" placeholder="" required></ion-input>
   </ion-item>
   <ion-item>
     <ion-label stacked>{{'Confirm Password'|translate}}</ion-label>
-    <ion-input type="password" placeholder="***************"></ion-input>
+    <ion-input type="password" ngModel name="confirm_password" maxlength="6" placeholder="" required></ion-input>
   </ion-item>  
 </ion-list>            
-</form>
-<button ion-button round block class="confirm">{{'Confirm'|translate}}</button>
 
+<button ion-button [disabled]="!f.valid" type="submit" round block class="confirm">{{'Confirm'|translate}}</button>
+</form>
 </ion-content>

@@ -37,7 +37,7 @@ public flag:boolean =false;
     }
     else if(this.flag == true){
       
-      this.navCtrl.push(OrdermapPage);
+      this.navCtrl.setRoot(OrdermapPage);
       this.flag = false;
     }
 }

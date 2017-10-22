@@ -19,13 +19,14 @@ export class UserProvider {
   public registerUrl : string = MainProvider.baseUrl+"register/";
   public loginUrl : string = MainProvider.baseUrl+"login/";
   public forgetPassUrl : string = MainProvider.baseUrl+"forgetpassword/";
-
+  public updateUrl : string = MainProvider.baseUrl+"modifyusers/";
   constructor(private nativeStorage: NativeStorage,public http: Http,public main:MainProvider) {
     console.log('Hello UserProvider Provider');
   }
    
   registerUesr(Name:string,Email:any,PhoneNo:any,Password:any,Confirm:any,lang ?: any,lat ?:any,commerical ?:string){
-   let user = {
+   
+    let user = {
     name:Name,
     email:Email,
     phone:PhoneNo,
@@ -89,5 +90,16 @@ export class UserProvider {
         },
         error => console.error(error)
       );
+  }
+
+  updateUser(Name :string,Email:string,Phone : number,Password:string,ConPassword:string){
+    let user = {
+      name:Name,
+      email:Email,
+      phone:Phone,
+      password:Password,
+      confirm_password:ConPassword
+     };
+    return this.http.put(this.updateUrl+this.user.id,user).map((res) => res.json());
   }
 }

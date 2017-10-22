@@ -21,6 +21,7 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+  
   forgetpass(){
     let modal = this.modalCtrl.create(ForgetpassPage);
     modal.present();
@@ -37,7 +38,7 @@ export class LoginPage {
         this.translate.get('Login Sucessfully').subscribe(
           value => {
             this.common.presentToast(value);
-            console.log(res);
+            this.userProvider.user = res;
             this.userProvider.userStorageSave(res);
           });
         this.navCtrl.setRoot(HomePage);
@@ -45,4 +46,5 @@ export class LoginPage {
      
     });
   }
+ 
 }

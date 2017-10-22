@@ -13,12 +13,30 @@ import { NavController, MenuController,ModalController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+public counter:number =0 ;
+public heart:boolean=false;
   constructor(public navCtrl: NavController,
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
   
   }
+  addItem(){
+  this.counter++;
+}
+removeItem(){
+if(this.counter!=0)
+  this.counter--;
+  else
+  this.counter=0;
+}
+changeHeart(){
+  if(this.heart==false){
+    this.heart=true;
+  }
+  else if(this.heart==true){
+    this.heart=false;
+  }
+}
   ss(){
     this.navCtrl.push(SignupPage);
   }

@@ -34,11 +34,13 @@ export class SignupPage {
       this.userService.registerUesr(this.name,this.email,this.phone,this.password,this.confirm_pass).subscribe((res)=>{
         if(res.error){
          this.common.presentToast(res.error);
+         console.log(res.error);
         }
         else{
           this.translate.get('Registered Sucessfully').subscribe(
             value => {
               this.common.presentToast(value);
+              this.userService.user = res;
               this.userService.userStorageSave(res);
             });
           this.navCtrl.push(HomePage);

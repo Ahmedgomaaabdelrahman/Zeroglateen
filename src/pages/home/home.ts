@@ -14,22 +14,17 @@ import { NavController, MenuController,ModalController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-<<<<<<< HEAD
   public products :any [];
-  public imageUrl : string = "http://104.236.243.55/ProductImage/";
-
+  public imageUrl : string = "http://104.236.243.55/ProductImage/";  
+  public counter:number =0 ;
+  public heart:boolean=false;
+  
   constructor(public product:ProductProvider,public navCtrl: NavController,
-=======
-public counter:number =0 ;
-public heart:boolean=false;
-  constructor(public navCtrl: NavController,
->>>>>>> 3b255177c3b443fa4ce229ea24cec224aa4e4403
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
     this.getProducts();
   
   }
-<<<<<<< HEAD
 
    getProducts(){
      this.product.getProducts().subscribe((res)=>{
@@ -40,7 +35,6 @@ public heart:boolean=false;
    }
 
 
-=======
   addItem(){
   this.counter++;
 }
@@ -58,7 +52,6 @@ changeHeart(){
     this.heart=false;
   }
 }
->>>>>>> 3b255177c3b443fa4ce229ea24cec224aa4e4403
   ss(){
     this.navCtrl.push(SignupPage);
   }

@@ -152,3 +152,6 @@ color:$color-font2;
   [dir = 'rtl'] .back-button.show-back-button{
 transform: rotate(180deg);
   }
+  *{
+    touch-action: manipulation;
+  }

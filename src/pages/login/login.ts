@@ -21,6 +21,7 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+  
   forgetpass(){
     let modal = this.modalCtrl.create(ForgetpassPage);
     modal.present();
@@ -45,4 +46,5 @@ export class LoginPage {
      
     });
   }
+ 
 }

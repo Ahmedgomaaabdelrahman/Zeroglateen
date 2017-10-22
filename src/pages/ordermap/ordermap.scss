@@ -9,12 +9,10 @@ page-ordermap {
         text-align: center;
         color: $color-font;
         margin-right: 0px !important;
+    }    
+    .back-button.show-back-button {
+        display: none;
     }
-    
-       
-      
-       
-    
     .map{
         z-index: 0;
     }

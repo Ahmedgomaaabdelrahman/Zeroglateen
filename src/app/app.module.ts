@@ -36,6 +36,7 @@ import { HomePage } from '../pages/home/home';
 import { MainProvider } from '../providers/main';
 import { UserProvider } from '../providers/user';
 import { CommonProvider } from '../providers/common';
+import { ProductProvider } from '../providers/product';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -110,7 +111,8 @@ export function createTranslateLoader(http: Http) {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MainProvider,
     UserProvider,
-    CommonProvider
+    CommonProvider,
+    ProductProvider
   ]
 })
 export class AppModule {}

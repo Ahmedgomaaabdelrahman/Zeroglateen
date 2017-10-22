@@ -1,37 +1,12 @@
 
 <ion-content padding style="border-radius: 20px;">
-    <ion-list radio-group [(ngModel)]="filter">
-        
-          <div  class="searchheader">
-              {{'Search'|translate}}
-          </div>
-        
-          <ion-item>
-            <ion-label>{{'Fruits'|translate}}</ion-label>
-            <ion-radio (click)="dismiss()"></ion-radio>
-          </ion-item>
-        
-          <ion-item>
-            <ion-label>{{'Vegetables'|translate}}</ion-label>
-            <ion-radio (click)="dismiss()"></ion-radio>
-          </ion-item>
-        
-          <ion-item>
-            <ion-label>{{'Sea Food'|translate}}</ion-label>
-            <ion-radio (click)="dismiss()"></ion-radio>
-          </ion-item>
-        
-          <ion-item>
-            <ion-label>{{'Bakery & Pastry'|translate}}</ion-label>
-            <ion-radio (click)="dismiss()"></ion-radio>
-          </ion-item>
-        
-          <ion-item>
-            <ion-label>{{'Grocery'|translate}}</ion-label>
-            <ion-radio (click)="dismiss()"></ion-radio>
-          </ion-item>
-        
-        </ion-list>
-        
-    </ion-content>
-    
+<ion-list radio-group [(ngModel)]="filter">
+  <div  class="searchheader">
+      {{'Search'|translate}}
+  </div>
+  <ion-item  *ngFor="let item of items">
+    <ion-label>{{item.category_name}}</ion-label>
+    <ion-radio (click)="dismiss()"></ion-radio>
+  </ion-item>       
+</ion-list>
+</ion-content>

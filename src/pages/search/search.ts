@@ -1,12 +1,7 @@
+import { ProductProvider } from './../../providers/product';
 import { Component } from '@angular/core';
 import {  NavController, NavParams, ViewController } from 'ionic-angular';
 
-/**
- * Generated class for the SearchPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 
 @Component({
@@ -14,8 +9,9 @@ import {  NavController, NavParams, ViewController } from 'ionic-angular';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController) {
+public items:any[];
+  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,public productProvider:ProductProvider) {
+ this.category();
   }
 
   ionViewDidLoad() {
@@ -24,4 +20,11 @@ export class SearchPage {
   dismiss(){
     this.viewCtrl.dismiss();
   }
+  category(){
+    this.productProvider.category().subscribe((res)=>{
+      this.items=res;
+      console.log(res);
+    })
+  }
+  
 }

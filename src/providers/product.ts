@@ -1,18 +1,18 @@
+import { MainProvider } from './main';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the ProductProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ProductProvider {
-
+  public getProductsUrl : string = MainProvider.baseUrl+"product?lang=";
   constructor(public http: Http) {
     console.log('Hello ProductProvider Provider');
+  
   }
-
+ 
+  getProducts(){
+    return this.http.get(this.getProductsUrl+MainProvider.lang).map((res)=>res.json());
+  }
 }

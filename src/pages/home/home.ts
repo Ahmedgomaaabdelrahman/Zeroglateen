@@ -1,3 +1,4 @@
+import { ProductProvider } from './../../providers/product';
 import { CartPage } from './../cart/cart';
 import { OrdermapPage } from './../ordermap/ordermap';
 import { OrderdetailsPage } from './../orderdetails/orderdetails';
@@ -13,12 +14,25 @@ import { NavController, MenuController,ModalController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  public products :any [];
+  public imageUrl : string = "http://104.236.243.55/ProductImage/";
 
-  constructor(public navCtrl: NavController,
+  constructor(public product:ProductProvider,public navCtrl: NavController,
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
+    this.getProducts();
   
   }
+
+   getProducts(){
+     this.product.getProducts().subscribe((res)=>{
+          console.log(res);
+          this.products = res;
+           
+     });
+   }
+
+
   ss(){
     this.navCtrl.push(SignupPage);
   }

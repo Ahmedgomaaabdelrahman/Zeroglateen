@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class MainProvider {
   public static baseUrl : string = "http://104.236.243.55/api/";
+  public static imagesUrl : string = "104.236.243.55/ProductImage/ ";
   public static  lang : string = 'en';
   
   constructor(public http: Http) {

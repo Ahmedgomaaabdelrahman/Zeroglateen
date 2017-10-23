@@ -33,13 +33,13 @@ export class SignupPage {
   register(){
       this.userService.registerUesr(this.name,this.email,this.phone,this.password,this.confirm_pass).subscribe((res)=>{
         if(res.error){
-         this.common.presentToast(res.error);
+         this.common.traslateandToast(res.error);
          console.log(res.error);
         }
         else{
           this.translate.get('Registered Sucessfully').subscribe(
             value => {
-              this.common.presentToast(value);
+              this.common.traslateandToast(value);
               this.userService.user = res;
               this.userService.userStorageSave(res);
             });

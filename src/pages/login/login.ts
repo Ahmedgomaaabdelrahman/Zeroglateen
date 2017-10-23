@@ -32,12 +32,12 @@ export class LoginPage {
   login(){
     this.userProvider.loginUser(this.email,this.password).subscribe((res)=>{
       if(res.error){
-       this.common.presentToast(res.error);
+       this.common.traslateandToast(res.error);
       }
       else{
         this.translate.get('Login Sucessfully').subscribe(
           value => {
-            this.common.presentToast(value);
+            this.common.traslateandToast(value);
             this.userProvider.user = res;
             this.userProvider.userStorageSave(res);
           });

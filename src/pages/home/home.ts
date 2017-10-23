@@ -1,3 +1,4 @@
+import { UserProvider } from './../../providers/user';
 import { CommonProvider } from './../../providers/common';
 import { ProductProvider } from './../../providers/product';
 import { CartPage } from './../cart/cart';
@@ -9,7 +10,7 @@ import { SignupPage } from './../signup/signup';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, MenuController,ModalController } from 'ionic-angular';
-import { UserProvider } from '../../providers/user';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -19,11 +20,11 @@ export class HomePage {
   public imageUrl : string = "http://104.236.243.55/ProductImage/";  
   public counter:number =0 ;
   public heart:boolean=false;
-  
+
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
-    this.common.presentToast('hello' + this.userprovider.deviceToken);
+    this.common.traslateandToast('hello' + this.userprovider.deviceToken);
   }
   ionViewWillEnter()
   {
@@ -86,9 +87,19 @@ export class HomePage {
   gomap(){
     this.navCtrl.push(OrdermapPage);
   }
+
   addtoFav(prodid){
-    this.product.addToFav(prodid).subscribe((res)=>{
+    if(this.userprovider.user.id){
+      this.product.addToFav(this.userprovider.user.id,prodid).subscribe((res)=>{
         console.log(res);
+        if(res.state == "202"){
+          this.common.traslateandToast("added successfully");
+        }
+        else if(res.state == "203"){
+          this.common.traslateandToast("Already added before");
+        }
     });
+    }
+   
   }
 }

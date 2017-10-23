@@ -44,7 +44,7 @@ export class MyApp {
         {
           this.rootPage = HomePage;
         }else{
-            this.rootPage = HomePage;
+            this.rootPage = LoginPage;
           }
       }).catch((err)=>console.log(err));
       

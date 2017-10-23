@@ -11,7 +11,7 @@ export class ProductProvider {
 public getProductsUrl : string = MainProvider.baseUrl+"product?lang=";
 public categoryUrl:string = MainProvider.baseUrl+"category?lang=";
 public addFavUrl:string = MainProvider.baseUrl+"setfavorit";
-public userid : any;
+
   constructor(public userprovider:UserProvider,public http: Http) {
     console.log('Hello ProductProvider Provider');
   
@@ -24,14 +24,12 @@ public userid : any;
   category(){
     return this.http.get(this.categoryUrl+MainProvider.lang).map((res) => res.json());
   }
-  addToFav(prodid){
-    if(this.userprovider.user == null){this.userid = this.userprovider.deviceToken}
-    else{this.userid = this.userprovider.user.id}
-    
+
+  addToFav(userid,prodid){ 
     let body = {
-      user_id : this.userid,
+      user_id : userid,
       product_id:prodid
-     };
+    };
     return this.http.post(this.addFavUrl,body).map((res) => res.json());
   }
 }

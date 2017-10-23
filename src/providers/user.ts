@@ -17,7 +17,7 @@ import { Firebase } from '@ionic-native/firebase';
 @Injectable()
 export class UserProvider {
   public user: any;
-  public deviceToken : string = null;
+  public deviceToken : string ='xyz';
   public userType : number ;
   public registerUrl : string = MainProvider.baseUrl+"register/";
   public loginUrl : string = MainProvider.baseUrl+"login/";
@@ -34,9 +34,7 @@ export class UserProvider {
     this.firebase.getToken()
     .then(token => {console.log(`The token is ${token}`);
           this.deviceToken = token }) // save the token server-side and use it to push notifications to this device
-    .catch(error => console.error('Error getting token', error));
-
-    
+    .catch(error => console.error('Error getting token', error));    
   }
 
   registerUesr(Name:string,Email:any,PhoneNo:any,Password:any,Confirm:any,lang ?: any,lat ?:any,commerical ?:string){

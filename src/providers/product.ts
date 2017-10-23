@@ -11,7 +11,9 @@ export class ProductProvider {
 public getProductsUrl : string = MainProvider.baseUrl+"product?lang=";
 public categoryUrl:string = MainProvider.baseUrl+"category?lang=";
 public addFavUrl:string = MainProvider.baseUrl+"setfavorit";
-
+public addCartUrl :string = MainProvider.baseUrl+"cart";
+public getCartUrl :string = MainProvider.baseUrl+"getcart/";
+public userid:any;
   constructor(public userprovider:UserProvider,public http: Http) {
     console.log('Hello ProductProvider Provider');
   
@@ -31,5 +33,18 @@ public addFavUrl:string = MainProvider.baseUrl+"setfavorit";
       product_id:prodid
     };
     return this.http.post(this.addFavUrl,body).map((res) => res.json());
+  }
+  addToCart(userid,prodid,qauntity){
+   let body = {
+    user_id:userid,
+    product_id:prodid,
+    item_qty:qauntity,
+    cart_state:1
+   };
+   return this.http.post(this.addCartUrl,body).map((res) => res.json());
+  }
+  getCart(userid)
+  {
+    return this.http.get(this.getCartUrl+userid+"?lang="+ MainProvider.lang).map((res) => res.json());
   }
 }

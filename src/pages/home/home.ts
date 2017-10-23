@@ -19,12 +19,8 @@ export class HomePage {
   public imageUrl : string = "http://104.236.243.55/ProductImage/";  
   public counter:number =0 ;
   public heart:boolean=false;
-<<<<<<< HEAD
-  constructor(public product:ProductProvider,public navCtrl: NavController,
-=======
   
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
->>>>>>> 719446d97a611a90af176424f09c446528a0db00
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
     this.common.presentToast('hello' + this.userprovider.deviceToken);
@@ -38,30 +34,33 @@ export class HomePage {
   getProducts(){
      this.product.getProducts().subscribe((res)=>{
           console.log(res);
-<<<<<<< HEAD
-          this.products = res;    
-=======
           this.products = res;
           console.log(this.products[0].image);
->>>>>>> 719446d97a611a90af176424f09c446528a0db00
      });
    }
-  addItem(){
-  this.counter++;
+  addItem(counterEle : any){
+  //this.counter++;
+  console.log(counterEle);
+  counterEle.value++;
   }
-  removeItem(){
-    if(this.counter!=0)
-     this.counter--;
-    else
-     this.counter=0;
+  removeItem(counterEle : any){
+    console.log(counterEle);
+    counterEle.value--;
+    // if(this.counter!=0)
+    //  this.counter--;
+    // else
+    //  this.counter=0;
   }
-  changeHeart(){
-    if(this.heart==false){
-      this.heart=true;
-    }
-    else if(this.heart==true){
-      this.heart=false;
-    }
+  changeHeart(iconEle : any){
+    if(iconEle.style.color == 'crimson')
+    iconEle.style.color = 'white';
+    else iconEle.style.color = 'crimson';
+    // if(this.heart==false){
+    //   this.heart=true;
+    // }
+    // else if(this.heart==true){
+    //   this.heart=false;
+    // }
   }
   ss(){
     this.navCtrl.push(SignupPage);
@@ -95,6 +94,7 @@ export class HomePage {
   addtoFav(prodid){
     this.product.addToFav(prodid).subscribe((res)=>{
         console.log(res);
+       
     });
   }
 }

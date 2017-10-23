@@ -36,17 +36,17 @@
           <ion-row>
                 <ion-col col-8>
                     <div class="qaundiv">
-                        <ion-icon name="remove" style="float:left" (click)=removeItem()></ion-icon>
-                           <p>{{counter}}</p>
-                        <ion-icon name="add" style="float:right" (click)=addItem()></ion-icon>
+                      <ion-icon name="remove" style="float:left" (click)=removeItem(counter)></ion-icon>
+                           <input #counter value="0" type="text">
+                         
+                           <ion-icon name="add" style="float:right" (click)=addItem(counter)></ion-icon>
                       </div>
                 </ion-col>
-                <ion-col col-4 style="padding:5px 0" (click)=addtoFav(product.product_id)>
-                    <div class="heartdiv" *ngIf="heart == false"> 
-                        <ion-icon name="heart-outline"></ion-icon>                  
-                    </div>
-                    <div class="heartdiv" *ngIf="heart == true"> 
-                        <ion-icon name="heart"></ion-icon>                  
+                <ion-col col-4 style="padding:5px 0" >
+                    <div class="heartdiv"> 
+                        <ion-icon   
+                        #icon
+                        name="heart" (click)=changeHeart(icon)></ion-icon>                  
                     </div>
                   </ion-col>
           </ion-row>

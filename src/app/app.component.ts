@@ -45,10 +45,7 @@ export class MyApp {
           this.MainService.sideMenu=true;
           this.rootPage = HomePage;
         }else{
-<<<<<<< HEAD
           this.MainService.sideMenu=false;
-=======
->>>>>>> 719446d97a611a90af176424f09c446528a0db00
             this.rootPage = HomePage;
           }
       }).catch((err)=>console.log(err));

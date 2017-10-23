@@ -5,6 +5,8 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {MainProvider} from './main';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { Firebase } from '@ionic-native/firebase';
+
 /*
   Generated class for the UserProvider provider.
 
@@ -20,10 +22,18 @@ export class UserProvider {
   public loginUrl : string = MainProvider.baseUrl+"login/";
   public forgetPassUrl : string = MainProvider.baseUrl+"forgetpassword/";
   public updateUrl : string = MainProvider.baseUrl+"modifyusers/";
-  constructor(private nativeStorage: NativeStorage,public http: Http,public main:MainProvider) {
+  constructor(private firebase: Firebase,private nativeStorage: NativeStorage,public http: Http,public main:MainProvider) {
     console.log('Hello UserProvider Provider');
+    
   }
    
+  getToken(){
+    this.firebase.getToken()
+    .then(token => {console.log(`The token is ${token}`);
+          this.deviceToken = token }) // save the token server-side and use it to push notifications to this device
+    .catch(error => console.error('Error getting token', error));
+  }
+
   registerUesr(Name:string,Email:any,PhoneNo:any,Password:any,Confirm:any,lang ?: any,lat ?:any,commerical ?:string){
    
     let user = {
@@ -36,7 +46,7 @@ export class UserProvider {
     lat:lat,
     comercial_record:commerical,
     user_type:1,
-    token:1,
+    token:this.deviceToken,
     device_type:1
    };
    return this.http.post(this.registerUrl+MainProvider.lang,user).map((res) => res.json());

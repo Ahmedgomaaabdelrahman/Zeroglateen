@@ -38,7 +38,7 @@ import { MainProvider } from '../providers/main';
 import { UserProvider } from '../providers/user';
 import { CommonProvider } from '../providers/common';
 import { ProductProvider } from '../providers/product';
-import { Push } from '@ionic-native/push';
+
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -116,7 +116,7 @@ export function createTranslateLoader(http: Http) {
     CommonProvider,
     ProductProvider,
     Firebase,
-    Push
+ 
   ]
 })
 export class AppModule {}

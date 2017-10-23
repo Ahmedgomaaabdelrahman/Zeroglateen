@@ -19,6 +19,7 @@ export class HomePage {
   public products :any;
   public imageUrl : string = "http://104.236.243.55/ProductImage/";  
   public counter:number =0 ;
+  
   public heart:boolean=false;
 
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
@@ -40,13 +41,14 @@ export class HomePage {
      });
    }
   addItem(counterEle : any){
-  //this.counter++;
+  this.counter++;
   console.log(counterEle);
   counterEle.value++;
   }
   removeItem(counterEle : any){
     console.log(counterEle);
     counterEle.value--;
+    this.counter--;
     // if(this.counter!=0)
     //  this.counter--;
     // else

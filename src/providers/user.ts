@@ -1,3 +1,4 @@
+import { CommonProvider } from './common';
 import { HomePage } from './../pages/home/home';
 import { NavController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
@@ -22,9 +23,11 @@ export class UserProvider {
   public loginUrl : string = MainProvider.baseUrl+"login/";
   public forgetPassUrl : string = MainProvider.baseUrl+"forgetpassword/";
   public updateUrl : string = MainProvider.baseUrl+"modifyusers/";
-  constructor(private firebase: Firebase,private nativeStorage: NativeStorage,public http: Http,public main:MainProvider) {
+  constructor(public com:CommonProvider,private firebase: Firebase,private nativeStorage: NativeStorage,public http: Http,public main:MainProvider) {
     console.log('Hello UserProvider Provider');
-    
+    this.getToken();
+    console.log(this.deviceToken);
+    this.com.presentToast(this.deviceToken);    
   }
    
   getToken(){
@@ -32,6 +35,8 @@ export class UserProvider {
     .then(token => {console.log(`The token is ${token}`);
           this.deviceToken = token }) // save the token server-side and use it to push notifications to this device
     .catch(error => console.error('Error getting token', error));
+
+    
   }
 
   registerUesr(Name:string,Email:any,PhoneNo:any,Password:any,Confirm:any,lang ?: any,lat ?:any,commerical ?:string){

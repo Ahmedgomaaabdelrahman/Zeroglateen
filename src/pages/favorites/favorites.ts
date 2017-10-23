@@ -1,3 +1,4 @@
+import { ProductProvider } from './../../providers/product';
 import { CartPage } from './../cart/cart';
 import { FilterPage } from './../filter/filter';
 import { SearchPage } from './../search/search';
@@ -18,16 +19,27 @@ import {  NavController, NavParams,ModalController} from 'ionic-angular';
   templateUrl: 'favorites.html',
 })
 export class FavoritesPage {
-
-  constructor(public navCtrl: NavController,public modalCtrl :ModalController, public navParams: NavParams) {
+public products:any[];
+public imageUrl : string = "http://104.236.243.55/ProductImage/";  
+public heart:string="heart";
+  constructor(public navCtrl: NavController,public modalCtrl :ModalController, public navParams: NavParams,public productProvider:ProductProvider) {
+    
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     console.log('ionViewDidLoad FavoritesPage');
+    this.getFavorite();
   }
-  godetails(){
-    this.navCtrl.push(OrderdetailsPage);
-  }
+  addItem(counterEle : any){
+   
+    console.log(counterEle);
+    counterEle.value++;
+    }
+    removeItem(counterEle : any){
+      console.log(counterEle);
+      counterEle.value--;
+    
+    }
   gosearch(){
     let modal = this.modalCtrl.create(SearchPage);
       modal.present();
@@ -40,5 +52,20 @@ export class FavoritesPage {
 
   myCart(){
     this.navCtrl.push(CartPage);
+  }
+  getFavorite(){
+    this.productProvider.getFav().subscribe((res)=>{
+      this.products=res;
+      console.log(res);
+      console.log(this.products);
+    })
+  }
+  godetails(name :string,weight :number ,price :number ,image : string,description : any){
+    this.navCtrl.push(OrderdetailsPage,{name : name,weight : weight,price : price,image : image, description : description});
+  }
+  changeHeart(iconEle : any){
+    if(iconEle.style.color == 'white')
+    iconEle.style.color = 'crimson';
+    else iconEle.style.color = 'white';
   }
 }

@@ -30,17 +30,17 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="itemrow">
+  <ion-row class="itemrow" *ngFor="let item of cartProd">
     <ion-col col-4>
-      <div class="imgdiv">
-        <!-- <img src="" alt=""> -->
-      </div>
+     
+        <img class="imgdiv" [src]="imageUrl+item.product.image">
+      
     </ion-col>
     <ion-col col-8>
-      <p  style="font-size:18px">Fresh Onion</p>
-      <p  style="color:gray">1 {{'Kg'|translate}}</p>
+      <p  style="font-size:18px">{{item.product.product_name}}</p>
+      <p  style="color:gray">{{item.product.weight}} {{'Kg'|translate}}</p>
       <ion-row>
-        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">12 {{'SAR'|translate}}</p></ion-col>
+        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">{{item.product.price}} {{'SAR'|translate}}</p></ion-col>
         <ion-col col-5>
           <div class="qaundiv">
             <ion-icon name="remove" style="float:left"></ion-icon>
@@ -51,54 +51,6 @@
       </ion-row>
     </ion-col>
   </ion-row>
-
-
-  <ion-row class="itemrow">
-    <ion-col col-4>
-      <div class="imgdiv">
-        <!-- <img src="" alt=""> -->
-      </div>
-    </ion-col>
-    <ion-col col-8>
-      <p  style="font-size:18px">Fresh Onion</p>
-      <p  style="color:gray">1 {{'Kg'|translate}}</p>
-      <ion-row>
-        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">12 {{'SAR'|translate}}</p></ion-col>
-        <ion-col col-5>
-          <div class="qaundiv">
-            <ion-icon name="remove" style="float:left"></ion-icon>
-            <p>5</p>
-            <ion-icon name="add" style="float:right"></ion-icon>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-col>
-  </ion-row>
-
-  <ion-row class="itemrow">
-    <ion-col col-4>
-      <div class="imgdiv">
-        <!-- <img src="" alt=""> -->
-      </div>
-    </ion-col>
-    <ion-col col-8>
-      <p  style="font-size:18px">Fresh Onion</p>
-      <p  style="color:gray">1 {{'Kg'|translate}}</p>
-      <ion-row>
-        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">12 {{'SAR'|translate}}</p></ion-col>
-        <ion-col col-5>
-          <div class="qaundiv">
-            <ion-icon name="remove" style="float:left"></ion-icon>
-            <p>5</p>
-            <ion-icon name="add" style="float:right"></ion-icon>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-col>
-  </ion-row>
-  
-  
-  
 </ion-content>
 
 <ion-footer>

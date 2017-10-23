@@ -19,7 +19,7 @@ export class HomePage {
   public products :any;
   public imageUrl : string = "http://104.236.243.55/ProductImage/";  
   public counter:number =0 ;
-  
+  public qauntity : number;
   public heart:boolean=false;
 
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
@@ -110,5 +110,17 @@ export class HomePage {
     });
     }
    
+  }
+
+  addToCart(prodid,counter){
+        this.product.addToCart(this.userprovider.user.id,prodid,this.qauntity).subscribe((res)=>{
+          if(res.state == "203"){
+            this.common.traslateandToast("Product Quantity is Updated");
+          }
+          else if(res.state == "202")
+          this.common.traslateandToast("added successfully");
+          this.addItem(counter);
+       });
+     
   }
 }

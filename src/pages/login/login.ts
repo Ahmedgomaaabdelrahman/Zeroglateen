@@ -42,6 +42,7 @@ export class LoginPage {
             this.common.traslateandToast(value);
             this.MainProvider.sideMenu=true;
             this.userProvider.user = res;
+            console.log(res);
             this.userProvider.userStorageSave(res);
           });
         this.navCtrl.setRoot(HomePage);

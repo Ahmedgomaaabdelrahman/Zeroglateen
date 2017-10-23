@@ -39,7 +39,7 @@
                       <ion-icon name="remove" style="float:left" (click)=removeItem(counter)></ion-icon>
                            <input class="itemnum" #counter value="0" type="text" readonly="readonly">
                          
-                           <ion-icon name="add" style="float:right" (click)=addItem(counter)></ion-icon>
+                           <ion-icon name="add" style="float:right" (click)=addToCart(product.product_id,counter)></ion-icon>
                       </div>
                 </ion-col>
                 <ion-col col-4 style="padding:5px 0" >

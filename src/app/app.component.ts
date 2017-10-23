@@ -29,7 +29,8 @@ export class MyApp {
   cartPage=CartPage;
   favoritesPage=FavoritesPage;
   settingsPage=SettingsPage;
-
+  loginPage=LoginPage;
+  signupPage=SignupPage;
 
   constructor(public user:UserProvider,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController,public translate : TranslateService) {
     platform.ready().then(() => {
@@ -41,9 +42,11 @@ export class MyApp {
       this.user.userStorageGet().then(()=>{
         if(this.user.user != null )
         {
+          this.MainService.sideMenu=true;
           this.rootPage = HomePage;
         }else{
-            this.rootPage = LoginPage;
+          this.MainService.sideMenu=false;
+            this.rootPage = HomePage;
           }
       }).catch((err)=>console.log(err));
       

@@ -11,11 +11,12 @@ import {  NavController, NavParams, ViewController } from 'ionic-angular';
 export class SearchPage {
 public items:any[];
   constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,public productProvider:ProductProvider) {
- this.category();
+ 
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     console.log('ionViewDidLoad SearchPage');
+    this.category();
   }
   dismiss(){
     this.viewCtrl.dismiss();

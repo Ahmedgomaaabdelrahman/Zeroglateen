@@ -1,3 +1,4 @@
+import { MainProvider } from './../../providers/main';
 import { CommonProvider } from './../../providers/common';
 import { UserProvider } from './../../providers/user';
 import { HomePage } from './../home/home';
@@ -23,6 +24,7 @@ export class SignupPage {
   public phone : any;
   public password : any;
   public confirm_pass : any;
+  MainProvider=MainProvider
   constructor(public translate:TranslateService,public common:CommonProvider,public userService :UserProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -39,6 +41,7 @@ export class SignupPage {
         else{
           this.translate.get('Registered Sucessfully').subscribe(
             value => {
+              this.MainProvider.sideMenu=true;
               this.common.presentToast(value);
               this.userService.user = res;
               this.userService.userStorageSave(res);

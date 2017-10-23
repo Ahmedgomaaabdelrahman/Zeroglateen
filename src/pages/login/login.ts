@@ -1,3 +1,4 @@
+import { MainProvider } from './../../providers/main';
 import { HomePage } from './../home/home';
 import { UserProvider } from './../../providers/user';
 import { SigntypesPage } from './../signtypes/signtypes';
@@ -15,6 +16,7 @@ import {TranslateService} from "@ngx-translate/core";
 export class LoginPage {
   public email:any;
   public password:any;
+  MainProvider=MainProvider;
   constructor(public common:CommonProvider,public translate:TranslateService,public navCtrl: NavController, public navParams: NavParams,public modalCtrl :ModalController,public userProvider:UserProvider) {
   }
 
@@ -37,6 +39,7 @@ export class LoginPage {
       else{
         this.translate.get('Login Sucessfully').subscribe(
           value => {
+           this.MainProvider.sideMenu=true;
             this.common.presentToast(value);
             this.userProvider.user = res;
             this.userProvider.userStorageSave(res);

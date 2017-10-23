@@ -18,7 +18,6 @@ export class HomePage {
   public imageUrl : string = "http://104.236.243.55/ProductImage/";  
   public counter:number =0 ;
   public heart:boolean=false;
-  
   constructor(public product:ProductProvider,public navCtrl: NavController,
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
@@ -29,12 +28,9 @@ export class HomePage {
    getProducts(){
      this.product.getProducts().subscribe((res)=>{
           console.log(res);
-          this.products = res;
-           
+          this.products = res;    
      });
    }
-
-
   addItem(){
   this.counter++;
 }

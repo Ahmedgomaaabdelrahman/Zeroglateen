@@ -5,7 +5,7 @@
     <ion-title> 
       <ion-row>
         <ion-col col-1 class="greenicon"></ion-col>
-        <ion-col col-8 style="text-align: center;color:gray">Fresh Onion</ion-col>
+        <ion-col col-8 style="text-align: center;color:gray">{{prod_name}}</ion-col>
         <ion-col col-2 class="greenicon"><ion-icon name="cart"></ion-icon></ion-col>
         <ion-col col-1 class="greenicon"><ion-icon name="share"></ion-icon></ion-col>
       </ion-row>
@@ -16,16 +16,14 @@
 
 
 <ion-content>
-  <p class="qauntitu">250{{'gm'|translate}}</p>
+  <p class="qauntitu">{{prod_weight}}{{'gm'|translate}}</p>
   <div class="imgdiv">
-    <img src="assets/imgs/sss.png">
+    <img [src]="prod_image">
   </div>
   <div class="paradiv">
-    Many People trip to the groceryMany People say a successful trip to the groceryMany People say a successful trip to the grocery
-    Many People say a successful trip to the groceryMany People say a successful trip to the groceryMany People say a successful trip to the grocery
-    
+    {{prod_description}}
   </div>
-<div class="pricediv"><p class="price">25 {{'SAR'|translate}}</p></div>
+  <div class="pricediv"><p class="price">{{prod_price}} {{'SAR'|translate}}</p></div>
   
 </ion-content>
 <ion-footer>

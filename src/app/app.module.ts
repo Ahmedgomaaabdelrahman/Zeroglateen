@@ -1,3 +1,4 @@
+import { Firebase } from '@ionic-native/firebase';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { SignsupplierPage } from './../pages/signsupplier/signsupplier';
 import { SignproductivePage } from './../pages/signproductive/signproductive';
@@ -112,7 +113,8 @@ export function createTranslateLoader(http: Http) {
     MainProvider,
     UserProvider,
     CommonProvider,
-    ProductProvider
+    ProductProvider,
+    Firebase
   ]
 })
 export class AppModule {}

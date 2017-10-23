@@ -18,7 +18,7 @@ export class CommonProvider {
   presentToast(message :any) {
     let toast = this.toastCtrl.create({
       message: message,
-      duration: 1500
+      duration: 2500
     });
     toast.present();
   }

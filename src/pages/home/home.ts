@@ -62,6 +62,7 @@ export class HomePage {
     // else if(this.heart==true){
     //   this.heart=false;
     // }
+    
   }
   ss(){
     this.navCtrl.push(SignupPage);
@@ -93,20 +94,17 @@ export class HomePage {
     this.navCtrl.push(OrdermapPage);
   }
 
-  addtoFav(prodid){
+  addtoFav(prodid,icon){
     if(this.userprovider.user.id){
       this.product.addToFav(this.userprovider.user.id,prodid).subscribe((res)=>{
         console.log(res);
-<<<<<<< HEAD
         if(res.state == "202"){
           this.common.traslateandToast("added successfully");
+          this.changeHeart(icon);
         }
         else if(res.state == "203"){
           this.common.traslateandToast("Already added before");
         }
-=======
-       
->>>>>>> 50ff1aeb331184ece92243ba4af8c44780952b21
     });
     }
    

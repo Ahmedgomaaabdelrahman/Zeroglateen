@@ -16,7 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {NavController} from 'ionic-angular';
 import {MenuController} from 'ionic-angular';
 import {TranslateService} from "@ngx-translate/core";
-import { Push, PushObject, PushOptions } from '@ionic-native/push';
+
 import { HomePage } from '../pages/home/home';
 @Component({
   templateUrl: 'app.html'
@@ -30,9 +30,10 @@ export class MyApp {
   cartPage=CartPage;
   favoritesPage=FavoritesPage;
   settingsPage=SettingsPage;
+  loginPage=LoginPage;
+  signupPage=SignupPage;
 
-
-  constructor(public com:CommonProvider,private push: Push,public user:UserProvider,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController,public translate : TranslateService) {
+  constructor(public com:CommonProvider,public user:UserProvider,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController,public translate : TranslateService) {
     platform.ready().then(() => {
    
       // Okay, so the platform is ready and our plugins are available.
@@ -42,8 +43,10 @@ export class MyApp {
       this.user.userStorageGet().then(()=>{
         if(this.user.user != null )
         {
+          this.MainService.sideMenu=true;
           this.rootPage = HomePage;
         }else{
+          this.MainService.sideMenu=false;
             this.rootPage = LoginPage;
           }
       }).catch((err)=>console.log(err));

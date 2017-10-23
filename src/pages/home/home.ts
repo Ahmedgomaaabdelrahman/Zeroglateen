@@ -39,24 +39,29 @@ export class HomePage {
           console.log(this.products[0].image);
      });
    }
-
-
-  addItem(){
-  this.counter++;
+  addItem(counterEle : any){
+  //this.counter++;
+  console.log(counterEle);
+  counterEle.value++;
   }
-  removeItem(){
-    if(this.counter!=0)
-     this.counter--;
-    else
-     this.counter=0;
+  removeItem(counterEle : any){
+    console.log(counterEle);
+    counterEle.value--;
+    // if(this.counter!=0)
+    //  this.counter--;
+    // else
+    //  this.counter=0;
   }
-  changeHeart(){
-    if(this.heart==false){
-      this.heart=true;
-    }
-    else if(this.heart==true){
-      this.heart=false;
-    }
+  changeHeart(iconEle : any){
+    if(iconEle.style.color == 'crimson')
+    iconEle.style.color = 'white';
+    else iconEle.style.color = 'crimson';
+    // if(this.heart==false){
+    //   this.heart=true;
+    // }
+    // else if(this.heart==true){
+    //   this.heart=false;
+    // }
   }
   ss(){
     this.navCtrl.push(SignupPage);
@@ -92,12 +97,16 @@ export class HomePage {
     if(this.userprovider.user.id){
       this.product.addToFav(this.userprovider.user.id,prodid).subscribe((res)=>{
         console.log(res);
+<<<<<<< HEAD
         if(res.state == "202"){
           this.common.traslateandToast("added successfully");
         }
         else if(res.state == "203"){
           this.common.traslateandToast("Already added before");
         }
+=======
+       
+>>>>>>> 50ff1aeb331184ece92243ba4af8c44780952b21
     });
     }
    

@@ -35,7 +35,7 @@ export class HomePage {
   {
     this.getProducts();
     this.cartNo = CommonProvider.cartNo;
-    this.cartpage.getcart();
+  
   }
     
   getProducts(){

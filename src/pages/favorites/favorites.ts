@@ -81,7 +81,7 @@ public productid:any;
     this.productProvider.deleteFav(Favid).subscribe((res)=>{
     console.log(res);
     if(res.state == "202"){
-      this.changeHeart(iconEle);
+      // this.changeHeart(iconEle);
       this.products = this.products.filter((item) => {
         if(item.favourite_id == Favid)
         {

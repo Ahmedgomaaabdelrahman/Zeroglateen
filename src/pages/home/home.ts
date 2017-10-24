@@ -20,8 +20,7 @@ export class HomePage {
   public imageUrl : string = "http://104.236.243.55/ProductImage/";  
   public counter:number =0 ;
   public qauntity : number;
-  public heart:boolean=false;
-
+  public heart:string="heart";
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
@@ -30,41 +29,47 @@ export class HomePage {
   ionViewWillEnter()
   {
     this.getProducts();
-    
+   
   }
-    
+  
+  icons:any;
   getProducts(){
      this.product.getProducts().subscribe((res)=>{
-          console.log(res);
-          this.products = res;
-          console.log(this.products[0].image);
+      console.log(res);
+      this.products = res;
+      console.log(this.products[0].image);
+      this.icons=[];
+      let self=this;
+      for(let i=0;i<res.length;i++){
+        self.icons.push('heart-outline');
+        }
+      this.products=res;
+      console.log(res); 
      });
    }
   addItem(counterEle : any){
-  this.counter++;
-  console.log(counterEle);
-  counterEle.value++;
+    this.counter++;
+    console.log(counterEle);
+    counterEle.value++;
   }
   removeItem(counterEle : any){
     console.log(counterEle);
     counterEle.value--;
+    if(counterEle.value = 0)
+    document.getElementById("remove").style.pointerEvents = "none";
+    else 
     this.counter--;
-    // if(this.counter!=0)
-    //  this.counter--;
-    // else
-    //  this.counter=0;
+
   }
   changeHeart(iconEle : any){
-    if(iconEle.style.color == 'crimson')
-    iconEle.style.color = 'white';
-    else iconEle.style.color = 'crimson';
-    // if(this.heart==false){
-    //   this.heart=true;
-    // }
-    // else if(this.heart==true){
-    //   this.heart=false;
-    // }
-    
+    console.log(iconEle);
+    if(this.icons[iconEle]=='heart'){
+      this.icons[iconEle]='heart-outline'
+    }
+    else if(this.icons[iconEle]=='heart-outline')
+    {
+      this.icons[iconEle]='heart'
+    }
   }
   ss(){
     this.navCtrl.push(SignupPage);
@@ -96,19 +101,20 @@ export class HomePage {
     this.navCtrl.push(OrdermapPage);
   }
 
-  addtoFav(prodid,icon){
-    if(this.userprovider.user.id){
-      this.product.addToFav(this.userprovider.user.id,prodid).subscribe((res)=>{
-        console.log(res);
-        if(res.state == "202"){
-          this.common.traslateandToast("added successfully");
-          this.changeHeart(icon);
-        }
-        else if(res.state == "203"){
-          this.common.traslateandToast("Already added before");
-        }
-    });
-    }
+addtoFav(prodid,icon){
+  if(this.userprovider.user.id){
+  this.product.addToFav(this.userprovider.user.id,prodid).subscribe((res)=>{
+  console.log(res);
+  if(res.state == "202"){
+
+  this.common.traslateandToast("added successfully");
+  this.changeHeart(icon);
+  }
+  else if(res.state == "203"){
+  this.common.traslateandToast("Already added before");
+}
+});
+}
    
   }
 

@@ -13,7 +13,7 @@
   <ion-row class="headerrow">
       <ion-col col-9 > 
         <ion-icon name="search" class="searchicon"></ion-icon>
-        <ion-input class="searchinput" type="text"placeholder="{{'Search...'|translate}}"></ion-input>
+        <ion-input class="searchinput" (click)="gosearch()" type="text" placeholder="{{'Search...'|translate}}" readonly="readonly"></ion-input>
       </ion-col>
       <ion-col col-3 style="border-right:1px solid lightgray;border-left:1px solid lightgray;">
         <p class="filter" (click)="gofilter()">{{'Filter'|translate}}<ion-icon name="arrow-down"></ion-icon></p></ion-col>
@@ -21,7 +21,7 @@
 </ion-header>
 <ion-content>
   <ion-row>
-    <ion-col col-6 *ngFor="let product of products">
+    <ion-col col-6 *ngFor="let product of products,let i=index">
       <ion-card>
         <ion-card-header>
           {{product.product_name}}
@@ -36,16 +36,17 @@
           <ion-row>
                 <ion-col col-8>
                     <div class="qaundiv">
-                      <ion-icon name="remove" style="float:left" (click)=removeItem(counter)></ion-icon>
-                      <input class="itemnum" #counter value="0" type="text" readonly="readonly">
-                      <ion-icon name="add" style="float:right" (click)=addToCart(product.product_id,counter)></ion-icon>
+                      <ion-icon name="remove" style="float:left" id='remove' (click)=removeItem(counter)></ion-icon>
+                           <input class="itemnum" #counter value="0" type="text" readonly="readonly">
+                         
+                           <ion-icon name="add" style="float:right" (click)=addToCart(product.product_id,counter)></ion-icon>
                       </div>
                 </ion-col>
                 <ion-col col-4 style="padding:5px 0" >
                     <div class="heartdiv"> 
                         <ion-icon   
                         #icon
-                        name="heart" (click)=addtoFav(product.product_id,icon)></ion-icon>                  
+                        name={{icons[i]}}  (click)=addtoFav(product.product_id,i)></ion-icon>                  
                     </div>
                   </ion-col>
           </ion-row>

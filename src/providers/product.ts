@@ -11,6 +11,7 @@ export class ProductProvider {
 public getProductsUrl : string = MainProvider.baseUrl+"product?lang=";
 public categoryUrl:string = MainProvider.baseUrl+"category?lang=";
 public addFavUrl:string = MainProvider.baseUrl+"setfavorit";
+public deleteFavUrl:string=MainProvider.baseUrl+"deletefavorit/";
 public getFavUrl:string=MainProvider.baseUrl+"getfav/"
 public addCartUrl :string = MainProvider.baseUrl+"cart";
 public getCartUrl :string = MainProvider.baseUrl+"getcart/";
@@ -37,8 +38,11 @@ public userid:any;
     };
     return this.http.post(this.addFavUrl,body).map((res) => res.json());
   }
+  deleteFav(Favid){
+    return this.http.delete(this.deleteFavUrl+Favid).map((res)=>res.json());
+  }
   getFav(){
-    return this.http.get(this.getFavUrl+this.userprovider.user.id).map((res) => res.json());
+    return this.http.get(this.getFavUrl+this.userprovider.user.id+"?lang="+ MainProvider.lang).map((res) => res.json());
   }
   addToCart(userid,prodid){
    let body = {

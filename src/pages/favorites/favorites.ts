@@ -1,3 +1,4 @@
+import { CommonProvider } from './../../providers/common';
 import { ProductProvider } from './../../providers/product';
 import { CartPage } from './../cart/cart';
 import { FilterPage } from './../filter/filter';
@@ -6,12 +7,7 @@ import { OrderdetailsPage } from './../orderdetails/orderdetails';
 import { Component } from '@angular/core';
 import {  NavController, NavParams,ModalController} from 'ionic-angular';
 
-/**
- * Generated class for the FavoritesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 
 @Component({
@@ -19,11 +15,12 @@ import {  NavController, NavParams,ModalController} from 'ionic-angular';
   templateUrl: 'favorites.html',
 })
 export class FavoritesPage {
-public products:any[];
+public products:any;
 public imageUrl : string = "http://104.236.243.55/ProductImage/";  
 public heart:string="heart";
-  constructor(public navCtrl: NavController,public modalCtrl :ModalController, public navParams: NavParams,public productProvider:ProductProvider) {
-    
+public productid:any;
+  constructor(public navCtrl: NavController,public modalCtrl :ModalController, public navParams: NavParams,public productProvider:ProductProvider,public common:CommonProvider) {
+   
   }
 
   ionViewWillEnter() {
@@ -53,19 +50,51 @@ public heart:string="heart";
   myCart(){
     this.navCtrl.push(CartPage);
   }
+   icons:any;
   getFavorite(){
     this.productProvider.getFav().subscribe((res)=>{
+      this.icons=[];
+      let self=this;
+      for(let i=0;i<res.length;i++){
+        self.icons.push('heart');
+        }
       this.products=res;
+   
       console.log(res);
-      console.log(this.products);
     })
   }
   godetails(name :string,weight :number ,price :number ,image : string,description : any){
     this.navCtrl.push(OrderdetailsPage,{name : name,weight : weight,price : price,image : image, description : description});
   }
   changeHeart(iconEle : any){
-    if(iconEle.style.color == 'white')
-    iconEle.style.color = 'crimson';
-    else iconEle.style.color = 'white';
+    console.log(iconEle);
+    if(this.icons[iconEle]=='heart-outline'){
+      this.icons[iconEle]='heart'
+    }else if(this.icons[iconEle]=='heart')
+    {
+      this.icons[iconEle]='heart-outline'
+    
+    }
+    
+  }
+  deleteFav(iconEle : any,Favid){
+    this.productProvider.deleteFav(Favid).subscribe((res)=>{
+    console.log(res);
+    if(res.state == "202"){
+      this.changeHeart(iconEle);
+      this.products = this.products.filter((item) => {
+        if(item.favourite_id == Favid)
+        {
+          this.products -= item.favourite_id;
+        }
+        return (item.favourite_id != Favid);
+      });
+
+      this.common.traslateandToast("Removed successfully"); 
+    }
+    else{
+    console.log(res);
+    }
+    });
   }
 }

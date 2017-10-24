@@ -14,6 +14,8 @@ public addFavUrl:string = MainProvider.baseUrl+"setfavorit";
 public getFavUrl:string=MainProvider.baseUrl+"getfav/"
 public addCartUrl :string = MainProvider.baseUrl+"cart";
 public getCartUrl :string = MainProvider.baseUrl+"getcart/";
+public addItemUrl : string = MainProvider.baseUrl+"modifayitiem/";
+public deleteCartUrl : string =MainProvider.baseUrl+"deletecart/";
 public userid:any;
   constructor(public userprovider:UserProvider,public http: Http) {
     console.log('Hello ProductProvider Provider');
@@ -38,11 +40,11 @@ public userid:any;
   getFav(){
     return this.http.get(this.getFavUrl+this.userprovider.user.id).map((res) => res.json());
   }
-  addToCart(userid,prodid,qauntity){
+  addToCart(userid,prodid){
    let body = {
     user_id:userid,
     product_id:prodid,
-    item_qty:qauntity,
+    item_qty:1,
     cart_state:1
    };
    return this.http.post(this.addCartUrl,body).map((res) => res.json());
@@ -50,5 +52,16 @@ public userid:any;
   getCart(userid)
   {
     return this.http.get(this.getCartUrl+userid+"?lang="+ MainProvider.lang).map((res) => res.json());
+  }
+
+  increaseItem(quantity,cartid){
+    let qaun = {
+      item_qty : quantity,
+    }
+    return this.http.put(this.addItemUrl+cartid,qaun).map((res) => res.json());
+  }
+
+  deleteCart(cartid){
+    return this.http.delete(this.deleteCartUrl+cartid).map((res) => res.json());
   }
 }

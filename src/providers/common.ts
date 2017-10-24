@@ -3,14 +3,12 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { ToastController } from 'ionic-angular';
 import {TranslateService} from "@ngx-translate/core";
-/*
-  Generated class for the CommonProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+
+
 @Injectable()
 export class CommonProvider {
+  public static cartNo : number = 0;
 
   constructor(public translate:TranslateService,public http: Http,public toastCtrl: ToastController) {
     console.log('Hello CommonProvider Provider');
@@ -28,5 +26,7 @@ export class CommonProvider {
     value => {
       this.presentToast(value);
     });}
+
+   
  
 }

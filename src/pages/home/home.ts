@@ -11,6 +11,7 @@ import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, MenuController,ModalController } from 'ionic-angular';
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -21,16 +22,20 @@ export class HomePage {
   public counter:number =0 ;
   public qauntity : number;
   public heart:boolean=false;
-
+  public quantity:number;
+  public cartNo : number ;
+  public cartpage :CartPage;
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
+    this.cartNo = CommonProvider.cartNo;
     this.common.traslateandToast('hello' + this.userprovider.deviceToken);
   }
   ionViewWillEnter()
   {
     this.getProducts();
-    
+    this.cartNo = CommonProvider.cartNo;
+    this.cartpage.getcart();
   }
     
   getProducts(){
@@ -41,31 +46,53 @@ export class HomePage {
      });
    }
   addItem(counterEle : any){
-  this.counter++;
-  console.log(counterEle);
-  counterEle.value++;
+    this.counter++;
+    console.log(counterEle);
+    counterEle.value++;
   }
   removeItem(counterEle : any){
     console.log(counterEle);
     counterEle.value--;
     this.counter--;
-    // if(this.counter!=0)
-    //  this.counter--;
-    // else
-    //  this.counter=0;
   }
+  addToCart(prodid,counter){
+    this.product.addToCart(this.userprovider.user.id,prodid).subscribe((res)=>{
+      if(res.state == "203"){
+        // this.product.increaseItem(this.qauntity,this.cart)
+        this.common.traslateandToast("Product Quantity is Updated");
+      }
+      else if(res.state == "202"){
+        this.common.traslateandToast("added successfully");
+        this.cartNo++;
+        this.addItem(counter);
+      }
+     
+   });
+}
   changeHeart(iconEle : any){
     if(iconEle.style.color == 'crimson')
     iconEle.style.color = 'white';
     else iconEle.style.color = 'crimson';
-    // if(this.heart==false){
-    //   this.heart=true;
-    // }
-    // else if(this.heart==true){
-    //   this.heart=false;
-    // }
-    
   }
+ 
+
+  addtoFav(prodid,icon){
+    if(this.userprovider.user.id){
+      this.product.addToFav(this.userprovider.user.id,prodid).subscribe((res)=>{
+        console.log(res);
+        if(res.state == "202"){
+          this.common.traslateandToast("added successfully");
+          this.changeHeart(icon);
+        }
+        else if(res.state == "203"){
+          this.common.traslateandToast("Already added before");
+        }
+    });
+    }
+  }
+
+ 
+
   ss(){
     this.navCtrl.push(SignupPage);
   }
@@ -94,33 +121,5 @@ export class HomePage {
  
   gomap(){
     this.navCtrl.push(OrdermapPage);
-  }
-
-  addtoFav(prodid,icon){
-    if(this.userprovider.user.id){
-      this.product.addToFav(this.userprovider.user.id,prodid).subscribe((res)=>{
-        console.log(res);
-        if(res.state == "202"){
-          this.common.traslateandToast("added successfully");
-          this.changeHeart(icon);
-        }
-        else if(res.state == "203"){
-          this.common.traslateandToast("Already added before");
-        }
-    });
-    }
-   
-  }
-
-  addToCart(prodid,counter){
-        this.product.addToCart(this.userprovider.user.id,prodid,this.qauntity).subscribe((res)=>{
-          if(res.state == "203"){
-            this.common.traslateandToast("Product Quantity is Updated");
-          }
-          else if(res.state == "202")
-          this.common.traslateandToast("added successfully");
-          this.addItem(counter);
-       });
-     
   }
 }

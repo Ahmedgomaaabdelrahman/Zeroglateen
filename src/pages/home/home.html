@@ -4,7 +4,7 @@
       <ion-row >
         <ion-col col-1><ion-icon class="greenicon" name="menu" (click)="openmenu()"></ion-icon></ion-col>
         <ion-col col-9 style="text-align: center;color:gray" (click)="gosearch()">{{'All Products'|translate}}<ion-icon class="topicon" name="arrow-down"></ion-icon></ion-col>
-        <ion-col col-1 class="greenicon">{{counter}}</ion-col>
+        <ion-col col-1 class="greenicon">{{cartNo}}</ion-col>
         <ion-col col-1 class="greenicon" (click)="myCart()"><ion-icon name="cart"></ion-icon></ion-col>
       </ion-row>
     </ion-title>
@@ -37,9 +37,8 @@
                 <ion-col col-8>
                     <div class="qaundiv">
                       <ion-icon name="remove" style="float:left" (click)=removeItem(counter)></ion-icon>
-                           <input class="itemnum" #counter value="0" type="text" readonly="readonly">
-                         
-                           <ion-icon name="add" style="float:right" (click)=addToCart(product.product_id,counter)></ion-icon>
+                      <input class="itemnum" #counter value="0" type="text" readonly="readonly">
+                      <ion-icon name="add" style="float:right" (click)=addToCart(product.product_id,counter)></ion-icon>
                       </div>
                 </ion-col>
                 <ion-col col-4 style="padding:5px 0" >

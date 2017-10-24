@@ -9,7 +9,7 @@
     <ion-title>
       <ion-row >
         <ion-col col-10 style="text-align: center;color:gray">{{'Your Cart'|translate}}</ion-col>
-        <ion-col col-1 class="greenicon">5</ion-col>
+        <ion-col col-1 class="greenicon">{{cartNo}}</ion-col>
         <ion-col col-1 class="greenicon"><ion-icon name="cart"></ion-icon></ion-col>
       </ion-row>
     </ion-title>
@@ -37,15 +37,15 @@
       
     </ion-col>
     <ion-col col-8>
-      <p  style="font-size:18px">{{item.product.product_name}}</p>
-      <p  style="color:gray">{{item.product.weight}} {{'Kg'|translate}}</p>
+      <p style="font-size:18px">{{item.product.product_name}}</p>
+      <p style="color:gray">{{item.product.weight}} {{'Kg'|translate}}</p>
       <ion-row>
         <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">{{item.product.price}} {{'SAR'|translate}}</p></ion-col>
         <ion-col col-5>
           <div class="qaundiv">
-            <ion-icon name="remove" style="float:left"></ion-icon>
-              <p>5</p>
-            <ion-icon name="add" style="float:right"></ion-icon>
+            <ion-icon id="remove" name="remove" style="float:left" (click)="removeItem(item.cart_id,counter)"></ion-icon>
+            <input class="itemnum" #counter value="item.item_qty" [(ngModel)]="item.item_qty"name="quantity" type="text" readonly="readonly">
+            <ion-icon name="add" style="float:right" (click)="addItem(item.cart_id,counter)"></ion-icon>
           </div>
         </ion-col>
       </ion-row>

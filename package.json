@@ -30,10 +30,8 @@
     "@ionic/storage": "2.0.1",
     "@ngx-translate/core": "^7.2.2",
     "@ngx-translate/http-loader": "^0.1.0",
-    "cordova-android": "^6.2.3",
     "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-device": "^1.1.6",
-    "cordova-plugin-fcm": "^2.1.2",
     "cordova-plugin-firebase": "^0.1.24",
     "cordova-plugin-nativestorage": "^2.2.2",
     "cordova-plugin-splashscreen": "^4.0.3",
@@ -45,7 +43,8 @@
     "phonegap-plugin-push": "^2.0.0",
     "rxjs": "5.4.0",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.12"
+    "zone.js": "0.8.12",
+    "cordova-android": "~6.3.0"
   },
   "devDependencies": {
     "@ionic/app-scripts": "2.1.4",
@@ -62,8 +61,7 @@
       "ionic-plugin-keyboard": {},
       "cordova-plugin-nativestorage": {},
       "cordova-plugin-firebase": {},
-      "phonegap-plugin-push": {},
-      "cordova-plugin-fcm": {}
+      "phonegap-plugin-push": {}
     },
     "platforms": [
       "android"

@@ -1,3 +1,5 @@
+
+import { UserProvider } from './../../providers/user';
 import { CommonProvider } from './../../providers/common';
 import { ProductProvider } from './../../providers/product';
 import { CartPage } from './../cart/cart';
@@ -19,13 +21,20 @@ public products:any;
 public imageUrl : string = "http://104.236.243.55/ProductImage/";  
 public heart:string="heart";
 public productid:any;
-  constructor(public navCtrl: NavController,public modalCtrl :ModalController, public navParams: NavParams,public productProvider:ProductProvider,public common:CommonProvider) {
+public cartNo : number ;
+  constructor(public navCtrl: NavController,
+              public modalCtrl :ModalController,
+              public navParams: NavParams,
+              public productProvider:ProductProvider,
+              public common:CommonProvider,
+              public userprovider:UserProvider) {
    
   }
 
   ionViewWillEnter() {
     console.log('ionViewDidLoad FavoritesPage');
     this.getFavorite();
+    this.cartNo = CommonProvider.cartNo;
   }
   addItem(counterEle : any){
    
@@ -97,4 +106,17 @@ public productid:any;
     }
     });
   }
+  addToCart(prodid,counter){
+    this.productProvider.addToCart(this.userprovider.user.id,prodid).subscribe((res)=>{
+      if(res.state == "203"){
+        this.common.traslateandToast("Product Quantity is Updated");
+      }
+      else if(res.state == "202"){
+        this.common.traslateandToast("added successfully");
+        this.cartNo++;
+        this.addItem(counter);
+      }
+     
+   });
+}
 }

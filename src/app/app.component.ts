@@ -67,9 +67,9 @@ export class MyApp {
      pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
      
      pushObject.on('registration').subscribe((registration: any) => {console.log('Device registered', registration);
-     this.user.deviceToken = registration;
-      this.com.presentToast(this.user.deviceToken);
-      this.com.presentToast(registration)});
+      this.user.deviceToken = registration;
+      this.com.traslateandToast('Device reg'+this.user.deviceToken);
+      this.com.traslateandToast('Device registerration'+registration)});
      
      pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
     });

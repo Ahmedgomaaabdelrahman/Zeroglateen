@@ -17,7 +17,7 @@ import { Firebase } from '@ionic-native/firebase';
 @Injectable()
 export class UserProvider {
   public user: any;
-  public deviceToken : string ='xyz';
+  public deviceToken : string ='';
   public userType : number ;
   public registerUrl : string = MainProvider.baseUrl+"register/";
   public loginUrl : string = MainProvider.baseUrl+"login/";
@@ -25,17 +25,16 @@ export class UserProvider {
   public updateUrl : string = MainProvider.baseUrl+"modifyusers/";
   constructor(public com:CommonProvider,private firebase: Firebase,private nativeStorage: NativeStorage,public http: Http,public main:MainProvider) {
     console.log('Hello UserProvider Provider');
-    this.getToken();
     console.log(this.deviceToken);
     this.com.presentToast(this.deviceToken);    
   }
    
-  getToken(){
-    this.firebase.getToken()
-    .then(token => {console.log(`The token is ${token}`);
-          this.deviceToken = token }) // save the token server-side and use it to push notifications to this device
-    .catch(error => console.error('Error getting token', error));    
-  }
+  // getToken(){
+  //   this.firebase.getToken()
+  //   .then(token => {console.log(`The token is ${token}`);
+  //         this.deviceToken = token }) // save the token server-side and use it to push notifications to this device
+  //   .catch(error => console.error('Error getting token', error));    
+  // }
 
   registerUesr(Name:string,Email:any,PhoneNo:any,Password:any,Confirm:any,lang ?: any,lat ?:any,commerical ?:string){
    

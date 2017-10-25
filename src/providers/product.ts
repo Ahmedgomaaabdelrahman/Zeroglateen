@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProductProvider {
-public getProductsUrl : string = MainProvider.baseUrl+"product?lang=";
+public getProductsUrl : string = MainProvider.baseUrl+"product/";
 public categoryUrl:string = MainProvider.baseUrl+"category?lang=";
 public addFavUrl:string = MainProvider.baseUrl+"setfavorit";
 public deleteFavUrl:string=MainProvider.baseUrl+"deletefavorit/";
@@ -24,7 +24,7 @@ public userid:any;
   }
  
   getProducts(){
-    return this.http.get(this.getProductsUrl+MainProvider.lang).map((res)=>res.json());
+    return this.http.get(this.getProductsUrl+this.userprovider.user.id+"?lang="+MainProvider.lang).map((res)=>res.json());
   }
 
   category(){

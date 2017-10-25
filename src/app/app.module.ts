@@ -1,3 +1,4 @@
+import { Push } from '@ionic-native/push';
 import { Firebase } from '@ionic-native/firebase';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { SignsupplierPage } from './../pages/signsupplier/signsupplier';
@@ -116,7 +117,8 @@ export function createTranslateLoader(http: Http) {
     CommonProvider,
     ProductProvider,
     Firebase,
-    Nav
+    Push
+    
  
   ]
 })

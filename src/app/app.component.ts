@@ -8,14 +8,14 @@ import { SettingsPage } from './../pages/settings/settings';
 import { FavoritesPage } from './../pages/favorites/favorites';
 import { CartPage } from './../pages/cart/cart';
 import { MyaccountPage } from './../pages/myaccount/myaccount';
-
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { Component,ViewChild } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {NavController} from 'ionic-angular';
-import {MenuController} from 'ionic-angular';
-import {TranslateService} from "@ngx-translate/core";
+import { NavController} from 'ionic-angular';
+import { MenuController} from 'ionic-angular';
+import { TranslateService} from "@ngx-translate/core";
 
 import { HomePage } from '../pages/home/home';
 @Component({
@@ -33,7 +33,7 @@ export class MyApp {
   loginPage=LoginPage;
   signupPage=SignupPage;
 
-  constructor(public com:CommonProvider,public user:UserProvider,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController,public translate : TranslateService) {
+  constructor(private push: Push,public com:CommonProvider,public user:UserProvider,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController,public translate : TranslateService) {
     platform.ready().then(() => {
    
       // Okay, so the platform is ready and our plugins are available.
@@ -52,29 +52,26 @@ export class MyApp {
       }).catch((err)=>console.log(err));
       
 
-    //   const options: PushOptions = {
-    //     android: {},
-    //     ios: {
-    //         alert: 'true',
-    //         badge: true,
-    //         sound: 'false'
-    //     },
-    //     windows: {},
-    //     browser: {
-    //         pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-    //     }
-    //  };
+      const options: PushOptions = {
+        android: {senderID: '799865208231'},
+        ios: {
+            alert: 'true',
+            badge: true,
+            sound: 'false'
+        },
+        windows: {},
+     };
      
-    //  const pushObject: PushObject = this.push.init(options);
+     const pushObject: PushObject = this.push.init(options);
      
-    //  pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
+     pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
      
-    //  pushObject.on('registration').subscribe((registration: any) => {console.log('Device registered', registration);
-    //  this.user.deviceToken = registration;
-    //   this.com.presentToast(this.user.deviceToken);
-    //   this.com.presentToast(registration)});
+     pushObject.on('registration').subscribe((registration: any) => {console.log('Device registered', registration);
+     this.user.deviceToken = registration;
+      this.com.presentToast(this.user.deviceToken);
+      this.com.presentToast(registration)});
      
-    //  pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
+     pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
     });
     platform.setDir('ltr',true);
     this.translate.setDefaultLang(MainProvider.lang);

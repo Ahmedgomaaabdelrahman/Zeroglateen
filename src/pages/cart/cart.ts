@@ -39,7 +39,7 @@ export class CartPage {
     this.cartNo = this.cartLength.length;
     CommonProvider.cartNo = this.cartLength.length;
     console.log(this.cartProd);
-  });
+  }); 
  }
  addItem(cardid,counterEle : any){
   // this.counter++;

@@ -35,22 +35,22 @@
      
         <img class="imgdiv" [src]="imageUrl+item.product.image">
       
-    </ion-col>
-    <ion-col col-8>
-      <p style="font-size:18px">{{item.product.product_name}}</p>
-      <p style="color:gray">{{item.product.weight}} {{'Kg'|translate}}</p>
-      <ion-row>
-        <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">{{item.product.price}} {{'SAR'|translate}}</p></ion-col>
-        <ion-col col-5>
-          <div class="qaundiv">
-            <ion-icon id="remove" name="remove" style="float:left" (click)="removeItem(item.cart_id,counter)"></ion-icon>
-            <input class="itemnum" #counter value="item.item_qty" [(ngModel)]="item.item_qty"name="quantity" type="text" readonly="readonly">
-            <ion-icon name="add" style="float:right" (click)="addItem(item.cart_id,counter)"></ion-icon>
-          </div>
-        </ion-col>
-      </ion-row>
+</ion-col>
+<ion-col col-8>
+  <p style="font-size:18px">{{item.product.product_name}}</p>
+  <p style="color:gray">{{item.product.weight}} {{'Kg'|translate}}</p>
+  <ion-row>
+    <ion-col col-7 style="padding: 5px 0;"><p style="margin:5px 0;color:green">{{item.product.price}} {{'SAR'|translate}}</p></ion-col>
+    <ion-col col-5>
+      <div class="qaundiv">
+        <ion-icon id="remove" name="remove" style="float:left" (click)="removeItem(item.cart_id,counter)"></ion-icon>
+        <input class="itemnum" #counter value="item.item_qty" [(ngModel)]="item.item_qty"name="quantity" type="text" readonly="readonly">
+        <ion-icon name="add" style="float:right" (click)="addItem(item.cart_id,counter)"></ion-icon>
+      </div>
     </ion-col>
   </ion-row>
+</ion-col>
+</ion-row>
 </ion-content>
 
 <ion-footer>

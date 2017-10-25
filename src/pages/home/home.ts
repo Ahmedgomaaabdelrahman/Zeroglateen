@@ -24,18 +24,18 @@ export class HomePage {
   public quantity:number;
   public cartNo : number ;
   public cartpage :CartPage;
+  public cartLength :any[];
   public heart:string="heart";
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
-    this.cartNo = CommonProvider.cartNo;
     this.common.traslateandToast('hello' + this.userprovider.deviceToken);
   }
   ionViewWillEnter()
   {
-    this.getProducts();
-    this.cartNo = CommonProvider.cartNo;
-  
+  this.getProducts();
+  this.cartNo = CommonProvider.cartNo;
+  this.getcart()
   }
   
   icons:any;
@@ -106,9 +106,6 @@ export class HomePage {
     });
     }
   }
-
- 
-
   ss(){
     this.navCtrl.push(SignupPage);
   }
@@ -138,4 +135,11 @@ export class HomePage {
   gomap(){
     this.navCtrl.push(OrdermapPage);
   }
+  getcart(){
+    this.product.getCart(this.userprovider.user.id).subscribe((res)=>{
+      this.cartLength = res;
+      this.cartNo = this.cartLength.length;
+      CommonProvider.cartNo = this.cartLength.length;
+    });
+   }
 }

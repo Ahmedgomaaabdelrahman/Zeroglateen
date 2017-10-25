@@ -3,7 +3,7 @@
     <ion-title>
       <ion-row >
         <ion-col col-1><ion-icon class="greenicon" name="menu" (click)="openmenu()"></ion-icon></ion-col>
-        <ion-col col-9 style="text-align: center;color:gray" (click)="gosearch()">{{'All Products'|translate}}<ion-icon class="topicon" name="arrow-down"></ion-icon></ion-col>
+        <ion-col col-9 style="text-align: center;color:gray" >{{'All Products'|translate}}</ion-col>
         <ion-col col-1 class="greenicon">{{cartNo}}</ion-col>
         <ion-col col-1 class="greenicon" (click)="myCart()"><ion-icon name="cart"></ion-icon></ion-col>
       </ion-row>
@@ -13,7 +13,7 @@
   <ion-row class="headerrow">
       <ion-col col-9 > 
         <ion-icon name="search" class="searchicon"></ion-icon>
-        <ion-input class="searchinput" (click)="gosearch()" type="text" placeholder="{{'Search...'|translate}}" readonly="readonly"></ion-input>
+        <ion-input class="searchinput" (click)="gosearch()" type="text" placeholder="{{'Search...'|translate}}" readonly></ion-input>
       </ion-col>
       <ion-col col-3 style="border-right:1px solid lightgray;border-left:1px solid lightgray;">
         <p class="filter" (click)="gofilter()">{{'Filter'|translate}}<ion-icon name="arrow-down"></ion-icon></p></ion-col>
@@ -37,7 +37,7 @@
                 <ion-col col-8>
                     <div class="qaundiv">
                       <ion-icon name="remove" style="float:left" id='remove' (click)=removeItem(counter)></ion-icon>
-                           <input class="itemnum" #counter value="0" type="text" readonly="readonly">
+                           <input class="itemnum" #counter value="0" type="text"  readonly="readonly">
                          
                            <ion-icon name="add" style="float:right" (click)=addToCart(product.product_id,counter)></ion-icon>
                       </div>

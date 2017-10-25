@@ -29,7 +29,7 @@ export class HomePage {
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
-    this.common.traslateandToast('hello' + this.userprovider.deviceToken);
+    // this.common.traslateandToast('hello' + this.userprovider.deviceToken);
   }
   ionViewWillEnter()
   {

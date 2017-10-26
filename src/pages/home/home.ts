@@ -115,10 +115,10 @@ export class HomePage {
   gotologin(){
     this.navCtrl.push(LoginPage);
   }
-  godetails(name :string,weight :number ,price :number ,image : string,description : any,itemNo:any){
+  godetails(name :string,weight :number ,price :number ,image : string,description : any,itemNo:any,icon:any){
     this.navCtrl.push(OrderdetailsPage,{name : name,weight : weight,
                                         price : price,image : image,
-                                        description : description,itemNo:itemNo});
+                                        description : description,itemNo:itemNo,icon:icon});
   }
   gosearch(){
     let modal = this.modalCtrl.create(SearchPage);

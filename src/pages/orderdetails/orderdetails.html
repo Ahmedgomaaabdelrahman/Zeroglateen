@@ -36,12 +36,10 @@
       </div>
 </ion-col>
 <ion-col col-4 style="padding:5px 0" (click)=changeHeart()>
-    <div class="heartdiv" *ngIf="heart == false"> 
-        <ion-icon name="heart-outline"></ion-icon>                  
+    <div class="heartdiv" > 
+        <ion-icon name="{{prod_heart}}"></ion-icon>                  
     </div>
-    <div class="heartdiv" *ngIf="heart == true"> 
-        <ion-icon name="heart"></ion-icon>                  
-    </div>
+  
   </ion-col>
   </ion-row>
 </ion-footer>

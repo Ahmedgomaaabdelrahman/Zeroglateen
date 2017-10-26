@@ -34,7 +34,7 @@ export class OrderdetailsPage {
     this.prod_price = this.navParams.data.price;
     this.prod_weight = this.navParams.data.weight;
     this.prod_itemNo =this.navParams.data.itemNo;
-    this.prod_heart=this.navParams.data.heartS;
+    this.prod_heart=this.navParams.data.icon;
     this.prod_description = this.navParams.data.description;
    
    console.log(this.prod_heart);

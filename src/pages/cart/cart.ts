@@ -61,7 +61,7 @@ removeItem(cardid,counterEle : any){
     this.increaseItem(counterEle.value,cardid);
   }
   CommonProvider.cartNo = this.cartNo;
-  
+   
  
 }
 increaseItem(quan,cartid){
@@ -83,6 +83,6 @@ deleteCart(cartid){
         return (item.cart_id != cartid);
       })
     }
-});
+}); 
 }
 }

@@ -21,7 +21,6 @@ export class HomePage {
   public imageUrl : string = "http://104.236.243.55/ProductImage/";  
   public counter:number =0 ;
   public qauntity : number;
-  public quantity:number;
   public cartNo : number ;
   public cartpage :CartPage;
   public cartLength :any[];
@@ -38,7 +37,7 @@ export class HomePage {
   this.getcart()
   }
   
-  icons:any;
+  icons:any[];
   getProducts(){
      this.product.getProducts().subscribe((res)=>{
       console.log(res);
@@ -46,12 +45,18 @@ export class HomePage {
       console.log(this.products[0].image);
       this.icons=[];
       let self=this;
+      // console.log(this.qauntity=res[0].favourit[0].favourite_id);
       for(let i=0;i<res.length;i++){
+        if(res[i].favourit.length > 0)
+        self.icons.push('heart');
+        else
         self.icons.push('heart-outline');
-        }
+      }
       this.products=res;
       console.log(res); 
+      console.log(res[0].cart[0].item_qty);
      });
+    
    }
   addItem(counterEle : any){
     this.counter++;
@@ -112,8 +117,10 @@ export class HomePage {
   gotologin(){
     this.navCtrl.push(LoginPage);
   }
-  godetails(name :string,weight :number ,price :number ,image : string,description : any){
-    this.navCtrl.push(OrderdetailsPage,{name : name,weight : weight,price : price,image : image, description : description});
+  godetails(name :string,weight :number ,price :number ,image : string,description : any,itemNo:any){
+    this.navCtrl.push(OrderdetailsPage,{name : name,weight : weight,
+                                        price : price,image : image,
+                                        description : description,itemNo:itemNo});
   }
   gosearch(){
     let modal = this.modalCtrl.create(SearchPage);

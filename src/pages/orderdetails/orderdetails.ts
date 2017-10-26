@@ -21,6 +21,8 @@ export class OrderdetailsPage {
   public prod_weight : number;
   public prod_description : string;
   public heart:boolean=false;
+  public prod_itemNo:any;
+  public prod_heart:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
    
     
@@ -31,10 +33,14 @@ export class OrderdetailsPage {
     this.prod_image = this.navParams.data.image;
     this.prod_price = this.navParams.data.price;
     this.prod_weight = this.navParams.data.weight;
+    this.prod_itemNo =this.navParams.data.itemNo;
     this.prod_description = this.navParams.data.description;
+   
+   
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrderdetailsPage');
+   
   }
   addItem(){
     this.counter++;

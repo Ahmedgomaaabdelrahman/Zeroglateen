@@ -28,7 +28,7 @@
   </ion-card-header>
   <ion-card-content>
     <img [src]="imageUrl+product.image" 
-    (click)="godetails(product.product_name,product.weight,product.price,imageUrl+product.image,product.descriptaion)">
+    (click)="godetails(product.product_name,product.weight,product.price,imageUrl+product.image,product.descriptaion,product.cart[0].item_qty)">
     <ion-row style="border-bottom:1px solid lightgray">
       <ion-col col-6 style="text-align:start;color:gray;font-size: 1.2rem;">{{product.weight}}{{'gm'|translate}}</ion-col>
       <ion-col col-6 style="text-align:end;color:green;font-size: 1.2rem;">{{product.price}}{{'SAR'|translate}}</ion-col>
@@ -36,9 +36,10 @@
     <ion-row>
     <ion-col col-8>
         <div class="qaundiv">
-          <ion-icon name="remove" style="float:left" id='remove' (click)=removeItem(counter)></ion-icon>
-                <!-- <input class="itemnum" #counter value="0" type="text"  readonly="readonly"> -->
-                <input class="itemnum" #counter *ngIf="product.cart[0].item_qty !== 'undefined'" [value]="product.cart[0].item_qty"   type="text" readonly="readonly">
+          <ion-icon name="remove" style="float:left" id='remove' (click)=removeItem(product.cart.length,counter)></ion-icon>
+                <input class="itemnum" #counter *ngIf="product.cart.length > 0" [value]="product.cart[0].item_qty" [(ngModel)]="product.cart[0].item_qty" name="quantity"type="text" readonly="readonly">
+                <input class="itemnum" #counter *ngIf="product.cart.length == 0" [value]="0"  type="text" readonly="readonly">
+                
                 <ion-icon name="add" style="float:right" (click)=addToCart(product.product_id,counter)></ion-icon>
           </div>
     </ion-col>

@@ -24,7 +24,7 @@ export class HomePage {
   public cartNo : number ;
   public cartpage :CartPage;
   public cartLength :any[];
-  public heart:string="heart";
+  public heart:string;
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
@@ -45,16 +45,15 @@ export class HomePage {
       console.log(this.products[0].image);
       this.icons=[];
       let self=this;
-      // console.log(this.qauntity=res[0].favourit[0].favourite_id);
       for(let i=0;i<res.length;i++){
         if(res[i].favourit.length > 0)
+        {
         self.icons.push('heart');
+        }
         else
-        self.icons.push('heart-outline');
-      }
-      this.products=res;
-      console.log(res); 
-      console.log(res[0].cart[0].item_qty);
+        {
+        self.icons.push('heart-outline'); 
+    }}
      });
     
    }
@@ -66,7 +65,7 @@ export class HomePage {
   removeItem(counterEle : any){
     console.log(counterEle);
     counterEle.value--;
-    if(counterEle.value = 0)
+    if(counterEle.value < 0)
     document.getElementById("remove").style.pointerEvents = "none";
     else 
     this.counter--;
@@ -82,7 +81,6 @@ export class HomePage {
         this.cartNo++;
         this.addItem(counter);
       }
-     
    });
 }
   changeHeart(iconEle : any){

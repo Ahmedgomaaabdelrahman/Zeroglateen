@@ -34,7 +34,8 @@ export class HomePage {
   {
   this.getProducts();
   this.cartNo = CommonProvider.cartNo;
-  this.getcart()
+  this.getcart();
+  console.log(this.qauntity);
   }
   
   icons:any[];
@@ -115,10 +116,10 @@ export class HomePage {
   gotologin(){
     this.navCtrl.push(LoginPage);
   }
-  godetails(name :string,weight :number ,price :number ,image : string,description : any,itemNo:any,icon:any,proId:number){
+  godetails(name :string,weight :number ,price :number ,image : string,description : any,itemNo:any,icon:any,proId:number,favId:number){
     this.navCtrl.push(OrderdetailsPage,{name : name,weight : weight,
                                         price : price,image : image,
-                                        description : description,itemNo:itemNo,icon:icon,proId:proId});
+                                        description : description,itemNo:itemNo,icon:icon,proId:proId,favId:favId});
   }
   gosearch(){
     let modal = this.modalCtrl.create(SearchPage);

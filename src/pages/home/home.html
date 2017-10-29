@@ -16,7 +16,7 @@
         <ion-input class="searchinput" (click)="gosearch()" type="text" placeholder="{{'Search...'|translate}}" readonly></ion-input>
       </ion-col>
       <ion-col col-3 style="border-right:1px solid lightgray;border-left:1px solid lightgray;">
-        <p class="filter" (click)="gofilter()">{{'Filter'|translate}}<ion-icon name="arrow-down"></ion-icon></p></ion-col>
+        <p class="filter" (click)="gofilter()">{{'Sort'|translate}}<ion-icon name="arrow-down"></ion-icon></p></ion-col>
     </ion-row>
 </ion-header>
 <ion-content> 
@@ -28,7 +28,7 @@
   </ion-card-header>
   <ion-card-content>
     <img [src]="imageUrl+product.image" 
-    (click)="godetails(product.product_name,product.weight,product.price,imageUrl+product.image,product.descriptaion,product.cart[0].item_qty,icons[i],product.product_id)">
+    (click)="godetails(product.product_name,product.weight,product.price,imageUrl+product.image,product.descriptaion,product.cart[0].item_qty,icons[i],product.product_id,product.favourit[0]?.favourite_id)">
     <ion-row style="border-bottom:1px solid lightgray">
       <ion-col col-6 style="text-align:start;color:gray;font-size: 1.2rem;">{{product.weight}}{{'gm'|translate}}</ion-col>
       <ion-col col-6 style="text-align:end;color:green;font-size: 1.2rem;">{{product.price}}{{'SAR'|translate}}</ion-col>

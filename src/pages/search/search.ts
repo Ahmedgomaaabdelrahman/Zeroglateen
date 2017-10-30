@@ -1,3 +1,5 @@
+import { HomePage } from './../home/home';
+import { UserProvider } from './../../providers/user';
 import { ProductProvider } from './../../providers/product';
 import { Component } from '@angular/core';
 import {  NavController, NavParams, ViewController } from 'ionic-angular';
@@ -8,18 +10,30 @@ import {  NavController, NavParams, ViewController } from 'ionic-angular';
   selector: 'page-search',
   templateUrl: 'search.html',
 })
-export class SearchPage {
+export class SearchPage  {
 public items:any[];
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,public productProvider:ProductProvider) {
+public search:any;
+public home=HomePage;
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams,
+     public viewCtrl:ViewController,
+     public productProvider:ProductProvider,
+    public userprovider:UserProvider) {
  
   }
 
   ionViewWillEnter() {
     console.log('ionViewDidLoad SearchPage');
     this.category();
+
   }
-  dismiss(){
+  dismiss(category){
     this.viewCtrl.dismiss();
+    this.productProvider.getSearch(category,this.userprovider.user.id).subscribe((res)=>{
+    console.log(res);
+    this.search=res;
+    HomePage.searchPro=res;
+    });
   }
   category(){
     this.productProvider.category().subscribe((res)=>{
@@ -27,5 +41,5 @@ public items:any[];
       console.log(res);
     })
   }
-  
+ 
 }

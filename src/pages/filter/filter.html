@@ -8,27 +8,27 @@
     
       <ion-item>
         <ion-label>{{'New - Old'|translate}}</ion-label>
-        <ion-radio (click)="dismiss()"></ion-radio>
+        <ion-radio (click)="dismiss(creted=1)"></ion-radio>
       </ion-item>
     
       <ion-item>
         <ion-label>{{'Old - New'|translate}}</ion-label>
-        <ion-radio (click)="dismiss()"></ion-radio>
+        <ion-radio (click)="dismiss(creted=2)"></ion-radio>
       </ion-item>
     
       <ion-item>
         <ion-label>{{'Low - High Price'|translate}}</ion-label>
-        <ion-radio (click)="dismiss()"></ion-radio>
+        <ion-radio (click)="dismiss(price=1)"></ion-radio>
       </ion-item>
     
       <ion-item>
         <ion-label>{{'High - Low Price'|translate}}</ion-label>
-        <ion-radio (click)="dismiss()"></ion-radio>
+        <ion-radio (click)="dismiss(price=2)"></ion-radio>
       </ion-item>
     
       <ion-item>
         <ion-label>{{'On Sale'|translate}}</ion-label>
-        <ion-radio (click)="dismiss()"></ion-radio>
+        <ion-radio (click)="dismiss(onsale=1)"></ion-radio>
       </ion-item>
     
     </ion-list>

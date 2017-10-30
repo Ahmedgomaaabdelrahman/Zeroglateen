@@ -17,6 +17,8 @@ public addCartUrl :string = MainProvider.baseUrl+"cart";
 public getCartUrl :string = MainProvider.baseUrl+"getcart/";
 public addItemUrl : string = MainProvider.baseUrl+"modifayitiem/";
 public deleteCartUrl : string =MainProvider.baseUrl+"deletecart/";
+public searchUrl:string=MainProvider.baseUrl+"search/";
+public sortUrl:string=MainProvider.baseUrl+"filter/";
 public userid:any;
   constructor(public userprovider:UserProvider,public http: Http) {
     console.log('Hello ProductProvider Provider');
@@ -68,4 +70,17 @@ public userid:any;
   deleteCart(cartid){
     return this.http.delete(this.deleteCartUrl+cartid).map((res) => res.json());
   }
+  getSearch(categroyid,userid){
+    return this.http.get(this.searchUrl+categroyid+"/"+userid+"?lang="+ MainProvider.lang).map((res) => res.json());
+    
+  }
+Sort(userid,creted?:any,price?:any,onsale?:any){
+  let body = {
+    created_at:creted,
+    price:price,
+    onsale:onsale
+  };
+  return this.http.post(this.sortUrl+userid+"?lang="+ MainProvider.lang,body).map((res) => res.json());
+  
+}
 }

@@ -41,7 +41,7 @@
           <input class="itemnum" #counter *ngIf="product.cart.length == 0" [value]="0"  type="text" readonly="readonly">
             -->
             <input class="itemnum" #mycounter *ngIf="product.cart.length == 1" value="1" type="text" readonly="readonly">
-            <input class="itemnum" #mycounter *ngIf="product.cart.length == 0" [value]="0" type="text" readonly="readonly">
+            <input class="itemnum" #mycounter *ngIf="product.cart.length == 0" value="0" type="text" readonly="readonly">
           <ion-icon name="add" style="float:right" (click)=addToCart(product.product_id,mycounter)></ion-icon>
         </div>
     </ion-col>

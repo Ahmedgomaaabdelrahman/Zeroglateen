@@ -6,7 +6,7 @@
   </div>
   <ion-item  *ngFor="let item of items">
     <ion-label>{{item.category_name}}</ion-label>
-    <ion-radio (click)="dismiss()"></ion-radio>
+    <ion-radio (click)="dismiss(item.category_id)"></ion-radio>
   </ion-item>       
 </ion-list>
 </ion-content>

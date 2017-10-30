@@ -18,6 +18,8 @@ import { NavController, MenuController,ModalController } from 'ionic-angular';
 })
 export class HomePage {
   public products :any;
+  public static searchPro :any;
+  public static sortPro :any;
   public imageUrl : string = "http://104.236.243.55/ProductImage/";
   public qauntity : number;
   public cartNo : number ;
@@ -29,6 +31,9 @@ export class HomePage {
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
+    this.products=HomePage.sortPro;
+    
+    
     // this.common.traslateandToast('hello' + this.userprovider.deviceToken);
   }
   ionViewWillEnter()
@@ -41,6 +46,8 @@ export class HomePage {
   
   icons:any[];
   getProducts(){
+    console.log("search:"+HomePage.searchPro);
+    console.log("fdgfdsgdf"+HomePage.sortPro);
      this.product.getProducts().subscribe((res)=>{
       console.log(res);
       this.products = res;
@@ -131,11 +138,13 @@ export class HomePage {
                                         description : description,itemNo:itemNo,icon:icon,proId:proId,favId:favId});
   }
   gosearch(){
+    this.products=HomePage.searchPro;
     let modal = this.modalCtrl.create(SearchPage);
       modal.present();
   }
 
   gofilter(){
+    this.products=HomePage.sortPro;
       let modal = this.modalCtrl.create(FilterPage);
       modal.present();
   }

@@ -37,11 +37,7 @@
     <ion-col col-8>
       <div class="qaundiv">
         <ion-icon name="remove" style="float:left" id='remove' (click)=removeItem(product.cart.length,counter)></ion-icon>
-          <!-- <input class="itemnum" #counter *ngIf="product.cart.length > 0" [value]="product.cart[0].item_qty" [(ngModel)]="product.cart[0].item_qty" name="quantity"type="text" readonly="readonly">
-          <input class="itemnum" #counter *ngIf="product.cart.length == 0" [value]="0"  type="text" readonly="readonly">
-            -->
-            <input class="itemnum" #mycounter *ngIf="product.cart.length == 1" value="1" type="text" readonly="readonly">
-            <input class="itemnum" #mycounter *ngIf="product.cart.length == 0" [value]="0" type="text" readonly="readonly">
+          <input class="itemnum" #mycounter value="0" readonly="readonly">
           <ion-icon name="add" style="float:right" (click)=addToCart(product.product_id,mycounter)></ion-icon>
         </div>
     </ion-col>

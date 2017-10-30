@@ -21,11 +21,11 @@ export class HomePage {
   public imageUrl : string = "http://104.236.243.55/ProductImage/";
   public qauntity : number;
   public cartNo : number ;
-  public myvar : number=0 ;
+  public myvar : number ;
   public cartpage :CartPage;
   public cartLength :any[];
   public heart:string;
-  public found : boolean = false;
+  public found : boolean = true;
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
@@ -37,6 +37,7 @@ export class HomePage {
   this.cartNo = CommonProvider.cartNo;
   this.getcart();
   console.log(this.qauntity);
+
   }
   
   icons:any[];

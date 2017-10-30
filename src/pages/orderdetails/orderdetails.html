@@ -30,11 +30,9 @@
 <ion-row style="height: 85%;margin: 5px;">
 <ion-col col-8>
     <div class="qaundiv">
-        <ion-icon name="remove" style="float:left" (click)=removeItem()></ion-icon>
-
-            <p *ngIf="prod_itemNo > 0">1</p>
-            <p *ngIf="prod_itemNo == 0">0</p>
-        <ion-icon name="add" style="float:right" (click)=addItem()></ion-icon>
+        <ion-icon name="remove" style="float:left"></ion-icon>
+            <p  id="coutdetail">0</p>
+        <ion-icon name="add" style="float:right" (click)=addToCart()></ion-icon>
       </div>
 </ion-col>
 <ion-col col-4 style="padding:5px 0" (click)=changeHeart()>

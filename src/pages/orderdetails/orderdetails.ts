@@ -114,4 +114,17 @@ export class OrderdetailsPage {
   gocart(){
     this.navCtrl.push(CartPage);
   }
+
+  addToCart(){
+    this.product.addToCart(this.userprovider.user.id,this.prod_id).subscribe((res)=>{
+      if(res.state == "203"){
+        this.common.traslateandToast("Already added before");
+        
+      }
+      else if(res.state == "202"){
+          this.common.traslateandToast("added successfully");
+          document.getElementById('coutdetail').textContent = "1";
+      }
+   });
+}
 }

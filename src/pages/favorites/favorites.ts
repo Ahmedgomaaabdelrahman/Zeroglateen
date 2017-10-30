@@ -109,7 +109,7 @@ public cartNo : number ;
   addToCart(prodid,counter){
     this.productProvider.addToCart(this.userprovider.user.id,prodid).subscribe((res)=>{
       if(res.state == "203"){
-        this.common.traslateandToast("Product Quantity is Updated");
+        this.common.traslateandToast("Already added before");
       }
       else if(res.state == "202"){
         this.common.traslateandToast("added successfully");

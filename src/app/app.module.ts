@@ -1,3 +1,5 @@
+import { Geolocation } from '@ionic-native/geolocation';
+import { MapPage } from './../pages/map/map';
 import { Push } from '@ionic-native/push';
 import { Firebase } from '@ionic-native/firebase';
 import { NativeStorage } from '@ionic-native/native-storage';
@@ -68,7 +70,8 @@ export function createTranslateLoader(http: Http) {
     SignproductivePage,
     SignsupplierPage,
     FavoritesPage,
-    MyaccountPage
+    MyaccountPage,
+    MapPage
   ],
   imports: [
     BrowserModule,
@@ -105,7 +108,8 @@ export function createTranslateLoader(http: Http) {
     SignproductivePage,
     SignsupplierPage,
     FavoritesPage,
-    MyaccountPage
+    MyaccountPage,
+    MapPage
   ],
   providers: [
     StatusBar,
@@ -117,7 +121,8 @@ export function createTranslateLoader(http: Http) {
     CommonProvider,
     ProductProvider,
     Firebase,
-    Push
+    Push,
+    Geolocation
     
  
   ]

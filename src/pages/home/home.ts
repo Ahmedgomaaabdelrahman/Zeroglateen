@@ -18,13 +18,14 @@ import { NavController, MenuController,ModalController } from 'ionic-angular';
 })
 export class HomePage {
   public products :any;
-  public imageUrl : string = "http://104.236.243.55/ProductImage/";  
-  public counter:number =0 ;
+  public imageUrl : string = "http://104.236.243.55/ProductImage/";
   public qauntity : number;
   public cartNo : number ;
+  public myvar : number=0 ;
   public cartpage :CartPage;
   public cartLength :any[];
   public heart:string;
+  public found : boolean = false;
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
     private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
@@ -59,7 +60,7 @@ export class HomePage {
     
    }
   addItem(counterEle : any){
-    this.counter++;
+    // this.counter++;
     console.log(counterEle);
     counterEle.value++;
   }
@@ -68,19 +69,19 @@ export class HomePage {
     counterEle.value--;
     if(counterEle.value < 0)
     document.getElementById("remove").style.pointerEvents = "none";
-    else 
-    this.counter--;
+    // else 
+    // this.counter--;
   }
-  addToCart(prodid,counter){
+  addToCart(prodid,mycounter){
     this.product.addToCart(this.userprovider.user.id,prodid).subscribe((res)=>{
       if(res.state == "203"){
-        // this.product.increaseItem(this.qauntity,this.cart)
-        this.common.traslateandToast("Product Quantity is Updated");
+        this.common.traslateandToast("Already added before");
+        
       }
       else if(res.state == "202"){
-        this.common.traslateandToast("added successfully");
-        this.cartNo++;
-        this.addItem(counter);
+          this.common.traslateandToast("added successfully");
+          this.cartNo++;
+          mycounter.value++;
       }
    });
 }
@@ -116,7 +117,15 @@ export class HomePage {
   gotologin(){
     this.navCtrl.push(LoginPage);
   }
-  godetails(name :string,weight :number ,price :number ,image : string,description : any,itemNo:any,icon:any,proId:number,favId:number){
+  godetails(name :string,
+            weight :number ,
+            price :number ,
+            image : string,
+            description : any,
+            itemNo:any,
+            icon:any,
+            proId:number,
+            favId:number){
     this.navCtrl.push(OrderdetailsPage,{name : name,weight : weight,
                                         price : price,image : image,
                                         description : description,itemNo:itemNo,icon:icon,proId:proId,favId:favId});

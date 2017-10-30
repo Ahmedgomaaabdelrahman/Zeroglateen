@@ -31,7 +31,9 @@
 <ion-col col-8>
     <div class="qaundiv">
         <ion-icon name="remove" style="float:left" (click)=removeItem()></ion-icon>
-            <p>{{prod_itemNo}}</p>
+
+            <p *ngIf="prod_itemNo > 0">1</p>
+            <p *ngIf="prod_itemNo == 0">0</p>
         <ion-icon name="add" style="float:right" (click)=addItem()></ion-icon>
       </div>
 </ion-col>

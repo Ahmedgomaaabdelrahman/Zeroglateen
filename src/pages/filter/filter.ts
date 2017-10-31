@@ -10,14 +10,11 @@ import { NavController, NavParams,ViewController } from 'ionic-angular';
   templateUrl: 'filter.html',
 })
 export class FilterPage {
-// public creted:any;
-// public price:any;
-// public onsale:any;
 public home=HomePage;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl : ViewController,public product:ProductProvider,public user:UserProvider) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     console.log('ionViewDidLoad FilterPage');  
   }
   dismiss(creted?:any,price?:any,onsale?:any){

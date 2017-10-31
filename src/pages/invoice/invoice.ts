@@ -11,9 +11,10 @@ import {  NavController, NavParams,ViewController,ModalController } from 'ionic-
 export class InvoicePage {
 
   constructor(public navCtrl: NavController,public modalCtrl :ModalController,public navParams: NavParams,public viewCtrl : ViewController) {
+    console.log(navParams.get('invoice'));
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     console.log('ionViewDidLoad InvoicePage');
   }
   dismiss(){

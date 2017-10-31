@@ -9,7 +9,7 @@
     <ion-title>
       <ion-row >
         <ion-col col-10 style="text-align: center;color:gray">{{'Your Cart'|translate}}</ion-col>
-        <ion-col col-1 class="greenicon">5</ion-col>
+        <ion-col col-1 class="greenicon">{{cartNo}}</ion-col>
         <ion-col col-1 class="greenicon"><ion-icon name="cart"></ion-icon></ion-col>
       </ion-row>
     </ion-title>
@@ -32,51 +32,51 @@
       </ion-col>
   </ion-row>
 
-  <ion-list radio-group >
+  <ion-list radio-group [(ngModel)]= "paymentId" name="paymentId">
       <ion-item class="paytype">
         <ion-label>
           <img src="assets/imgs/cash.png"> <p>Cash on delivery</p>
         </ion-label>
-          <ion-radio [disabled]="flag" checked="true" value="cash"></ion-radio>
+          <ion-radio [disabled]="flag" checked="true" value="1"></ion-radio>
       </ion-item>
     
       <ion-item class="paytype">
         <ion-label>
           <img src="assets/imgs/mastercard.png"><p>By Mastercard</p>
         </ion-label>
-        <ion-radio [disabled]="flag" value="mastercardgo"></ion-radio>
+        <ion-radio [disabled]="flag" value="2"></ion-radio>
       </ion-item>
       
       <ion-item class="paytype">
         <ion-label>
           <img src="assets/imgs/paypal.png"><p>Paypal</p>
         </ion-label>
-        <ion-radio [disabled]="flag" value="paypal"></ion-radio>
+        <ion-radio [disabled]="flag" value="3"></ion-radio>
       </ion-item>
 
       <ion-item class="paytype">
         <ion-label>
           <img src="assets/imgs/visa.png"><p>By Visa</p>
         </ion-label>
-        <ion-radio [disabled]="flag" value="visa"></ion-radio>
+        <ion-radio [disabled]="flag" value="4"></ion-radio>
       </ion-item>
 
       <ion-item class="paytype">
         <ion-label>
           <img style="background-color:white"><p>Sadad</p>
         </ion-label>
-        <ion-radio [disabled]="flag" value="Sadad"></ion-radio>
+        <ion-radio [disabled]="flag" value="5"></ion-radio>
       </ion-item>
 
       <ion-item class="paytype">
           <ion-label>
             <img src="assets/imgs/point.png"><p>By Points</p>
           </ion-label>
-          <ion-radio [disabled]="flag"  value="point"></ion-radio>
+          <ion-radio [disabled]="flag"  value="6"></ion-radio>
         </ion-item>
     </ion-list>
    
 </ion-content>
 <ion-footer>
-    <button ion-button block class="next" id="btn" (click)="goinvoice()">{{'Confirm Order'|translate}}</button>   
+    <button ion-button block class="next" id="btn" (click)="SetOrder()">{{'Confirm Order'|translate}}</button>   
 </ion-footer>

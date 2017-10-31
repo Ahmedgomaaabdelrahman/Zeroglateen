@@ -1,15 +1,10 @@
-<!--
-  Generated template for the AddlocationPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar style="border-bottom: 1px solid orange;">
     <ion-title>
       <ion-row >
         <ion-col col-10 style="text-align: center;color:gray">{{'Your Cart'|translate}}</ion-col>
-        <ion-col col-1 class="greenicon">5</ion-col>
+        <ion-col col-1 class="greenicon">{{cartNo}}</ion-col>
         <ion-col col-1 class="greenicon"><ion-icon name="cart"></ion-icon></ion-col>
       </ion-row>
     </ion-title>
@@ -29,38 +24,39 @@
         <div class="cartstep"><div>3</div>{{'Payment'|translate}}</div>
       </ion-col>
   </ion-row>
-
+  <form #f="ngForm">
   <div style="margin:30px">
     <p class="location">{{'Location'|translate}}</p>
-    <ion-input type="text" class="mapinput" placeholder="{{'Address'|translate}}"></ion-input>
+    <ion-input [(ngModel)]="address" name="address"  type="text" class="mapinput" placeholder="{{'Address'|translate}}" required></ion-input>
     <p class="mapselect" (click)="getMap()">{{'Select From Map'|translate}}</p>
+   <ion-input [(ngModel)]="lat" name="lat" hidden required></ion-input>
+   <ion-input [(ngModel)]="lng" name="lng" hidden required></ion-input>
+   
   </div>
 <hr>
   <div style="margin: 15px 30px 0;">
     <p class="location">{{'Pick date and time'|translate}}</p>
-    <ion-list radio-group>
+    <ion-list radio-group [(ngModel)]= "radiobuttons" name="radiobuttons">
       <ion-item>
-        <ion-radio checked="true" value="now"></ion-radio>
+        <ion-radio checked="true" value="1" ></ion-radio>
         <ion-label>{{'Order Now'|translate}}</ion-label>
-      
       </ion-item>  
-      <ion-item>
-        <ion-radio value="later"></ion-radio>
-        <ion-label>{{'Order Later'|translate}}</ion-label>
+      <ion-item >
+        <ion-radio value="2"></ion-radio>
+        <ion-label >{{'Order Later'|translate}}</ion-label>
       </ion-item>
     </ion-list>
   </div>
-  <div style="margin: 0 10x 15px;text-align: center;">
-      <ion-item class="timedate">
-          <ion-datetime displayFormat="DD MMM YYYY" placeholder="{{'Date'|translate}}"></ion-datetime>
+  <div style="margin: 0 10x 15px;text-align: center;" *ngIf="radiobuttons==2">
+      <ion-item class="timedate" >
+          <ion-datetime [(ngModel)]="date" name="date"  displayFormat="DD MMM YYYY" placeholder="{{'Date'|translate}}"></ion-datetime>
       </ion-item>
     <ion-item class="timedate">
-          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" placeholder="{{'Time'|translate}}" ></ion-datetime>
+          <ion-datetime [(ngModel)]="time" name="time"  displayFormat="h:mm A" pickerFormat="h mm A" placeholder="{{'Time'|translate}}" ></ion-datetime>
     </ion-item>
-   
 </div>
+</form>
 </ion-content>
   <ion-footer>
-      <button ion-button block class="next" (click)="gopay()"><ion-icon class="arrow" name="arrow-forward"></ion-icon></button>
-      
+      <button ion-button block class="next" [disabled]="!f.valid" (click)="gopay(address,radiobuttons,date,time,lat,lng)"><ion-icon class="arrow" name="arrow-forward"></ion-icon></button>
   </ion-footer>

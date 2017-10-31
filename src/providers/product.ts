@@ -19,6 +19,7 @@ public addItemUrl : string = MainProvider.baseUrl+"modifayitiem/";
 public deleteCartUrl : string =MainProvider.baseUrl+"deletecart/";
 public searchUrl:string=MainProvider.baseUrl+"search/";
 public sortUrl:string=MainProvider.baseUrl+"filter/";
+public setorderUrl:string=MainProvider.baseUrl+"setorder";
 public userid:any;
   constructor(public userprovider:UserProvider,public http: Http) {
     console.log('Hello ProductProvider Provider');
@@ -81,6 +82,20 @@ Sort(userid,creted?:any,price?:any,onsale?:any){
     onsale:onsale
   };
   return this.http.post(this.sortUrl+userid+"?lang="+ MainProvider.lang,body).map((res) => res.json());
-  
+}
+setOrder(userid,address:any,lat:any,lang:any,paymentId:any,orderhistory:any,time?:any,date?:any,feedback?:any,rate?:any){
+  let body = {
+    user_id:userid,
+    adress:address,
+    lat:lat,
+    lang:lang,
+    order_history_state:orderhistory,
+    time:time,
+    date:date,
+    payment_id:paymentId,
+    feedback:feedback,
+    rate:rate
+  };
+  return this.http.post(this.setorderUrl,body).map((res) => res.json());  
 }
 }

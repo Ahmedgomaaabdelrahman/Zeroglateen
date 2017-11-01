@@ -32,7 +32,7 @@ public date: string = new Date().toISOString();
   }
 
   goRate(){
-    let modal = this.modalCtrl.create(RatingPage);
+    let modal = this.modalCtrl.create(RatingPage,{invoiceIdR:this.invoice_id});
     modal.present();
 }
 }

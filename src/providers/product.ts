@@ -20,6 +20,7 @@ public deleteCartUrl : string =MainProvider.baseUrl+"deletecart/";
 public searchUrl:string=MainProvider.baseUrl+"search/";
 public sortUrl:string=MainProvider.baseUrl+"filter/";
 public setorderUrl:string=MainProvider.baseUrl+"setorder";
+public rateUrl:string=MainProvider.baseUrl+"OrderController/";
 public userid:any;
   constructor(public userprovider:UserProvider,public http: Http) {
     console.log('Hello ProductProvider Provider');
@@ -97,5 +98,13 @@ setOrder(userid,address:any,lat:any,lang:any,paymentId:any,orderhistory:any,time
     rate:rate
   };
   return this.http.post(this.setorderUrl,body).map((res) => res.json());  
+}
+Rate(orderid,feedback,rate){
+  let body={
+    feedback:feedback,
+    rate:rate
+  }
+  return this.http.put(this.rateUrl+orderid,body).map((res) => res.json());
+  
 }
 }

@@ -5,28 +5,28 @@
 </div>
 <ion-list class="list">
     <ion-row>
-      <ion-col class="rightside" col-6>15/7/2017</ion-col>
-      <ion-col class="leftside" col-6>#577898</ion-col>
+      <ion-col class="rightside" col-6><ion-datetime [(ngModel)]="date" name="date" [disabled]="true"  displayFormat="MMM DD, YYYY" readonly></ion-datetime></ion-col>
+      <ion-col class="leftside" col-6>#{{invoice_id}}</ion-col>
     </ion-row>
     <hr>
     <ion-row>
     <ion-col class="rightside" col-6>{{'Expected delivery'|translate}}</ion-col>
-    <ion-col class="leftside" col-6>20/07/2017</ion-col>
+    <ion-col class="leftside" col-6>{{invoice_created}}</ion-col>
     </ion-row>
     <hr>
-    <ion-row>
+    <!-- <ion-row>
       <ion-col class="rightside" col-6>{{'Shipping'|translate}}</ion-col>
       <ion-col class="leftside" col-6>34{{'SAR'|translate}}</ion-col>
     </ion-row>
-    <hr>
+    <hr> -->
     <ion-row>
       <ion-col class="rightside" col-6>{{'Items'|translate}}</ion-col>
-    <ion-col   class="leftside" col-6>5</ion-col>
+    <ion-col   class="leftside" col-6>{{invoice_item}}</ion-col>
     </ion-row>
     <hr>
     <ion-row>
       <ion-col col-5></ion-col>
-      <ion-col col-7 class="total" (click)="goRate()">{{'Total'|translate}}<p class="sar">34{{'SAR'|translate}}</p></ion-col>    
+      <ion-col col-7 class="total" (click)="goRate()">{{'Total'|translate}}<p class="sar">{{invoice_price}}{{' SAR'|translate}}</p></ion-col>    
     </ion-row>
 </ion-list>
    

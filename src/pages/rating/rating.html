@@ -1,14 +1,13 @@
 
 <ion-content padding>
 <div class="ratingheader">{{'Rate your Order'|translate}}</div>
-<p>#577898</p>
-<div class="starrat">
-    <ion-icon class="selectedstars" ios="ios-star" md="md-star"></ion-icon>
-    <ion-icon class="selectedstars" ios="ios-star" md="md-star"></ion-icon>
-    <ion-icon class="notselected" ios="ios-star" md="ios-star"></ion-icon>
-    <ion-icon class="notselected" ios="ios-star" md="ios-star"></ion-icon>
-    <ion-icon class="notselected" ios="ios-star" md="ios-star"></ion-icon>
-</div>
+<p >#577898</p>
+<ion-row class="r">
+        <ion-icon  *ngFor="let icon of iconss; let i = index;" style="color:orange" [name]="icon"
+                  (click)="customerRate(i+1)"></ion-icon>
+      </ion-row>
 <textarea name="rating"  cols="5" rows="5" placeholder="{{'Type feedback'|translate}}"></textarea>
 <button ion-button round class="submit" (click)="dismiss()">{{'Submit'|translate}}</button>
+
+
 </ion-content>

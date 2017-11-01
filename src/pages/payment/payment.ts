@@ -70,7 +70,7 @@ SetOrder(){
                                 this.user_lat,this.user_lng,
                                 this.paymentId,this.user_ordertype,this.user_time,this.user_date).subscribe((res)=>{
     console.log(res);
-    this.invoice=res.item;
+    this.invoice=res;
     console.log(this.invoice);
     this.goinvoice();
   });

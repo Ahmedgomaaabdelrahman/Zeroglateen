@@ -1,5 +1,5 @@
 page-rating {
-    .content{
+   .content{
         background-color: $color-background;
         border-radius: 20px;
         }
@@ -16,7 +16,7 @@ page-rating {
     .starrat{
         margin: 0 auto;
         text-align: center;
-        margin-top: 55px;
+        margin-top: 24px;
         font-size: 3rem;
         }
     .selectedstars{
@@ -58,5 +58,16 @@ page-rating {
         text-transform: unset;
         background-color: $color-green;
         font-size: 2rem;
-    }           
+    }   
+    .r{
+        text-align: center;
+         margin: 0 auto;
+    display: block;
+        margin-top: 30px;
+    margin-bottom: 30px;
+  ion-icon{
+    font-size: 4em;
+    padding: 5px;
+  }
+}
 }

@@ -20,7 +20,7 @@ public deleteCartUrl : string =MainProvider.baseUrl+"deletecart/";
 public searchUrl:string=MainProvider.baseUrl+"search/";
 public sortUrl:string=MainProvider.baseUrl+"filter/";
 public setorderUrl:string=MainProvider.baseUrl+"setorder";
-public rateUrl:string=MainProvider.baseUrl+"OrderController/";
+public rateUrl:string=MainProvider.baseUrl+"rateandfeedback/";
 public userid:any;
   constructor(public userprovider:UserProvider,public http: Http) {
     console.log('Hello ProductProvider Provider');

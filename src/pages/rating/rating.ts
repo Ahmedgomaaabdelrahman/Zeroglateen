@@ -55,7 +55,9 @@ public rating:string;
   }
 Rate(){
   this.productprovider.Rate(this.idInvoice,this.rating,this.rateNo).subscribe((res)=>{
-    console.log(res);
+    console.log(res.state);
+   
+    this.viewCtrl.dismiss();
   });
 }
 }

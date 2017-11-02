@@ -21,10 +21,10 @@ public date: string = new Date().toISOString();
 
   ionViewWillEnter() {
     console.log('ionViewDidLoad InvoicePage');
-     this.invoice_item=this.navParams.data.invoice[0].item;
-    this.invoice_created=this.navParams.data.invoice[0].created_at;
-    this.invoice_id=this.navParams.data.invoice[0].order_id;
-    this.invoice_price=this.navParams.data.invoice[0].price;
+     this.invoice_item=this.navParams.data.invoice.item;
+    this.invoice_created=this.navParams.data.invoice.created_at;
+    this.invoice_id=this.navParams.data.invoice.order_id;
+    this.invoice_price=this.navParams.data.invoice.price;
     
   }
   dismiss(){

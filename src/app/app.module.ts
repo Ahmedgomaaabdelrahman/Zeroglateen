@@ -1,7 +1,5 @@
 import { Geolocation } from '@ionic-native/geolocation';
 import { MapPage } from './../pages/map/map';
-import { Push } from '@ionic-native/push';
-import { Firebase } from '@ionic-native/firebase';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { SignsupplierPage } from './../pages/signsupplier/signsupplier';
 import { SignproductivePage } from './../pages/signproductive/signproductive';
@@ -41,12 +39,21 @@ import { MainProvider } from '../providers/main';
 import { UserProvider } from '../providers/user';
 import { CommonProvider } from '../providers/common';
 import { ProductProvider } from '../providers/product';
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+var config = {
+  apiKey: "AIzaSyDXH5U0Uc3uAIAtvP6FCywKvHdQ9G9Waoo",
+  authDomain: "zero-5f2ff.firebaseapp.com",
+  databaseURL: "https://zero-5f2ff.firebaseio.com",
+  projectId: "zero-5f2ff",
+  storageBucket: "zero-5f2ff.appspot.com",
+  messagingSenderId: "285822790686"
+};
 @NgModule({
   declarations: [
     MyApp,
@@ -77,6 +84,7 @@ export function createTranslateLoader(http: Http) {
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
+     AngularFireModule.initializeApp(config),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -115,13 +123,12 @@ export function createTranslateLoader(http: Http) {
     StatusBar,
     SplashScreen,
     NativeStorage,
+     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MainProvider,
     UserProvider,
     CommonProvider,
     ProductProvider,
-    Firebase,
-    Push,
     Geolocation
     
  

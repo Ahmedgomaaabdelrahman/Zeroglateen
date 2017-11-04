@@ -8,7 +8,6 @@ import { SettingsPage } from './../pages/settings/settings';
 import { FavoritesPage } from './../pages/favorites/favorites';
 import { CartPage } from './../pages/cart/cart';
 import { MyaccountPage } from './../pages/myaccount/myaccount';
-import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { Component,ViewChild } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -33,7 +32,7 @@ export class MyApp {
   loginPage=LoginPage;
   signupPage=SignupPage;
 
-  constructor(private push: Push,public com:CommonProvider,public user:UserProvider,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController,public translate : TranslateService) {
+  constructor(public com:CommonProvider,public user:UserProvider,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController,public translate : TranslateService) {
     platform.ready().then(() => {
    
       // Okay, so the platform is ready and our plugins are available.
@@ -50,28 +49,6 @@ export class MyApp {
             this.rootPage = LoginPage;
           }
       }).catch((err)=>console.log(err));
-      
-
-      const options: PushOptions = {
-        android: {senderID: '799865208231'},
-        ios: {
-            alert: 'true',
-            badge: true,
-            sound: 'false'
-        },
-        windows: {},
-     };
-     
-     const pushObject: PushObject = this.push.init(options);
-     
-     pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
-     
-     pushObject.on('registration').subscribe((registration: any) => {console.log('Device registered', registration);
-      this.user.deviceToken = registration;
-      this.com.traslateandToast('Device reg'+this.user.deviceToken);
-      this.com.traslateandToast('Device registerration'+registration)});
-     
-     pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
     });
     platform.setDir('ltr',true);
     this.translate.setDefaultLang(MainProvider.lang);

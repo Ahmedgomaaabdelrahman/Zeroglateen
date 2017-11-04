@@ -6,7 +6,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {MainProvider} from './main';
 import { NativeStorage } from '@ionic-native/native-storage';
-import { Firebase } from '@ionic-native/firebase';
+
 
 /*
   Generated class for the UserProvider provider.
@@ -23,7 +23,7 @@ export class UserProvider {
   public loginUrl : string = MainProvider.baseUrl+"login/";
   public forgetPassUrl : string = MainProvider.baseUrl+"forgetpassword/";
   public updateUrl : string = MainProvider.baseUrl+"modifyusers/";
-  constructor(public com:CommonProvider,private firebase: Firebase,private nativeStorage: NativeStorage,public http: Http,public main:MainProvider) {
+  constructor(public com:CommonProvider,private nativeStorage: NativeStorage,public http: Http,public main:MainProvider) {
     console.log('Hello UserProvider Provider');
     console.log(this.deviceToken);
     this.com.presentToast(this.deviceToken);    

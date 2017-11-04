@@ -11,7 +11,11 @@ import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, MenuController,ModalController } from 'ionic-angular';
 
+ import { AngularFireDatabase } from 'angularfire2/database';
 
+ import  firebase from 'firebase';
+
+ declare var FCMPlugin;
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -28,13 +32,20 @@ export class HomePage {
   public cartLength :any[];
   public heart:string;
   public found : boolean = true;
+   firestore = firebase.database().ref('/pushtokens');
+   firemsg = firebase.database().ref('/messages');
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
-    private menuCtrl:MenuController,public modalCtrl :ModalController) {
+    private menuCtrl:MenuController,public modalCtrl :ModalController
+     ,public afd: AngularFireDatabase
+  ) {
     this.menuCtrl.swipeEnable(true);
+     this.tokensetup().then((token) => {
+       this.storetoken(token);
+     })
     this.products=HomePage.sortPro;
     
     
-    // this.common.traslateandToast('hello' + this.userprovider.deviceToken);
+     this.common.traslateandToast('hello' + this.userprovider.deviceToken);
   }
   ionViewWillEnter()
   {
@@ -44,6 +55,49 @@ export class HomePage {
   console.log(this.qauntity);
 
   }
+  ionViewDidLoad() {
+    FCMPlugin.onNotification(function(data){
+     if(data.wasTapped){
+       //Notification was received on device tray and tapped by the user.
+       alert( JSON.stringify(data) );
+     }else{
+       //Notification was received in foreground. Maybe the user needs to be notified.
+       alert( JSON.stringify(data) );
+     }
+     });
+ 
+ FCMPlugin.onTokenRefresh(function(token){
+     alert( token );
+ });    
+  }
+ 
+   tokensetup() {
+     var promise = new Promise((resolve, reject) => {
+       FCMPlugin.getToken(function(token){
+     resolve(token);
+       }, (err) => {
+         reject(err);
+ });
+     })
+     return promise;
+   }
+ 
+  storetoken(t) {
+    // this.afd.list(this.firestore).push({
+    //   // uid: firebase.auth().currentUser.uid,
+    //   devtoken: t
+        
+    // }).then(() => {
+        alert(t);
+       alert('Token stored');
+      // });
+    this.afd.list(this.firemsg).push({
+      sendername: firebase.auth().currentUser.displayName,
+      message: 'hello'
+    }).then(() => {
+      alert('Message stored');
+      });  
+}
   
   icons:any[];
   getProducts(){

@@ -46,7 +46,7 @@ export class MyApp {
           this.rootPage = HomePage;
         }else{
           this.MainService.sideMenu=false;
-            this.rootPage = LoginPage;
+            this.rootPage = HomePage;
           }
       }).catch((err)=>console.log(err));
     });

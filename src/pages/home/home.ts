@@ -89,7 +89,9 @@ export class HomePage {
         
     // }).then(() => {
         alert(t);
-       alert('Token stored');
+     
+this.userprovider.deviceToken=t;
+console.log(this.userprovider.deviceToken);
       // });
     this.afd.list(this.firemsg).push({
       sendername: firebase.auth().currentUser.displayName,
@@ -98,7 +100,7 @@ export class HomePage {
       alert('Message stored');
       });  
 }
-  
+
   icons:any[];
   getProducts(){
     console.log("search:"+HomePage.searchPro);

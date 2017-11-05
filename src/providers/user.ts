@@ -25,7 +25,7 @@ export class UserProvider {
   public updateUrl : string = MainProvider.baseUrl+"modifyusers/";
   constructor(public com:CommonProvider,private nativeStorage: NativeStorage,public http: Http,public main:MainProvider) {
     console.log('Hello UserProvider Provider');
-    console.log(this.deviceToken);
+    console.log("userprovider"+this.deviceToken);
     this.com.presentToast(this.deviceToken);    
   }
    

@@ -24,14 +24,33 @@ public rateUrl:string=MainProvider.baseUrl+"rateandfeedback/";
 public userid:any;
   constructor(public userprovider:UserProvider,public http: Http) {
     console.log('Hello ProductProvider Provider');
+
   
   }
  
   getProducts(){
-    return this.http.get(this.getProductsUrl+this.userprovider.user.id+"?lang="+MainProvider.lang).map((res)=>res.json());
+  console.log("productprovider"+this.userprovider.deviceToken);
+   
+   let body ;
+   if(this.userprovider.user!= null)
+   {
+     body = {
+      user_id : this.userprovider.user.id
+     };
+   }
+   else
+   {
+     body = {
+      
+      token_id : this.userprovider.deviceToken
+     };
+   }
+ 
+    return this.http.get(this.getProductsUrl+body+"?lang="+MainProvider.lang).map((res)=>res.json());
   }
 
   category(){
+
     return this.http.get(this.categoryUrl+MainProvider.lang).map((res) => res.json());
   }
 
@@ -46,7 +65,19 @@ public userid:any;
     return this.http.delete(this.deleteFavUrl+Favid).map((res)=>res.json());
   }
   getFav(){
-    return this.http.get(this.getFavUrl+this.userprovider.user.id+"?lang="+ MainProvider.lang).map((res) => res.json());
+    let body ;
+    if(this.userprovider.user!= null)
+    {
+      body =  this.userprovider.user.id
+    
+    }
+    else
+    {
+      body =  this.userprovider.deviceToken
+    
+    }
+  
+    return this.http.get(this.getFavUrl+body+"?lang="+ MainProvider.lang).map((res) => res.json());
   }
   addToCart(userid,prodid){
    let body = {

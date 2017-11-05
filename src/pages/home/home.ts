@@ -137,7 +137,7 @@ console.log(this.userprovider.deviceToken);
     // this.counter--;
   }
   addToCart(prodid,mycounter){
-    this.product.addToCart(this.userprovider.user.id,prodid).subscribe((res)=>{
+    this.product.addToCart(prodid).subscribe((res)=>{
       if(res.state == "203"){
         this.common.traslateandToast("Already added before");
         
@@ -162,8 +162,8 @@ console.log(this.userprovider.deviceToken);
  
 
   addtoFav(prodid,icon){
-    if(this.userprovider.user.id){
-      this.product.addToFav(this.userprovider.user.id,prodid).subscribe((res)=>{
+  
+      this.product.addToFav(prodid).subscribe((res)=>{
         console.log(res);
         if(res.state == "202"){
           this.common.traslateandToast("added successfully");
@@ -173,7 +173,7 @@ console.log(this.userprovider.deviceToken);
           this.common.traslateandToast("Already added before");
         }
     });
-    }
+    
   }
   ss(){
     this.navCtrl.push(SignupPage);
@@ -217,7 +217,7 @@ console.log(this.userprovider.deviceToken);
     this.navCtrl.push(OrdermapPage);
   }
   getcart(){
-    this.product.getCart(this.userprovider.user.id).subscribe((res)=>{
+    this.product.getCart().subscribe((res)=>{
       this.cartLength = res;
       this.cartNo = this.cartLength.length;
       CommonProvider.cartNo = this.cartLength.length;

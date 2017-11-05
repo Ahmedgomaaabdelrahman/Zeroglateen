@@ -33,7 +33,7 @@ export class CartPage {
    this.navCtrl.push(AddlocationPage);
  }
  getcart(){
-  this.product.getCart(this.userprovider.user.id).subscribe((res)=>{
+  this.product.getCart().subscribe((res)=>{
     this.cartProd = res;
     this.cartLength = res;
     this.cartNo = this.cartLength.length;

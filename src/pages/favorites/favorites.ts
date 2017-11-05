@@ -107,7 +107,7 @@ public cartNo : number ;
     });
   }
   addToCart(prodid,counter){
-    this.productProvider.addToCart(this.userprovider.user.id,prodid).subscribe((res)=>{
+    this.productProvider.addToCart(prodid).subscribe((res)=>{
       if(res.state == "203"){
         this.common.traslateandToast("Already added before");
       }

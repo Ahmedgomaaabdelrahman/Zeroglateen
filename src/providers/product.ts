@@ -54,11 +54,22 @@ public userid:any;
     return this.http.get(this.categoryUrl+MainProvider.lang).map((res) => res.json());
   }
 
-  addToFav(userid,prodid){ 
-    let body = {
-      user_id : userid,
-      product_id:prodid
-    };
+  addToFav(prodid){ 
+    let body ;
+    if(this.userprovider.user!= null)
+    {
+      body = {
+       user_id : this.userprovider.user.id,
+       product_id:prodid
+      };
+    }
+    else
+    {
+      body = {
+       token_id : this.userprovider.deviceToken,
+       product_id:prodid
+      };
+    }
     return this.http.post(this.addFavUrl,body).map((res) => res.json());
   }
   deleteFav(Favid){
@@ -79,18 +90,43 @@ public userid:any;
   
     return this.http.get(this.getFavUrl+body+"?lang="+ MainProvider.lang).map((res) => res.json());
   }
-  addToCart(userid,prodid){
-   let body = {
-    user_id:userid,
-    product_id:prodid,
-    item_qty:1,
-    cart_state:1
-   };
+  addToCart(prodid){
+   let body ;
+   if(this.userprovider.user!= null)
+   {
+     body = {
+      user_id:this.userprovider.user.id,
+      product_id:prodid,
+      item_qty:1,
+      cart_state:1
+     };
+   }
+   else
+   {
+     body = {
+      token_id : this.userprovider.deviceToken,
+      product_id:prodid,
+      item_qty:1,
+      cart_state:1
+     };
+   }
    return this.http.post(this.addCartUrl,body).map((res) => res.json());
   }
-  getCart(userid)
-  {
-    return this.http.get(this.getCartUrl+userid+"?lang="+ MainProvider.lang).map((res) => res.json());
+  getCart()
+  {  let body ;
+    if(this.userprovider.user!= null)
+    {
+      body =  this.userprovider.user.id
+    
+    }
+    else
+    {
+      body =  this.userprovider.deviceToken
+    
+    }
+  
+
+    return this.http.get(this.getCartUrl+body+"?lang="+ MainProvider.lang).map((res) => res.json());
   }
 
   increaseItem(quantity,cartid){
@@ -103,17 +139,40 @@ public userid:any;
   deleteCart(cartid){
     return this.http.delete(this.deleteCartUrl+cartid).map((res) => res.json());
   }
-  getSearch(categroyid,userid){
-    return this.http.get(this.searchUrl+categroyid+"/"+userid+"?lang="+ MainProvider.lang).map((res) => res.json());
+  getSearch(categroyid){
+    let body ;
+    if(this.userprovider.user!= null)
+    {
+      body =  this.userprovider.user.id
+    
+    }
+    else
+    {
+      body =  this.userprovider.deviceToken
+    
+    }
+  
+    return this.http.get(this.searchUrl+categroyid+"/"+body+"?lang="+ MainProvider.lang).map((res) => res.json());
     
   }
-Sort(userid,creted?:any,price?:any,onsale?:any){
-  let body = {
+Sort(creted?:any,price?:any,onsale?:any){
+  let body ;
+  if(this.userprovider.user!= null)
+  {
+    body =  this.userprovider.user.id
+  
+  }
+  else
+  {
+    body =  this.userprovider.deviceToken
+  
+  }
+  let bodyitem = {
     created_at:creted,
     price:price,
     onsale:onsale
   };
-  return this.http.post(this.sortUrl+userid+"?lang="+ MainProvider.lang,body).map((res) => res.json());
+  return this.http.post(this.sortUrl+body+"?lang="+ MainProvider.lang,bodyitem).map((res) => res.json());
 }
 setOrder(userid,address:any,lat:any,lang:any,paymentId:any,orderhistory:any,time?:any,date?:any,feedback?:any,rate?:any){
   let body = {

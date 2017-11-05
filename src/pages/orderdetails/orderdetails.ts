@@ -80,8 +80,8 @@ export class OrderdetailsPage {
     });
   }
   addtoFav(){
-    if(this.userprovider.user.id){
-      this.product.addToFav(this.userprovider.user.id,this.prod_id).subscribe((res)=>{
+ 
+      this.product.addToFav(this.prod_id).subscribe((res)=>{
         console.log(res);
         if(res.state == "202"){
           this.common.traslateandToast("added successfully");
@@ -92,7 +92,7 @@ export class OrderdetailsPage {
           this.getFavorite();
         }
     });
-    }
+    
   }
   deleteFav(){
   
@@ -116,7 +116,7 @@ export class OrderdetailsPage {
   }
 
   addToCart(){
-    this.product.addToCart(this.userprovider.user.id,this.prod_id).subscribe((res)=>{
+    this.product.addToCart(this.prod_id).subscribe((res)=>{
       if(res.state == "203"){
         this.common.traslateandToast("Already added before");
         

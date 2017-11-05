@@ -29,7 +29,7 @@ public home=HomePage;
   }
   dismiss(category){
     this.viewCtrl.dismiss();
-    this.productProvider.getSearch(category,this.userprovider.user.id).subscribe((res)=>{
+    this.productProvider.getSearch(category).subscribe((res)=>{
     console.log(res);
     this.search=res;
     HomePage.searchPro=res;

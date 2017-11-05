@@ -19,7 +19,7 @@ public home=HomePage;
   }
   dismiss(creted?:any,price?:any,onsale?:any){
     this.viewCtrl.dismiss();
-    this.product.Sort(this.user.user.id,creted,price,onsale).subscribe((res)=>{
+    this.product.Sort(creted,price,onsale).subscribe((res)=>{
       console.log(res);
       console.log('sorting');  
       HomePage.sortPro=res;   

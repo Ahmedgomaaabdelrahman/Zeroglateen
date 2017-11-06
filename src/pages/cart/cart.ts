@@ -1,3 +1,4 @@
+import { LoginPage } from './../login/login';
 import { CommonProvider } from './../../providers/common';
 import { UserProvider } from './../../providers/user';
 import { AddlocationPage } from './../addlocation/addlocation';
@@ -30,7 +31,11 @@ export class CartPage {
   
   }
  golocation(){
+   if(this.userprovider.user!=null)
    this.navCtrl.push(AddlocationPage);
+   else if(this.userprovider.user==null)
+   this.common.presentToast("please Login");
+   this.navCtrl.push(LoginPage);
  }
  getcart(){
   this.product.getCart().subscribe((res)=>{

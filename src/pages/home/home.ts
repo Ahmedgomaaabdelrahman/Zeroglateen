@@ -67,7 +67,7 @@ export class HomePage {
      });
  
  FCMPlugin.onTokenRefresh(function(token){
-     alert( token );
+    // alert( token );
  });    
   }
  

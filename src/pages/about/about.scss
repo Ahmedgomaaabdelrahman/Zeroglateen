@@ -1,3 +1,20 @@
 page-about {
-
+    .content{
+        background-color: $color-background;
+    }
+    .header-md::after{
+        background-color: rgba(251, 211, 94, 0.56);
+      }
+    .toolbar-title{
+    color: #92786a;
+    text-align: center;
+    
+    }   
+    .logoimg{
+        height: 250px;
+        margin: auto;
+        display: block;
+        width: 250px;
+    
+    }
 }

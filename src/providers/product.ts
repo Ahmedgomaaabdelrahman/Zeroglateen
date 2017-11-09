@@ -21,6 +21,7 @@ public searchUrl:string=MainProvider.baseUrl+"search/";
 public sortUrl:string=MainProvider.baseUrl+"filter/";
 public setorderUrl:string=MainProvider.baseUrl+"setorder";
 public rateUrl:string=MainProvider.baseUrl+"rateandfeedback/";
+public aboutandtermsUrl:string=MainProvider.baseUrl+"aboutterms";
 public userid:any;
   constructor(public userprovider:UserProvider,public http: Http) {
     console.log('Hello ProductProvider Provider');
@@ -195,6 +196,11 @@ Rate(orderid,feedback,rate){
     rate:rate
   }
   return this.http.put(this.rateUrl+orderid,body).map((res) => res.json());
+  
+}
+aboutAndTerms(){
+
+    return this.http.get(this.aboutandtermsUrl+"?lang="+ MainProvider.lang).map((res) => res.json());
   
 }
 }

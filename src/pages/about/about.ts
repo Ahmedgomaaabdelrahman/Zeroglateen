@@ -1,3 +1,4 @@
+import { ProductProvider } from './../../providers/product';
 import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
 
@@ -14,12 +15,20 @@ import {  NavController, NavParams } from 'ionic-angular';
   templateUrl: 'about.html',
 })
 export class AboutPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+public aboutText:string;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public productprovider:ProductProvider) {
+    this.about();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutPage');
   }
+about(){
+  this.productprovider.aboutAndTerms().subscribe((res)=>{
+console.log(res);
+console.log(res[0].about);
+this.aboutText=res[0].about;
 
+  });
+}
 }

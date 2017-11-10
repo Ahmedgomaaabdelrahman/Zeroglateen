@@ -83,6 +83,7 @@ export class MyApp {
 }
 logout(){
   this.user.userStorageErase();
+  this.storage.clear();
   this.menuCtrl.close();
   this.menuCtrl.swipeEnable(false);
   this.nav.setRoot(LoginPage);

@@ -24,8 +24,10 @@ export class OrderdetailsPage {
   public prod_id:any;
   public fav_id:number;
   public favoritId:number;
+  public count:number;
   constructor(public navCtrl: NavController, public navParams: NavParams,public userprovider:UserProvider,public common:CommonProvider,public product:ProductProvider) {
-   
+    this.getcart();
+    
     
   }
   ionViewWillEnter()
@@ -44,7 +46,6 @@ export class OrderdetailsPage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrderdetailsPage');
-   
   }
   addItem(){
     this.counter++;
@@ -119,12 +120,28 @@ export class OrderdetailsPage {
     this.product.addToCart(this.prod_id).subscribe((res)=>{
       if(res.state == "203"){
         this.common.traslateandToast("Already added before");
-        
+  
       }
       else if(res.state == "202"){
           this.common.traslateandToast("added successfully");
-          document.getElementById('coutdetail').textContent = "1";
+         
       }
    });
 }
+getcart(){
+  this.product.getCart().subscribe((res)=>{
+    console.log(res);
+    console.log(res[0].product_id);
+    for(let i=0;i<=res.length;i++){
+      if(res[i].product_id==this.prod_id){
+      this.count=res[i].item_qty;
+      }
+      else
+      {
+      this.count=0;
+    }
+  }
+   
+  });
+ }
 }

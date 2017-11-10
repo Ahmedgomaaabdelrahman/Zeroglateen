@@ -27,7 +27,7 @@ import { IonicApp, IonicErrorHandler, IonicModule, Nav} from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import {TranslateService} from "@ngx-translate/core";
-
+import { IonicStorageModule } from '@ionic/storage';
 
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {Http, HttpModule} from "@angular/http";
@@ -84,6 +84,7 @@ var config = {
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
      AngularFireModule.initializeApp(config),
     TranslateModule.forRoot({
       loader: {

@@ -1,11 +1,10 @@
-import { NativeStorage } from '@ionic-native/native-storage';
 import { AboutPage } from './../about/about';
 import { TermsPage } from './../terms/terms';
 import { Component } from '@angular/core';
 import { NavController, NavParams,Platform } from 'ionic-angular';
 import {TranslateService} from "@ngx-translate/core";
 import {MainProvider} from "../../providers/main";
-
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-settings',
@@ -18,7 +17,7 @@ export class SettingsPage {
               public navParams: NavParams,
               private translate: TranslateService,
               public platform: Platform,
-              public storage:NativeStorage) {
+              public storage:Storage) {
   }
 
   ionViewDidLoad() {
@@ -32,7 +31,7 @@ export class SettingsPage {
   }
   Change_Toggle(type) {
     this.translate.setDefaultLang(type);
-    this.storage.setItem('lang',type);
+    this.storage.set('lang',type);
     MainProvider.lang = type;
     if(type == 'ar'){
       this.platform.setDir('rtl', true);

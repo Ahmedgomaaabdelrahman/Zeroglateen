@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { CommonProvider } from './../providers/common';
 import { UserProvider } from './../providers/user';
 import { MainProvider } from './../providers/main';
@@ -32,7 +33,7 @@ export class MyApp {
   loginPage=LoginPage;
   signupPage=SignupPage;
 
-  constructor(public com:CommonProvider,public user:UserProvider,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController,public translate : TranslateService) {
+  constructor(public com:CommonProvider,public user:UserProvider,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController,public translate : TranslateService ,public storage:Storage) {
     platform.ready().then(() => {
    
       // Okay, so the platform is ready and our plugins are available.
@@ -50,8 +51,31 @@ export class MyApp {
           }
       }).catch((err)=>console.log(err));
     });
-    platform.setDir('ltr',true);
-    this.translate.setDefaultLang(MainProvider.lang);
+    this.storage.get('lang').then((res)=>{
+      if(res=='ar'){
+        platform.setDir('rtl',true);
+        MainProvider.lang='ar'
+         this.translate.setDefaultLang('ar');
+         console.log('arabic');
+      }
+       else if(res=='en'){
+        platform.setDir('ltr',true);
+        MainProvider.lang='en'
+         this.translate.setDefaultLang('en');
+         console.log('english');
+      }
+      else if(!res){
+        if(res=='en'){
+          platform.setDir('ltr',true);
+          MainProvider.lang='en'
+           this.translate.setDefaultLang('en');
+           console.log('!reslang');
+        }
+      }
+    });
+    // platform.setDir('ltr',true);
+    // this.translate.setDefaultLang(MainProvider.lang);
+    
   }
   onLoad(page:any){
     this.nav.push(page);

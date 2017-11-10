@@ -88,7 +88,7 @@ export class HomePage {
     //   devtoken: t
         
     // }).then(() => {
-        alert(t);
+       // alert(t);
      
 this.userprovider.deviceToken=t;
 console.log(this.userprovider.deviceToken);

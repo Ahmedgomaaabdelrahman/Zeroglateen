@@ -24,7 +24,7 @@ export class OrderdetailsPage {
   public prod_id:any;
   public fav_id:number;
   public favoritId:number;
-  public count:number;
+  public count:number=0;
   public cart_id:number;
   constructor(public navCtrl: NavController, public navParams: NavParams,public userprovider:UserProvider,public common:CommonProvider,public product:ProductProvider) {
     this.getcart(); 
@@ -46,15 +46,6 @@ export class OrderdetailsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrderdetailsPage');
   }
-  // addItem(){
-  //   this.counter++;
-  // }
-  // removeItem(){
-  // if(this.counter!=0)
-  //   this.counter--;
-  //   else
-  //   this.counter=0;
-  // }
   changeHeart(){
     if(this.prod_heart=='heart'){
       this.deleteFav();
@@ -80,7 +71,6 @@ export class OrderdetailsPage {
     });
   }
   addtoFav(){
- 
   this.product.addToFav(this.prod_id).subscribe((res)=>{
     console.log(res);
     if(res.state == "202"){
@@ -114,14 +104,15 @@ export class OrderdetailsPage {
   }
 
   addToCart(){
-    this.product.addToCart(this.prod_id).subscribe((res)=>{
-      if(res.state == "203"){
-        this.common.traslateandToast("Already added before");
-      }
-      else if(res.state == "202"){
-          this.common.traslateandToast("added successfully");
-      }
-   });
+  this.product.addToCart(this.prod_id).subscribe((res)=>{
+    if(res.state == "203"){
+      // this.common.traslateandToast("Already added before");
+    }
+    else if(res.state == "202"){
+        this.common.traslateandToast("added successfully");
+        this.getcart();
+    }
+  });
 }
 getcart(){
   this.product.getCart().subscribe((res)=>{
@@ -138,13 +129,14 @@ getcart(){
  
   console.log(counterEle);
   this.count++;
+  this.addToCart();
   this.increaseItem(counterEle,cardid);
   
 }
 removeItem(cardid,counterEle : any){
   console.log(counterEle);
   this.count--;
-  if(counterEle.value < 1){
+  if(this.count < 0){
     document.getElementById('remove').style.pointerEvents = 'none';
   }
   else{

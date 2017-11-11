@@ -30,7 +30,7 @@
 <ion-row style="height: 85%;margin: 5px;">
 <ion-col col-8>
     <div class="qaundiv">
-        <ion-icon name="remove" style="float:left"  (click)=removeItem(cart_id,count)></ion-icon>
+        <ion-icon name="remove" style="float:left" id="remove" (click)=removeItem(cart_id,count)></ion-icon>
             <p  id="coutdetail">{{count}}</p>
         <ion-icon name="add" style="float:right" (click)=addItem(cart_id,count)></ion-icon>
       </div>

@@ -54,13 +54,13 @@ public invoice:any;
       let modal = this.modalCtrl.create(InvoicePage,{invoice:this.invoice});
       modal.present();
       this.flag = true;
-      this.translate.get('Track Order').subscribe(
+      this.translate.get('Main').subscribe(
       value => {
       document.getElementById('btn').textContent =value;
         });
     }
     else if(this.flag == true){    
-      this.navCtrl.setRoot(OrdermapPage);
+      this.navCtrl.setRoot(HomePage);
       this.flag = false;
     }
 }

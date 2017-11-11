@@ -25,6 +25,7 @@ export class OrderdetailsPage {
   public fav_id:number;
   public favoritId:number;
   public count:number;
+  public cart_id:number;
   constructor(public navCtrl: NavController, public navParams: NavParams,public userprovider:UserProvider,public common:CommonProvider,public product:ProductProvider) {
     this.getcart(); 
   }
@@ -45,15 +46,15 @@ export class OrderdetailsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrderdetailsPage');
   }
-  addItem(){
-    this.counter++;
-  }
-  removeItem(){
-  if(this.counter!=0)
-    this.counter--;
-    else
-    this.counter=0;
-  }
+  // addItem(){
+  //   this.counter++;
+  // }
+  // removeItem(){
+  // if(this.counter!=0)
+  //   this.counter--;
+  //   else
+  //   this.counter=0;
+  // }
   changeHeart(){
     if(this.prod_heart=='heart'){
       this.deleteFav();
@@ -128,8 +129,31 @@ getcart(){
     for(let i=0;i <= res.length;i++){
       if(this.prod_id==res[i].product_id){
       this.count=res[i].item_qty;
+      this.cart_id=res[i].cart_id;
       }
     }
   });
  }
+ addItem(cardid,counterEle :number){
+ 
+  console.log(counterEle);
+  this.count++;
+  this.increaseItem(counterEle,cardid);
+  
+}
+removeItem(cardid,counterEle : any){
+  console.log(counterEle);
+  this.count--;
+  if(counterEle.value < 1){
+    document.getElementById('remove').style.pointerEvents = 'none';
+  }
+  else{
+    this.increaseItem(counterEle,cardid);
+  }
+}
+increaseItem(quan,cartid){
+  this.product.increaseItem(this.count,this.cart_id).subscribe((res)=>{
+      console.log(res);
+  });
+}
 }

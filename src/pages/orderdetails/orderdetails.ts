@@ -26,9 +26,7 @@ export class OrderdetailsPage {
   public favoritId:number;
   public count:number;
   constructor(public navCtrl: NavController, public navParams: NavParams,public userprovider:UserProvider,public common:CommonProvider,public product:ProductProvider) {
-    this.getcart();
-    
-    
+    this.getcart(); 
   }
   ionViewWillEnter()
   {
@@ -82,17 +80,17 @@ export class OrderdetailsPage {
   }
   addtoFav(){
  
-      this.product.addToFav(this.prod_id).subscribe((res)=>{
-        console.log(res);
-        if(res.state == "202"){
-          this.common.traslateandToast("added successfully");
-          this.getFavorite();
-        }
-        else if(res.state == "203"){
-          this.common.traslateandToast("Already added before");
-          this.getFavorite();
-        }
-    });
+  this.product.addToFav(this.prod_id).subscribe((res)=>{
+    console.log(res);
+    if(res.state == "202"){
+      this.common.traslateandToast("added successfully");
+      this.getFavorite();
+    }
+    else if(res.state == "203"){
+      this.common.traslateandToast("Already added before");
+      this.getFavorite();
+    }
+});
     
   }
   deleteFav(){
@@ -100,7 +98,6 @@ export class OrderdetailsPage {
     if(this.fav_id<=0){
       this.fav_id=this.favoritId;
     }
-
     this.product.deleteFav(this.fav_id).subscribe((res)=>{
     console.log(res);
     if(res.state == "202"){
@@ -110,7 +107,6 @@ export class OrderdetailsPage {
     console.log(res);
     }
     });
-   
   }
   gocart(){
     this.navCtrl.push(CartPage);
@@ -120,28 +116,20 @@ export class OrderdetailsPage {
     this.product.addToCart(this.prod_id).subscribe((res)=>{
       if(res.state == "203"){
         this.common.traslateandToast("Already added before");
-  
       }
       else if(res.state == "202"){
           this.common.traslateandToast("added successfully");
-         
       }
    });
 }
 getcart(){
   this.product.getCart().subscribe((res)=>{
     console.log(res);
-    console.log(res[0].product_id);
-    for(let i=0;i<=res.length;i++){
-      if(res[i].product_id==this.prod_id){
+    for(let i=0;i <= res.length;i++){
+      if(this.prod_id==res[i].product_id){
       this.count=res[i].item_qty;
       }
-      else
-      {
-      this.count=0;
     }
-  }
-   
   });
  }
 }

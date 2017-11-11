@@ -31,7 +31,7 @@
     (click)="godetails(product.product_name,product.weight,product.price,imageUrl+product.image,product.descriptaion,product.cart.length,icons[i],product.product_id,product.favourit[0]?.favourite_id)">
     <ion-row style="border-bottom:1px solid lightgray">
       <ion-col col-6 style="text-align:start;color:gray;font-size: 1.2rem;">{{product.weight}}{{'gm'|translate}}</ion-col>
-      <ion-col col-6 style="text-align:end;color:green;font-size: 1.2rem;">{{product.price}}{{'SAR'|translate}}</ion-col>
+      <ion-col col-6 style="text-align:end;color:green;font-size: 1.2rem;">{{product.price}}{{' SAR'|translate}}</ion-col>
     </ion-row>
     <ion-row>
     <ion-col col-8>

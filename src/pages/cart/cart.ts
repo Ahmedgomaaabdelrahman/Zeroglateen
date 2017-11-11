@@ -31,11 +31,13 @@ export class CartPage {
   
   }
  golocation(){
-   if(this.userprovider.user!=null)
-   this.navCtrl.push(AddlocationPage);
-   else if(this.userprovider.user==null)
+   if(this.userprovider.user==null){
    this.common.presentToast("please Login");
    this.navCtrl.push(LoginPage);
+   }
+  else{
+  this.navCtrl.push(AddlocationPage);
+  }   
  }
  getcart(){
   this.product.getCart().subscribe((res)=>{

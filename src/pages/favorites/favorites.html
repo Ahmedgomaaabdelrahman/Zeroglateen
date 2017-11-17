@@ -31,7 +31,7 @@
                 (click)="godetails(product.product.product_name,
                                   product.product.weight,product.product.price,
                                   imageUrl+product.product.image,
-                                  product.product.descriptaion)">
+                                  product.product.descriptaion,icons[i])">
           
             <ion-row style="border-bottom:1px solid lightgray">
               <ion-col col-6 style="text-align:start;color:gray">{{product.product.weight}} {{'gm'|translate}}</ion-col>
@@ -41,7 +41,7 @@
               <ion-col col-8>
                 <div class="qaundiv">
                   <ion-icon name="remove" style="float:left"></ion-icon>
-                     <input class="itemnum" #counter value="0" type="text" readonly="readonly">
+                     <input class="itemnum" #counter value={{count}} type="text" readonly="readonly">
                   <ion-icon name="add" style="float:right"  (click)=addToCart(product.product_id,counter)></ion-icon>
                 </div>
               </ion-col>

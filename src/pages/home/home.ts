@@ -32,6 +32,9 @@ export class HomePage {
   public cartLength :any[];
   public heart:string;
   public found : boolean = true;
+  public count:number;
+  private count2 = Array();
+  
    firestore = firebase.database().ref('/pushtokens');
    firemsg = firebase.database().ref('/messages');
   constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
@@ -120,6 +123,20 @@ console.log(this.userprovider.deviceToken);
         {
         self.icons.push('heart-outline'); 
     }}
+    this.count2=[];
+    for(let i=0;i<res.length;i++){
+      if(res[i].cart.length > 0)
+      {
+      
+      this.count2.push(res[i].cart[0].item_qty);
+      console.log(res[i].cart[0].item_qty);
+      console.log(this.count2);
+      }
+      else
+      {
+      this.count2.push(0);
+  }}
+
      });
     
    }

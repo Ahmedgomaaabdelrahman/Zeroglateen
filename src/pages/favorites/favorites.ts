@@ -22,6 +22,7 @@ public imageUrl : string = "http://104.236.243.55/ProductImage/";
 public heart:string="heart";
 public productid:any;
 public cartNo : number ;
+public count:number=0;
   constructor(public navCtrl: NavController,
               public modalCtrl :ModalController,
               public navParams: NavParams,
@@ -72,8 +73,8 @@ public cartNo : number ;
       console.log(res);
     })
   }
-  godetails(name :string,weight :number ,price :number ,image : string,description : any){
-    this.navCtrl.push(OrderdetailsPage,{name : name,weight : weight,price : price,image : image, description : description});
+  godetails(name :string,weight :number ,price :number ,image : string,description : any, icon:any,){
+    this.navCtrl.push(OrderdetailsPage,{name : name,weight : weight,price : price,image : image, description : description,icon:icon});
   }
   changeHeart(iconEle : any){
     console.log(iconEle);

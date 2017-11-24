@@ -140,24 +140,36 @@ console.log(this.userprovider.deviceToken);
      });
     
    }
-  addItem(counterEle : any){
+   addItem(cardid,counterEle : any){
     // this.counter++;
     console.log(counterEle);
     counterEle.value++;
+    this.increaseItem(counterEle.value,cardid);
+    
   }
-  removeItem(counterEle : any){
+  removeItem(cardid,counterEle : any){
     console.log(counterEle);
     counterEle.value--;
-    if(counterEle.value < 0)
-    document.getElementById("remove").style.pointerEvents = "none";
-    // else 
-    // this.counter--;
+   
+    if(counterEle.value < 1){
+      document.getElementById('remove').style.pointerEvents = 'none';
+      this.cartNo--;
+    }
+    else{
+      this.increaseItem(counterEle.value,cardid);
+    }
+   
   }
-  addToCart(prodid,mycounter){
+  increaseItem(quan,cartid){
+    this.product.increaseItem(quan,cartid).subscribe((res)=>{
+        console.log(res);
+    });
+  }
+  addToCart(cartid,prodid,mycounter){
     this.product.addToCart(prodid).subscribe((res)=>{
       if(res.state == "203"){
-        this.common.traslateandToast("Already added before");
-        
+      //  this.common.traslateandToast("Already added before");
+    this.addItem(cartid,mycounter);
       }
       else if(res.state == "202"){
           this.common.traslateandToast("added successfully");

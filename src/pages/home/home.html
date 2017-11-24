@@ -36,9 +36,9 @@
     <ion-row>
     <ion-col col-8>
       <div class="qaundiv">
-        <ion-icon name="remove" style="float:left" id='remove'></ion-icon>
+        <ion-icon name="remove" style="float:left" id='remove'(click)="removeItem(product.cart[0].cart_id,mycounter)"></ion-icon>
           <input class="itemnum" #mycounter value={{count2[i]}} readonly="readonly">
-          <ion-icon name="add" style="float:right" (click)=addToCart(product.product_id,mycounter)></ion-icon>
+          <ion-icon name="add" style="float:right" (click)=addToCart(product.cart[0].cart_id,product.product_id,mycounter)></ion-icon>
         </div>
     </ion-col>
     <ion-col col-4 style="padding:5px 0" >

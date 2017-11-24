@@ -10,11 +10,7 @@ import { SignupPage } from './../signup/signup';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, MenuController,ModalController } from 'ionic-angular';
-
- import { AngularFireDatabase } from 'angularfire2/database';
-
- import  firebase from 'firebase';
-
+import { RANGE_VALUE_ACCESSOR } from '@angular/forms/src/directives/range_value_accessor';
  declare var FCMPlugin;
 @Component({
   selector: 'page-home',
@@ -25,29 +21,18 @@ export class HomePage {
   public static searchPro :any;
   public static sortPro :any;
   public imageUrl : string = "http://104.236.243.55/ProductImage/";
-  public qauntity : number;
   public cartNo : number ;
-  public myvar : number ;
   public cartpage :CartPage;
   public cartLength :any[];
-  public heart:string;
-  public found : boolean = true;
-  public count:number;
   private count2 = Array();
-  
-   firestore = firebase.database().ref('/pushtokens');
-   firemsg = firebase.database().ref('/messages');
-  constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
-    private menuCtrl:MenuController,public modalCtrl :ModalController
-     ,public afd: AngularFireDatabase
-  ) {
+
+    constructor(public common:CommonProvider,public userprovider:UserProvider,public product:ProductProvider,public navCtrl: NavController,
+    private menuCtrl:MenuController,public modalCtrl :ModalController) {
     this.menuCtrl.swipeEnable(true);
      this.tokensetup().then((token) => {
        this.storetoken(token);
      })
-    this.products=HomePage.sortPro;
-    
-    
+    this.products=HomePage.sortPro;   
      this.common.traslateandToast('hello' + this.userprovider.deviceToken);
   }
   ionViewWillEnter()
@@ -55,25 +40,11 @@ export class HomePage {
   this.getProducts();
   this.cartNo = CommonProvider.cartNo;
   this.getcart();
-  console.log(this.qauntity);
-
   }
   ionViewDidLoad() {
-    FCMPlugin.onNotification(function(data){
-     if(data.wasTapped){
-       //Notification was received on device tray and tapped by the user.
-       alert( JSON.stringify(data) );
-     }else{
-       //Notification was received in foreground. Maybe the user needs to be notified.
-       alert( JSON.stringify(data) );
-     }
-     });
- 
  FCMPlugin.onTokenRefresh(function(token){
-    // alert( token );
  });    
   }
- 
    tokensetup() {
      var promise = new Promise((resolve, reject) => {
        FCMPlugin.getToken(function(token){
@@ -84,26 +55,10 @@ export class HomePage {
      })
      return promise;
    }
- 
-  storetoken(t) {
-    // this.afd.list(this.firestore).push({
-    //   // uid: firebase.auth().currentUser.uid,
-    //   devtoken: t
-        
-    // }).then(() => {
-       // alert(t);
-     
+  storetoken(t) { 
 this.userprovider.deviceToken=t;
 console.log(this.userprovider.deviceToken);
-      // });
-    this.afd.list(this.firemsg).push({
-      sendername: firebase.auth().currentUser.displayName,
-      message: 'hello'
-    }).then(() => {
-      alert('Message stored');
-      });  
 }
-
   icons:any[];
   getProducts(){
     console.log("search:"+HomePage.searchPro);
@@ -116,18 +71,13 @@ console.log(this.userprovider.deviceToken);
       let self=this;
       for(let i=0;i<res.length;i++){
         if(res[i].favourit.length > 0)
-        {
-        self.icons.push('heart');
-        }
+        {self.icons.push('heart');}
         else
-        {
-        self.icons.push('heart-outline'); 
-    }}
+        {self.icons.push('heart-outline'); }}
     this.count2=[];
     for(let i=0;i<res.length;i++){
       if(res[i].cart.length > 0)
       {
-      
       this.count2.push(res[i].cart[0].item_qty);
       console.log(res[i].cart[0].item_qty);
       console.log(this.count2);
@@ -136,29 +86,18 @@ console.log(this.userprovider.deviceToken);
       {
       this.count2.push(0);
   }}
-
      });
-    
    }
    addItem(cardid,counterEle : any){
     // this.counter++;
     console.log(counterEle);
     counterEle.value++;
     this.increaseItem(counterEle.value,cardid);
-    
   }
   removeItem(cardid,counterEle : any){
     console.log(counterEle);
     counterEle.value--;
-   
-    if(counterEle.value < 1){
-      document.getElementById('remove').style.pointerEvents = 'none';
-      this.cartNo--;
-    }
-    else{
-      this.increaseItem(counterEle.value,cardid);
-    }
-   
+    this.increaseItem(counterEle.value,cardid);
   }
   increaseItem(quan,cartid){
     this.product.increaseItem(quan,cartid).subscribe((res)=>{
@@ -178,73 +117,39 @@ console.log(this.userprovider.deviceToken);
       }
    });
 }
-  changeHeart(iconEle : any){
-    console.log(iconEle);
-    if(this.icons[iconEle]=='heart'){
-      this.icons[iconEle]='heart-outline'
-    }
-    else if(this.icons[iconEle]=='heart-outline')
-    {
-      this.icons[iconEle]='heart'
-    }
-  }
- 
-
   addtoFav(prodid,icon){
-  
       this.product.addToFav(prodid).subscribe((res)=>{
         console.log(res);
         if(res.state == "202"){
           this.common.traslateandToast("added successfully");
-          this.changeHeart(icon);
+          this.icons[icon]='heart';
         }
         else if(res.state == "203"){
           this.common.traslateandToast("Already added before");
-        }
-    });
-    
-  }
+        }});}
   ss(){
     this.navCtrl.push(SignupPage);
   }
   gotologin(){
     this.navCtrl.push(LoginPage);
   }
-  godetails(name :string,
-            weight :number ,
-            price :number ,
-            image : string,
-            description : any,
-            itemNo:any,
-            icon:any,
-            proId:number,
-            favId:number){
-    this.navCtrl.push(OrderdetailsPage,{name : name,weight : weight,
-                                        price : price,image : image,
-                                        description : description,itemNo:itemNo,icon:icon,proId:proId,favId:favId});
+  godetails(name :string,weight :number ,price :number ,
+            image : string,description : any,itemNo:any,
+            icon:any,proId:number,favId:number){
+    this.navCtrl.push(OrderdetailsPage,{name : name,weight : weight,price : price,image : image,
+                      description : description,itemNo:itemNo,icon:icon,proId:proId,favId:favId});
   }
   gosearch(){
     this.products=HomePage.searchPro;
     let modal = this.modalCtrl.create(SearchPage);
-      modal.present();
-  }
-
+      modal.present();}
   gofilter(){
     this.products=HomePage.sortPro;
       let modal = this.modalCtrl.create(FilterPage);
-      modal.present();
-  }
-
-  myCart(){
-    this.navCtrl.push(CartPage);
-  }
-  openmenu(){
-    this.menuCtrl.toggle();
-  }
- 
-  gomap(){
-    this.navCtrl.push(OrdermapPage);
-  }
+      modal.present();}
+  myCart(){this.navCtrl.push(CartPage);}
+  openmenu(){this.menuCtrl.toggle();}
+  gomap(){this.navCtrl.push(OrdermapPage);}
   getcart(){
     this.product.getCart().subscribe((res)=>{
       this.cartLength = res;

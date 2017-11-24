@@ -165,7 +165,7 @@ console.log(this.userprovider.deviceToken);
         console.log(res);
     });
   }
-  addToCart(cartid,prodid,mycounter){
+  addToCart(prodid,mycounter,cartid){
     this.product.addToCart(prodid).subscribe((res)=>{
       if(res.state == "203"){
       //  this.common.traslateandToast("Already added before");
